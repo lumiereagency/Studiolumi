@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink pb-16 pt-40 md:pb-24"
+      className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink pb-12 pt-28 sm:pb-16 md:pb-24 md:pt-40"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-lumi-radial" />

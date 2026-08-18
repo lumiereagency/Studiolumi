@@ -14,7 +14,7 @@ const HIGHLIGHTS = [
 
 export function Positioning() {
   return (
-    <section className="relative border-y border-line bg-ink-soft py-28 md:py-36">
+    <section className="relative border-y border-line bg-ink-soft py-20 md:py-36">
       <div className="container-lumi">
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           <Reveal>

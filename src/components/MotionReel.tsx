@@ -23,7 +23,7 @@ const CATEGORIES: ReelCategory[] = [
 
 export function MotionReel() {
   return (
-    <section id="experiencia" className="relative scroll-mt-24 bg-ink py-28 md:py-36">
+    <section id="experiencia" className="relative scroll-mt-24 bg-ink py-20 md:py-36">
       <div className="container-lumi">
         <Reveal className="max-w-xl">
           <Eyebrow>O formato certo para cada objetivo</Eyebrow>

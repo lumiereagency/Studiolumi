@@ -105,7 +105,7 @@ export function LogoReveal() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-ink py-28 md:py-36">
+    <section className="relative overflow-hidden bg-ink py-20 md:py-36">
       <div className="container-lumi grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
         <Reveal>
           <Eyebrow>Identidade</Eyebrow>

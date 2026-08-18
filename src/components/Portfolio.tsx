@@ -36,7 +36,7 @@ const PROJECTS: Project[] = [
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="relative scroll-mt-24 bg-ink py-28 md:py-36">
+    <section id="portfolio" className="relative scroll-mt-24 bg-ink py-20 md:py-36">
       <div className="container-lumi">
         <Reveal className="max-w-2xl">
           <Eyebrow>Portfólio</Eyebrow>

@@ -11,7 +11,7 @@ const STEPS = [
 
 export function Process() {
   return (
-    <section id="processo" className="relative scroll-mt-24 border-y border-line bg-ink-soft py-28 md:py-36">
+    <section id="processo" className="relative scroll-mt-24 border-y border-line bg-ink-soft py-20 md:py-36">
       <div className="container-lumi">
         <Reveal className="max-w-2xl">
           <Eyebrow>Processo</Eyebrow>

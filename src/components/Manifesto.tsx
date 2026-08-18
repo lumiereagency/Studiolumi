@@ -3,7 +3,7 @@ import { LogoMark } from "./LogoMark";
 
 export function Manifesto() {
   return (
-    <section className="relative overflow-hidden bg-lumi-gradient py-28 md:py-40">
+    <section className="relative overflow-hidden bg-lumi-gradient py-20 md:py-40">
       <div className="grain absolute inset-0 opacity-[0.08]" aria-hidden />
       <div className="container-lumi relative text-center">
         <Reveal>

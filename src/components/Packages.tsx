@@ -58,7 +58,7 @@ const TIERS: Tier[] = [
 
 export function Packages() {
   return (
-    <section id="pacotes" className="relative scroll-mt-24 bg-ink py-28 md:py-36">
+    <section id="pacotes" className="relative scroll-mt-24 bg-ink py-20 md:py-36">
       <div className="container-lumi">
         <Reveal className="max-w-2xl">
           <Eyebrow>Pacotes</Eyebrow>

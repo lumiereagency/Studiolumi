@@ -4,7 +4,7 @@ import { ContactForm } from "./ContactForm";
 
 export function FinalCTA() {
   return (
-    <section id="contato" className="relative scroll-mt-24 bg-ink py-28 md:py-36">
+    <section id="contato" className="relative scroll-mt-24 bg-ink py-20 md:py-36">
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-lumi-radial opacity-50" />
 
       <div className="container-lumi relative grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">

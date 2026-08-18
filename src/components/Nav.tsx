@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { LogoMark } from "./LogoMark";
 import { cn } from "@/lib/utils";
 
@@ -15,6 +15,7 @@ const LINKS = [
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -23,6 +24,17 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  const close = () => setOpen(false);
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -30,14 +42,15 @@ export function Nav() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-500",
-        scrolled
+        open || scrolled
           ? "bg-ink/80 backdrop-blur-md border-b border-line"
           : "bg-transparent border-b border-transparent"
       )}
     >
-      <nav className="container-lumi flex h-20 items-center justify-between py-4">
+      <nav className="container-lumi relative z-10 flex h-20 items-center justify-between py-4">
         <a
           href="#top"
+          onClick={close}
           className="flex items-center gap-2.5 text-paper"
           aria-label="StudioLumi — início"
         >
@@ -71,8 +84,8 @@ export function Nav() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
-          aria-label="Abrir menu"
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
+          className="relative z-10 flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
         >
           <span
             className={cn(
@@ -89,32 +102,59 @@ export function Nav() {
         </button>
       </nav>
 
-      {open && (
-        <div className="border-t border-line bg-ink/95 backdrop-blur-md md:hidden">
-          <ul className="container-lumi flex flex-col gap-1 py-4">
-            {LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block py-3 text-base text-paper/80"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduceMotion ? 0.01 : 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="h-[calc(100dvh-5rem)] overflow-y-auto bg-ink md:hidden"
+          >
+            <ul className="container-lumi flex flex-col gap-2 pb-20 pt-8">
+              {LINKS.map((link, i) => (
+                <motion.li
+                  key={link.href}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: reduceMotion ? 0.01 : 0.45,
+                    delay: reduceMotion ? 0 : 0.08 + i * 0.06,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="border-b border-line"
                 >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-            <li>
-              <a
-                href="#contato"
-                onClick={() => setOpen(false)}
-                className="mt-2 block py-3 text-base text-orange-bright"
+                  <a
+                    href={link.href}
+                    onClick={close}
+                    className="font-display block py-4 text-3xl font-medium text-paper transition-colors active:text-orange-bright"
+                  >
+                    {link.label}
+                  </a>
+                </motion.li>
+              ))}
+              <motion.li
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: reduceMotion ? 0.01 : 0.45,
+                  delay: reduceMotion ? 0 : 0.08 + LINKS.length * 0.06,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="mt-6"
               >
-                Agendar conversa
-              </a>
-            </li>
-          </ul>
-        </div>
-      )}
+                <a
+                  href="#contato"
+                  onClick={close}
+                  className="inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-medium text-ink"
+                >
+                  Agendar conversa →
+                </a>
+              </motion.li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

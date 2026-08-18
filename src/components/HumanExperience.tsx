@@ -9,7 +9,7 @@ const HIGHLIGHTS = [
 
 export function HumanExperience() {
   return (
-    <section className="relative border-y border-line bg-ink-soft py-28 md:py-36">
+    <section className="relative border-y border-line bg-ink-soft py-20 md:py-36">
       <div className="container-lumi grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <Reveal>
           <Eyebrow>Experiência humana</Eyebrow>

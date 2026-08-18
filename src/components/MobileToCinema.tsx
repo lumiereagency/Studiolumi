@@ -3,7 +3,7 @@ import { Eyebrow } from "./Eyebrow";
 
 export function MobileToCinema() {
   return (
-    <section className="relative overflow-hidden bg-ink py-28 md:py-36">
+    <section className="relative overflow-hidden bg-ink py-20 md:py-36">
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-lumi-radial opacity-60" />
 
       <div className="container-lumi relative">
