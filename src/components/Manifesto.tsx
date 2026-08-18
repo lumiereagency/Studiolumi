@@ -23,7 +23,7 @@ export function Manifesto() {
         </Reveal>
 
         <Reveal delay={0.3} className="mt-14 flex flex-col items-center gap-3">
-          <LogoMark className="h-7 w-14 text-paper" strokeWidth={16} />
+          <LogoMark className="h-7 w-14" />
           <span className="font-display text-sm uppercase tracking-[0.28em] text-paper">
             StudioLumi
           </span>

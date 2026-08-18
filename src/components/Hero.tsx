@@ -49,15 +49,11 @@ export function Hero() {
           <Eyebrow>Produção audiovisual responsiva</Eyebrow>
         </motion.div>
 
-        <h1 className="font-display mt-6 text-[15vw] leading-[0.94] font-medium tracking-tight text-paper sm:text-[11vw] md:text-[8.5vw] lg:text-[7.5vw]">
+        <h1 className="text-gradient-lumi font-display mt-6 text-[15vw] leading-[0.94] font-medium tracking-tight sm:text-[11vw] md:text-[8.5vw] lg:text-[7.5vw]">
           {HEADLINE.map((word, i) => (
             <span key={word} className="inline-block overflow-hidden pb-[0.05em] pr-[0.15em] align-top">
               <motion.span
-                className={
-                  i === HEADLINE.length - 1
-                    ? "inline-block text-gradient-lumi"
-                    : "inline-block"
-                }
+                className="inline-block"
                 initial={{ y: "110%" }}
                 animate={{ y: "0%" }}
                 transition={{

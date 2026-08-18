@@ -6,7 +6,15 @@ import { Eyebrow } from "./Eyebrow";
 import { ReelCard, type ReelCategory } from "./ReelCard";
 
 const CATEGORIES: ReelCategory[] = [
-  { id: "mobile", label: "Mobile", tagline: "Conteúdo ágil. Impacto imediato.", pattern: "mobile" },
+  {
+    id: "mobile",
+    label: "Mobile",
+    tagline: "Conteúdo ágil. Impacto imediato.",
+    pattern: "mobile",
+    videoSrc: "/videos/mobile-reel.mp4",
+    poster: "/videos/mobile-reel-poster.jpg",
+    orientation: "vertical",
+  },
   { id: "camera", label: "Câmera", tagline: "Mais controle. Mais narrativa.", pattern: "camera" },
   { id: "cinema", label: "Cinema", tagline: "Grande escala. Experiências memoráveis.", pattern: "cinema" },
   { id: "drone", label: "Drone", tagline: "Uma nova perspectiva. Outra dimensão.", pattern: "drone" },

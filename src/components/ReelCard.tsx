@@ -11,6 +11,8 @@ export type ReelCategory = {
   /** Optional real footage — drop a video URL in when the studio's reels are ready. */
   videoSrc?: string;
   poster?: string;
+  /** "vertical" footage (phone-shot) is shown full-frame on a blurred backdrop instead of being cropped to fill 16:9. */
+  orientation?: "horizontal" | "vertical";
 };
 
 /**
@@ -160,7 +162,31 @@ export function ReelCard({
       role="group"
       aria-label={`${category.label} — ${category.tagline}`}
     >
-      {category.videoSrc ? (
+      {category.videoSrc && category.orientation === "vertical" ? (
+        <>
+          <video
+            className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl brightness-[0.55] saturate-150"
+            src={category.videoSrc}
+            poster={category.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            aria-hidden
+          />
+          <video
+            className="absolute inset-0 mx-auto h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.55)]"
+            src={category.videoSrc}
+            poster={category.poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+          />
+        </>
+      ) : category.videoSrc ? (
         <video
           className="absolute inset-0 h-full w-full object-cover"
           src={category.videoSrc}

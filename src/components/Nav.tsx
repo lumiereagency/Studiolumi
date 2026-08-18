@@ -41,7 +41,7 @@ export function Nav() {
           className="flex items-center gap-2.5 text-paper"
           aria-label="StudioLumi — início"
         >
-          <LogoMark className="h-6 w-12 text-paper" strokeWidth={18} />
+          <LogoMark className="h-6 w-12" />
           <span className="font-display text-sm font-medium tracking-[0.18em] uppercase">
             StudioLumi
           </span>
