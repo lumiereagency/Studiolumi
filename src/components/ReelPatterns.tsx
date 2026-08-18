@@ -1,18 +1,15 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 export type ReelCategory = {
   id: string;
   label: string;
   tagline: string;
   pattern: "mobile" | "camera" | "cinema" | "drone" | "brandfilm" | "social";
-  /** Optional real footage — drop a video URL in when the studio's reels are ready. */
+  /** Optional real footage — drop a video URL in when the studio's reels are ready. Cards are 9:16, so object-cover fills cleanly. */
   videoSrc?: string;
   poster?: string;
-  /** "vertical" footage (phone-shot) is shown full-frame on a blurred backdrop instead of being cropped to fill 16:9. */
-  orientation?: "horizontal" | "vertical";
 };
 
 /**
@@ -21,7 +18,7 @@ export type ReelCategory = {
  * inside the brand palette so the reel reads as one system even before real
  * video is dropped into `videoSrc`.
  */
-function ReelPattern({ pattern }: { pattern: ReelCategory["pattern"] }) {
+export function ReelPattern({ pattern }: { pattern: ReelCategory["pattern"] }) {
   const reduceMotion = useReducedMotion();
   const loop = (duration: number) =>
     reduceMotion
@@ -143,80 +140,4 @@ function ReelPattern({ pattern }: { pattern: ReelCategory["pattern"] }) {
         </div>
       );
   }
-}
-
-export function ReelCard({
-  category,
-  index,
-}: {
-  category: ReelCategory;
-  index: number;
-}) {
-  return (
-    <motion.div
-      whileHover={{ scale: 1.015 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className={cn(
-        "group relative aspect-video w-[82vw] shrink-0 snap-center overflow-hidden rounded-xl border border-line bg-ink-soft sm:w-[65vw] md:w-[46vw] lg:w-[38vw]"
-      )}
-      role="group"
-      aria-label={`${category.label} — ${category.tagline}`}
-    >
-      {category.videoSrc && category.orientation === "vertical" ? (
-        <>
-          <video
-            className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl brightness-[0.55] saturate-150"
-            src={category.videoSrc}
-            poster={category.poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-            aria-hidden
-          />
-          <video
-            className="absolute inset-0 mx-auto h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.55)]"
-            src={category.videoSrc}
-            poster={category.poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-          />
-        </>
-      ) : category.videoSrc ? (
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          src={category.videoSrc}
-          poster={category.poster}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-        />
-      ) : (
-        <div className="absolute inset-0 scale-[1.06] transition-transform duration-700 ease-out group-hover:scale-[1.12]">
-          <ReelPattern pattern={category.pattern} />
-        </div>
-      )}
-
-      <div className="grain absolute inset-0 opacity-60" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent" />
-
-      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-6">
-        <div>
-          <span className="text-[11px] uppercase tracking-[0.24em] text-paper/45">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <h3 className="font-display mt-1 text-xl font-medium text-paper md:text-2xl">
-            {category.label}
-          </h3>
-          <p className="mt-0.5 text-sm text-paper/60">{category.tagline}</p>
-        </div>
-      </div>
-    </motion.div>
-  );
 }
