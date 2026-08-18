@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { MotionReel } from "@/components/MotionReel";
 import { LogoReveal } from "@/components/LogoReveal";
 import { Positioning } from "@/components/Positioning";
+import { Services } from "@/components/Services";
 import { MobileToCinema } from "@/components/MobileToCinema";
 import { HumanExperience } from "@/components/HumanExperience";
 import { Portfolio } from "@/components/Portfolio";
@@ -21,6 +22,7 @@ export default function Home() {
         <MotionReel />
         <LogoReveal />
         <Positioning />
+        <Services />
         <MobileToCinema />
         <HumanExperience />
         <Portfolio />
