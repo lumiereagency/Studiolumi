@@ -19,10 +19,26 @@ export function LogoReveal() {
   const reduceMotion = useReducedMotion();
   const wrapRef = useRef<HTMLDivElement>(null);
   const [interacting, setInteracting] = useState(false);
+  const [size, setSize] = useState({ w: 560, h: 280 });
 
-  // Position of the "reveal" light, in SVG viewBox units.
-  const mx = useMotionValue(VB_W / 2);
-  const my = useMotionValue(VB_H / 2);
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const update = () => {
+      const rect = el.getBoundingClientRect();
+      setSize({ w: rect.width, h: rect.height });
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  // Position of the "reveal" light, in the element's own CSS pixels — this is
+  // the space CSS mask-image's radial-gradient position resolves against,
+  // which is independent of the SVGs' internal viewBox coordinates.
+  const mx = useMotionValue(size.w / 2);
+  const my = useMotionValue(size.h / 2);
   const smx = useSpring(mx, { stiffness: 90, damping: 18, mass: 0.6 });
   const smy = useSpring(my, { stiffness: 90, damping: 18, mass: 0.6 });
 
@@ -47,11 +63,11 @@ export function LogoReveal() {
       const loop = (t: number) => {
         if (cancelled) return;
         const elapsed = (t - start) / 1000;
-        const cx = VB_W / 2 + Math.cos(elapsed * 0.5) * 46;
-        const cy = VB_H / 2 + Math.sin(elapsed * 0.7) * 22;
+        const cx = size.w / 2 + Math.cos(elapsed * 0.5) * size.w * 0.29;
+        const cy = size.h / 2 + Math.sin(elapsed * 0.7) * size.h * 0.28;
         mx.set(cx);
         my.set(cy);
-        radius.set(46);
+        radius.set(Math.min(size.w, size.h) * 0.33);
         raf = requestAnimationFrame(loop);
       };
       raf = requestAnimationFrame(loop);
@@ -61,7 +77,7 @@ export function LogoReveal() {
       cancelled = true;
       cancelAnimationFrame(raf);
     };
-  }, [interacting, reduceMotion, mx, my, radius]);
+  }, [interacting, reduceMotion, mx, my, radius, size]);
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     const el = wrapRef.current;
@@ -70,9 +86,9 @@ export function LogoReveal() {
     const px = (e.clientX - rect.left) / rect.width;
     const py = (e.clientY - rect.top) / rect.height;
 
-    mx.set(px * VB_W);
-    my.set(py * VB_H);
-    radius.set(70);
+    mx.set(px * rect.width);
+    my.set(py * rect.height);
+    radius.set(Math.max(rect.width, rect.height) * 0.4);
 
     const offsetX = px - 0.5;
     const offsetY = py - 0.5;
@@ -134,8 +150,8 @@ export function LogoReveal() {
 
               {/* colored inner layer */}
               <svg
-                viewBox={`0 0 ${VB_W} ${VB_H}`}
-                className="absolute inset-0 h-full w-full"
+                viewBox={`-12 -12 ${VB_W + 24} ${VB_H + 24}`}
+                className="absolute inset-0 h-full w-full overflow-visible"
                 aria-hidden
               >
                 <defs>
@@ -159,8 +175,8 @@ export function LogoReveal() {
 
               {/* chrome layer, masked to reveal the color layer near the cursor */}
               <motion.svg
-                viewBox={`0 0 ${VB_W} ${VB_H}`}
-                className="absolute inset-0 h-full w-full"
+                viewBox={`-12 -12 ${VB_W + 24} ${VB_H + 24}`}
+                className="absolute inset-0 h-full w-full overflow-visible"
                 style={{ maskImage, WebkitMaskImage: maskImage }}
                 aria-hidden
               >

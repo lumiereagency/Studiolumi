@@ -8,17 +8,18 @@ export function Manifesto() {
       <div className="container-lumi relative text-center">
         <Reveal>
           <p className="font-display mx-auto max-w-4xl text-3xl font-medium leading-[1.15] text-paper md:text-5xl">
-            Não fazemos conteúdo para preencher espaço.
+            Vídeo bonito não é o objetivo.
             <br />
-            Fazemos imagens para ocupar memória.
+            Resultado é.
           </p>
         </Reveal>
 
         <Reveal delay={0.15}>
           <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-paper/70 md:text-lg">
-            Porque o audiovisual não existe apenas para ser visto. Existe
-            para fazer alguém parar. Sentir. Lembrar. E agir. Essa é a nossa
-            forma de produzir.
+            Trabalhamos para marcas que entendem audiovisual como
+            investimento, não como despesa de marketing. Cada produção nasce
+            de um objetivo claro — presença, autoridade ou conversão. É isso
+            que medimos, não curtidas.
           </p>
         </Reveal>
 

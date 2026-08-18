@@ -10,15 +10,14 @@ export function MobileToCinema() {
         <Reveal className="mx-auto max-w-3xl text-center">
           <Eyebrow className="justify-center">Mobile → Cinema</Eyebrow>
           <h2 className="font-display mt-6 text-4xl font-medium leading-[1.05] text-paper md:text-6xl">
-            A tecnologia muda.
+            A ferramenta muda.
             <br />
-            A história continua sendo humana.
+            O objetivo, não.
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-paper/60 md:text-lg">
-            Um smartphone pode contar uma história. Uma câmera de cinema
-            também. A diferença está em saber quando usar cada uma. No
-            StudioLumi, escolhemos a ferramenta de acordo com o que sua
-            história precisa — não o contrário.
+            Um smartphone resolve. Uma câmera de cinema também. A diferença
+            está em saber qual das duas entrega o resultado que sua marca
+            precisa — e temos experiência com as duas.
           </p>
         </Reveal>
 
@@ -26,7 +25,7 @@ export function MobileToCinema() {
           <p className="font-display text-2xl font-light leading-snug text-paper/80 md:text-3xl">
             Do conteúdo que cabe na palma da mão ao filme que ocupa uma tela
             inteira.
-            <span className="text-gradient-lumi"> Nós produzimos os dois.</span>
+            <span className="text-gradient-lumi"> Nós entregamos os dois.</span>
           </p>
         </Reveal>
       </div>

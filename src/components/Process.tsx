@@ -2,11 +2,11 @@ import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
 
 const STEPS = [
-  { n: "01", title: "Imersão", text: "Entendemos você, sua marca e o objetivo." },
-  { n: "02", title: "Estratégia", text: "Definimos o que precisa ser dito e como será percebido." },
-  { n: "03", title: "Produção", text: "Transformamos estratégia em imagem." },
-  { n: "04", title: "Pós-produção", text: "Editamos, refinamos e damos ritmo à história." },
-  { n: "05", title: "Entrega", text: "O conteúdo chega pronto para o lugar onde precisa performar." },
+  { n: "01", title: "Imersão", text: "Entendemos seu negócio, seu público e o objetivo da produção." },
+  { n: "02", title: "Estratégia", text: "Definimos o que precisa ser dito, para quem e com que resultado." },
+  { n: "03", title: "Produção", text: "Executamos com direção técnica e artística." },
+  { n: "04", title: "Pós-produção", text: "Edição, cor e ritmo — sem perder o prazo." },
+  { n: "05", title: "Entrega", text: "Material pronto para performar no canal certo." },
 ];
 
 export function Process() {

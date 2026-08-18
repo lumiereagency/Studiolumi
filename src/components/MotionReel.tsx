@@ -26,16 +26,15 @@ export function MotionReel() {
     <section id="experiencia" className="relative scroll-mt-24 bg-ink py-28 md:py-36">
       <div className="container-lumi">
         <Reveal className="max-w-xl">
-          <Eyebrow>Uma linguagem para cada história</Eyebrow>
+          <Eyebrow>O formato certo para cada objetivo</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Cada história pede uma linguagem.
+            Cada objetivo pede um formato diferente.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Não acreditamos em uma fórmula única para produzir grandes
-            imagens. Algumas histórias pedem agilidade. Outras,
-            profundidade. Algumas nascem no celular. Outras precisam de uma
-            câmera, uma equipe e uma grande produção. Nós encontramos a
-            linguagem certa para cada uma.
+            Não existe fórmula única para gerar resultado. Um lançamento pede
+            agilidade. Uma campanha de marca pede profundidade. Definimos o
+            formato depois de entender o que a produção precisa entregar —
+            nunca antes.
           </p>
         </Reveal>
       </div>
@@ -46,9 +45,9 @@ export function MotionReel() {
 
       <Reveal delay={0.1} className="container-lumi mt-16 md:mt-24">
         <p className="font-display text-2xl font-light leading-snug text-paper/70 md:text-3xl">
-          Da ideia à imagem.
+          Da estratégia à imagem.
           <br />
-          <span className="text-paper">Da imagem à experiência.</span>
+          <span className="text-paper">Da imagem ao resultado.</span>
         </p>
       </Reveal>
     </section>

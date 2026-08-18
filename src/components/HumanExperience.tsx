@@ -17,10 +17,10 @@ export function HumanExperience() {
             Seu projeto não é mais um projeto.
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
-            Antes da câmera, existe uma conversa. Entendemos sua ideia, seu
-            momento, seu público e aquilo que você quer transmitir. Depois,
-            transformamos tudo isso em imagem. Porque produção premium não é
-            apenas ter bons equipamentos. É ter atenção aos detalhes.
+            Antes da câmera, existe um briefing de negócio. Entendemos seu
+            objetivo, seu público e o que precisa mudar depois da entrega.
+            Produção premium não é sobre equipamento — é sobre decisão certa
+            em cada etapa.
           </p>
         </Reveal>
 

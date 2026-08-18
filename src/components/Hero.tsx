@@ -49,7 +49,7 @@ export function Hero() {
           <Eyebrow>Produção audiovisual responsiva</Eyebrow>
         </motion.div>
 
-        <h1 className="text-gradient-lumi font-display mt-6 text-[15vw] leading-[0.94] font-medium tracking-tight sm:text-[11vw] md:text-[8.5vw] lg:text-[7.5vw]">
+        <h1 className="text-gradient-lumi font-display mt-6 text-[15vw] uppercase leading-[0.94] font-medium tracking-tight sm:text-[11vw] md:text-[8.5vw] lg:text-[7.5vw]">
           {HEADLINE.map((word, i) => (
             <span key={word} className="inline-block overflow-hidden pb-[0.05em] pr-[0.15em] align-top">
               <motion.span
@@ -75,12 +75,12 @@ export function Hero() {
           className="mt-10 flex max-w-3xl flex-col gap-4 md:mt-14"
         >
           <p className="text-xl text-paper/85 md:text-2xl">
-            Produções audiovisuais pensadas para transformar ideias em
-            experiências que merecem ser vistas.
+            Audiovisual estratégico para marcas que precisam performar — do
+            conteúdo ágil ao filme institucional.
           </p>
           <p className="max-w-xl text-base text-paper/55 md:text-lg">
-            Estratégia, direção e estética em uma produção singular, humana e
-            feita para cada história.
+            Menos estética pela estética. Mais direção, propósito e resultado
+            em cada entrega.
           </p>
         </motion.div>
 
