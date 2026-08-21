@@ -27,9 +27,9 @@ const CATEGORIES: ReelCategory[] = [
     poster: "/videos/case-evento-poster.jpg",
   },
   {
-    id: "conteudo-redes",
-    label: "Conteúdo & Redes",
-    tagline: "Humor, autenticidade e alcance.",
+    id: "sergio-mallandro",
+    label: "Sérgio Mallandro",
+    tagline: "Conteúdo & Redes.",
     pattern: "mobile",
     videoSrc: "/videos/case-social.mp4",
     poster: "/videos/case-social-poster.jpg",
