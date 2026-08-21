@@ -7,18 +7,33 @@ import type { ReelCategory } from "./ReelPatterns";
 
 const CATEGORIES: ReelCategory[] = [
   {
-    id: "mobile",
-    label: "Mobile",
-    tagline: "Conteúdo ágil. Impacto imediato.",
-    pattern: "mobile",
-    videoSrc: "/videos/mobile-reel.mp4",
-    poster: "/videos/mobile-reel-poster.jpg",
+    id: "martorelli",
+    label: "Martorelli",
+    tagline: "Brand Content.",
+    pattern: "brandfilm",
   },
-  { id: "camera", label: "Câmera", tagline: "Mais controle. Mais narrativa.", pattern: "camera" },
-  { id: "cinema", label: "Cinema", tagline: "Grande escala. Experiências memoráveis.", pattern: "cinema" },
-  { id: "drone", label: "Drone", tagline: "Uma nova perspectiva. Outra dimensão.", pattern: "drone" },
-  { id: "brandfilm", label: "Brand Film", tagline: "Sua marca como história.", pattern: "brandfilm" },
-  { id: "social", label: "Social", tagline: "Conteúdo feito para conectar.", pattern: "social" },
+  {
+    id: "sargentos",
+    label: "Sargento's",
+    tagline: "Social & Brand Content.",
+    pattern: "social",
+  },
+  {
+    id: "jacaranda",
+    label: "Meu Pé de Jacarandá",
+    tagline: "Experiência & Eventos.",
+    pattern: "cinema",
+    videoSrc: "/videos/case-evento.mp4",
+    poster: "/videos/case-evento-poster.jpg",
+  },
+  {
+    id: "conteudo-redes",
+    label: "Conteúdo & Redes",
+    tagline: "Humor, autenticidade e alcance.",
+    pattern: "mobile",
+    videoSrc: "/videos/case-social.mp4",
+    poster: "/videos/case-social-poster.jpg",
+  },
 ];
 
 export function MotionReel() {
@@ -26,15 +41,14 @@ export function MotionReel() {
     <section id="experiencia" className="relative scroll-mt-24 bg-ink py-20 md:py-36">
       <div className="container-lumi">
         <Reveal className="max-w-xl">
-          <Eyebrow>O formato certo para cada objetivo</Eyebrow>
+          <Eyebrow>Cases</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Cada objetivo pede um formato diferente.
+            Marcas e pessoas que já colocamos em movimento.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Não existe fórmula única para gerar resultado. Um lançamento pede
-            agilidade. Uma campanha de marca pede profundidade. Definimos o
-            formato depois de entender o que a produção precisa entregar —
-            nunca antes.
+            Cada card é um projeto real — do brand content ao evento, do
+            conteúdo de rede à campanha institucional. Arraste, role ou use as
+            setas para conhecer os cases.
           </p>
         </Reveal>
       </div>

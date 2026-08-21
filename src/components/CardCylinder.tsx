@@ -260,9 +260,13 @@ export function CardCylinder({ categories }: { categories: ReelCategory[] }) {
       wake.current();
     };
     const onWheel = (e: WheelEvent) => {
+      // Only hijack the gesture when it's clearly horizontal (trackpad swipe,
+      // shift+wheel). A dominant vertical delta is the visitor trying to
+      // scroll the page past this section — let it through untouched, or
+      // hovering over the carousel silently blocks all page scrolling.
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
       e.preventDefault();
-      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-      const clamped = Math.max(-60, Math.min(60, delta));
+      const clamped = Math.max(-60, Math.min(60, e.deltaX));
       targetProgress.current += clamped / 260;
       wake.current();
     };
@@ -317,7 +321,7 @@ export function CardCylinder({ categories }: { categories: ReelCategory[] }) {
     <div className="flex flex-col items-center gap-7">
     <div
       ref={stageRef}
-      className="relative w-full touch-none select-none outline-none"
+      className="relative w-full touch-pan-y select-none outline-none"
       style={{
         // The centered card sits at translateZ(400) — with perspective 1350 that's
         // ~1.42x foreshortening, so its visual footprint is well past cardH. Reserve
@@ -325,6 +329,11 @@ export function CardCylinder({ categories }: { categories: ReelCategory[] }) {
         height: metrics.cardH * 1.5 + 40,
         perspective: PERSPECTIVE,
         isolation: "isolate",
+        // Off-stage cards sit way outside the stage's own box (that's the point of
+        // a coverflow) — without clipping, they were widening the whole document
+        // and the page would drift sideways on any scroll gesture with a horizontal
+        // component (trackpads especially).
+        overflow: "hidden",
       }}
       tabIndex={0}
       role="region"
