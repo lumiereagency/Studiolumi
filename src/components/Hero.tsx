@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { Eyebrow } from "./Eyebrow";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -8,50 +9,76 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-ink px-6 pb-16 pt-32 text-center sm:pb-20 md:pt-40"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-ink px-6 pb-16 pt-32 sm:pb-20 md:pt-40"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-lumi-radial" />
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute left-1/2 top-[-45vh] h-[90vh] w-[90vh] -translate-x-1/2 sm:h-[105vh] sm:w-[105vh]"
-        >
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute -right-1/4 top-[-10%] h-[85vh] w-[85vh] rounded-full blur-[110px] sm:-right-[10%]"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(241,96,1,0.55) 0%, rgba(232,80,2,0.35) 40%, rgba(193,8,1,0.15) 62%, transparent 78%)",
+          }}
+        />
+        {!reduceMotion && (
           <motion.div
-            className="h-full w-full rounded-full"
+            animate={{ opacity: [0.6, 0.85, 0.6] }}
+            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -right-1/4 top-[-10%] h-[85vh] w-[85vh] rounded-full blur-[110px] sm:-right-[10%]"
             style={{
               background:
-                "radial-gradient(circle, transparent 0%, transparent 54%, rgba(241,96,1,0.7) 61%, rgba(232,80,2,0.45) 70%, transparent 82%)",
-              filter: "blur(30px)",
+                "radial-gradient(circle, rgba(241,96,1,0.35) 0%, transparent 65%)",
             }}
-            animate={reduceMotion ? {} : { x: [-24, 24, -24] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           />
-        </motion.div>
+        )}
 
         <div className="grain absolute inset-0" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/40 to-transparent" />
       </div>
 
-      <div className="container-lumi relative z-10 flex flex-col items-center">
+      <div className="container-lumi relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-start justify-between"
+        >
+          <Eyebrow>Produção audiovisual</Eyebrow>
+          <span className="hidden text-xs font-medium uppercase tracking-[0.28em] text-paper/40 sm:block">
+            Estúdio criativo
+          </span>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="font-display mt-8 max-w-5xl text-4xl font-medium uppercase leading-[1.08] text-paper sm:text-5xl md:text-6xl lg:text-7xl"
+        >
+          Direção e clareza para marcas que precisam ser{" "}
+          <span className="text-gradient-lumi">lembradas.</span>
+        </motion.h1>
+
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-lg text-sm leading-relaxed text-paper/70 sm:text-base"
+          transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-8 max-w-md text-sm leading-relaxed text-paper/55 md:text-base"
         >
-          Estratégia, imagem e direção em um único lugar. Sem terceirização.
-          Sem fórmulas prontas. Apenas produção audiovisual que projeta sua
-          marca para o próximo nível.
+          StudioLumi é um estúdio de produção audiovisual e direção de marca,
+          construindo sistemas de imagem claros para presença de mercado.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-4"
+          transition={{ duration: 0.9, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-10 flex flex-wrap items-center gap-4"
         >
           <a
             href="#contato"
