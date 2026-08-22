@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Eyebrow } from "./Eyebrow";
 import { InteractiveLogo } from "./InteractiveLogo";
 
 export function Hero() {
@@ -41,42 +40,26 @@ export function Hero() {
 
       <div className="container-lumi relative z-10 flex flex-col items-center">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <Eyebrow className="justify-center">Produção audiovisual estratégica</Eyebrow>
-        </motion.div>
-
-        <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 md:mt-14"
+          transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <InteractiveLogo className="w-44 sm:w-56 md:w-64" />
+          <InteractiveLogo className="w-64 sm:w-80 md:w-[28rem]" />
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="font-display mt-10 text-xl font-medium text-paper/90 md:mt-14 md:text-2xl"
+        >
+          Toda marca tem uma luz. Poucas a encontram.
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 flex max-w-2xl flex-col items-center gap-4 md:mt-14"
-        >
-          <p className="text-xl text-paper/85 md:text-2xl">
-            Enquanto a maioria entrega vídeo, a StudioLumi entrega presença
-            de marca, do primeiro post ao filme institucional.
-          </p>
-          <p className="max-w-lg text-sm text-paper/50 md:text-base">
-            As marcas que mais crescem sabem algo que a concorrência ainda
-            não percebeu. Quer descobrir o que é?
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 flex flex-wrap items-center justify-center gap-4 md:mt-14"
         >
           <a
