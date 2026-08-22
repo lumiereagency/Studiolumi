@@ -16,8 +16,9 @@ export function MobileToCinema() {
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-paper/60 md:text-lg">
             Um smartphone resolve. Uma câmera de cinema também. A diferença
-            está em saber qual das duas entrega o resultado que sua marca
-            precisa. E temos experiência com as duas.
+            não está no equipamento: está em saber exatamente qual
+            ferramenta entrega o resultado que sua marca precisa.
+            Dominamos as duas pontas dessa decisão.
           </p>
         </Reveal>
 

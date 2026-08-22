@@ -1,17 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
-import { cn } from "@/lib/utils";
 
 type Member = {
   id: string;
   role: string;
   icon: "crown" | "star" | "pen" | "video" | "camera" | "book";
   pattern: string;
-  className: string;
 };
 
 const TEAM: Member[] = [
@@ -20,43 +18,47 @@ const TEAM: Member[] = [
     role: "Fundador & CEO",
     icon: "crown",
     pattern: "linear-gradient(135deg, #000 0%, #c10801 55%, #f16001 100%)",
-    className: "left-[4%] top-[6%] h-[42%] w-[30%] md:left-[8%] md:top-[4%] md:h-[46%] md:w-[20%]",
   },
   {
     id: "cofounder",
     role: "Cofundadora",
     icon: "star",
     pattern: "linear-gradient(135deg, #0c0a09 0%, #333333 60%, #d9c3ab 130%)",
-    className: "right-[6%] top-[2%] h-[36%] w-[26%] md:right-[14%] md:top-[0%] md:h-[38%] md:w-[17%]",
   },
   {
     id: "copywriter",
     role: "Copywriter",
     icon: "pen",
     pattern: "linear-gradient(135deg, #000 0%, #e85002 70%, #d9c3ab 140%)",
-    className: "left-[30%] top-[0%] h-[30%] w-[22%] md:left-[34%] md:top-[2%] md:h-[32%] md:w-[14%]",
   },
   {
     id: "videomaker",
     role: "Videomaker",
     icon: "video",
     pattern: "linear-gradient(135deg, #100906 0%, #f16001 80%, transparent 130%)",
-    className: "right-[2%] bottom-[8%] h-[38%] w-[28%] md:right-[6%] md:bottom-[6%] md:h-[42%] md:w-[18%]",
   },
   {
     id: "photographer",
     role: "Fotógrafa",
     icon: "camera",
     pattern: "linear-gradient(135deg, #0a0d0a 0%, #333333 55%, #d9c3ab 140%)",
-    className: "left-[8%] bottom-[2%] h-[34%] w-[26%] md:left-[16%] md:bottom-[4%] md:h-[36%] md:w-[16%]",
   },
   {
     id: "storymaker",
     role: "Storymaker",
     icon: "book",
     pattern: "linear-gradient(135deg, #000 0%, #c10801 40%, #f16001 90%, #d9c3ab 140%)",
-    className: "left-[42%] bottom-[10%] h-[30%] w-[22%] md:left-[46%] md:bottom-[8%] md:h-[34%] md:w-[15%]",
   },
+];
+
+/** Fanned-deck offsets by distance behind the front card (depth 0 = front). */
+const FAN_STEPS = [
+  { rotate: 0, x: 0, y: 0, scale: 1 },
+  { rotate: 6, x: 16, y: -10, scale: 0.96 },
+  { rotate: -7, x: -22, y: -18, scale: 0.92 },
+  { rotate: 10, x: 30, y: -26, scale: 0.88 },
+  { rotate: -11, x: -36, y: -34, scale: 0.84 },
+  { rotate: 13, x: 42, y: -42, scale: 0.8 },
 ];
 
 function RoleIcon({ icon, className }: { icon: Member["icon"]; className?: string }) {
@@ -107,40 +109,38 @@ function RoleIcon({ icon, className }: { icon: Member["icon"]; className?: strin
 
 function TeamCard({
   member,
-  index,
+  depth,
+  count,
   onOpen,
   hidden,
 }: {
   member: Member;
-  index: number;
+  depth: number;
+  count: number;
   onOpen: () => void;
   hidden: boolean;
 }) {
   const reduceMotion = useReducedMotion();
-  const floatDuration = 5 + (index % 3) * 0.8;
+  const step = FAN_STEPS[depth] ?? FAN_STEPS[FAN_STEPS.length - 1];
+
   return (
     <motion.button
       type="button"
       layoutId={`team-card-${member.id}`}
       onClick={onOpen}
-      animate={
-        reduceMotion || hidden
-          ? undefined
-          : { y: [0, -10, 0] }
-      }
-      transition={
-        reduceMotion || hidden
-          ? { layout: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } }
-          : {
-              y: { duration: floatDuration, repeat: Infinity, ease: "easeInOut" },
-              layout: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
-            }
-      }
-      style={{ opacity: hidden ? 0 : 1, pointerEvents: hidden ? "none" : "auto" }}
-      className={cn(
-        "absolute overflow-hidden rounded-xl border border-line shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] focus-visible:outline-none",
-        member.className
-      )}
+      animate={{
+        x: step.x,
+        y: step.y,
+        rotate: reduceMotion ? 0 : step.rotate,
+        scale: step.scale,
+        opacity: hidden ? 0 : 1,
+      }}
+      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      style={{
+        zIndex: count - depth,
+        pointerEvents: hidden ? "none" : "auto",
+      }}
+      className="absolute left-1/2 top-1/2 h-[280px] w-[158px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-xl border border-line-strong shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] focus-visible:outline-none sm:h-[340px] sm:w-[191px] md:h-[400px] md:w-[225px]"
       aria-label={`Ver ${member.role}`}
     >
       <div className="absolute inset-0" style={{ background: member.pattern }} />
@@ -163,7 +163,18 @@ function TeamCard({
 
 export function LumiTeam() {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [frontIndex, setFrontIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
+  const count = TEAM.length;
   const active = TEAM.find((m) => m.id === activeId) ?? null;
+
+  useEffect(() => {
+    if (reduceMotion || activeId) return;
+    const id = setInterval(() => {
+      setFrontIndex((i) => (i + 1) % count);
+    }, 3200);
+    return () => clearInterval(id);
+  }, [reduceMotion, activeId, count]);
 
   return (
     <section className="relative overflow-hidden bg-ink py-20 md:py-36">
@@ -179,23 +190,20 @@ export function LumiTeam() {
         </Reveal>
       </div>
 
-      <div className="relative mx-auto mt-14 h-[460px] max-w-5xl px-6 sm:h-[520px] md:mt-20 md:h-[560px]">
-        <span
-          aria-hidden
-          className="font-display pointer-events-none absolute inset-0 flex select-none items-center justify-center text-center text-[16vw] font-medium uppercase leading-none text-paper/[0.06] sm:text-[13vw] md:text-[7rem]"
-        >
-          Lumi Team
-        </span>
-
-        {TEAM.map((member, i) => (
-          <TeamCard
-            key={member.id}
-            member={member}
-            index={i}
-            hidden={activeId === member.id}
-            onOpen={() => setActiveId(member.id)}
-          />
-        ))}
+      <div className="relative mx-auto mt-14 h-[340px] max-w-5xl sm:h-[400px] md:mt-20 md:h-[460px]">
+        {TEAM.map((member, i) => {
+          const depth = (i - frontIndex + count) % count;
+          return (
+            <TeamCard
+              key={member.id}
+              member={member}
+              depth={depth}
+              count={count}
+              hidden={activeId === member.id}
+              onOpen={() => setActiveId(member.id)}
+            />
+          );
+        })}
       </div>
 
       <AnimatePresence>
@@ -213,7 +221,7 @@ export function LumiTeam() {
             <motion.div
               layoutId={`team-card-${active.id}`}
               transition={{ layout: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } }}
-              className="absolute left-1/2 top-1/2 z-50 h-[280px] w-[210px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-line-strong shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] sm:h-[360px] sm:w-[270px]"
+              className="absolute left-1/2 top-1/2 z-50 h-[400px] w-[225px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-line-strong shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] sm:h-[498px] sm:w-[280px]"
               role="dialog"
               aria-label={active.role}
             >

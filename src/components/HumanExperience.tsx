@@ -17,10 +17,10 @@ export function HumanExperience() {
             Seu projeto não é mais um projeto.
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
-            Antes da câmera, existe um briefing de negócio. Entendemos seu
+            Antes da câmera, existe uma decisão de negócio. Entendemos seu
             objetivo, seu público e o que precisa mudar depois da entrega.
-            Produção premium não é sobre equipamento. É sobre decisão certa
-            em cada etapa.
+            Produção premium não se mede pelo equipamento: se mede pela
+            decisão certa em cada etapa, do briefing à entrega final.
           </p>
         </Reveal>
 

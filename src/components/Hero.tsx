@@ -75,12 +75,12 @@ export function Hero() {
           className="mt-10 flex max-w-3xl flex-col gap-4 md:mt-14"
         >
           <p className="text-xl text-paper/85 md:text-2xl">
-            Audiovisual estratégico para marcas que precisam performar, do
-            conteúdo ágil ao filme institucional.
+            Enquanto a maioria entrega vídeo, a StudioLumi entrega presença
+            de marca, do primeiro post ao filme institucional.
           </p>
           <p className="max-w-xl text-base text-paper/55 md:text-lg">
-            Menos estética pela estética. Mais direção, propósito e resultado
-            em cada entrega.
+            Menos estética pela estética. Mais direção, estratégia e
+            resultado em cada entrega.
           </p>
         </motion.div>
 

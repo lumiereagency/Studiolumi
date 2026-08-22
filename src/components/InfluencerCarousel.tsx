@@ -4,16 +4,16 @@ import { useEffect, useRef, useState } from "react";
 import { LogoMark } from "./LogoMark";
 
 /**
- * Auto-advancing 16:9 coverflow for UGC creators. Same rig family as
+ * Auto-advancing 9:16 coverflow for UGC creators. Same rig family as
  * CardCylinder (magnetic-snap easing, perspective-exact edge alignment,
- * direct DOM writes per frame) but wider cards and a slow autoplay drift
- * instead of a resting idle state, since this one is meant to keep turning
- * on its own until a visitor steps in.
+ * direct DOM writes per frame) but a slow autoplay drift instead of a
+ * resting idle state, since this one is meant to keep turning on its own
+ * until a visitor steps in.
  */
 
-const GAP = 22;
-const PEEK = -30;
-const PERSPECTIVE = 1400;
+const GAP = 26;
+const PEEK = -36;
+const PERSPECTIVE = 1350;
 const THICKNESS = [-1.2, -0.6, 0, 0.6, 1.2];
 const AUTOPLAY_RATE = 1 / (60 * 7); // ~1 card every 7s at 60fps
 
@@ -29,16 +29,16 @@ function smoothstep(t: number) {
 }
 
 function computeMetrics(vw: number, vh: number) {
-  let cardW = vw * 0.4;
-  cardW = Math.min(520, Math.max(240, cardW));
-  let cardH = (cardW * 9) / 16;
-  const maxH = vh * 0.46;
-  if (cardH > maxH) {
-    cardH = maxH;
-    cardW = (cardH * 16) / 9;
+  let cardH = vh * 0.52;
+  cardH = Math.min(560, Math.max(260, cardH));
+  let cardW = (cardH * 9) / 16;
+  const maxW = vw * 0.56;
+  if (cardW > maxW) {
+    cardW = maxW;
+    cardH = (cardW * 16) / 9;
   }
-  cardH = Math.max(135, cardH);
-  cardW = (cardH * 16) / 9;
+  cardW = Math.max(150, cardW);
+  cardH = (cardW * 16) / 9;
   return { cardW: Math.round(cardW), cardH: Math.round(cardH) };
 }
 
@@ -156,16 +156,16 @@ export function InfluencerCarousel({ creators }: { creators: Creator[] }) {
           const eT = smoothstep(t);
           const target = cardW + GAP;
           x = -sign * eT * target;
-          z = 380 + eT * (200 - 380);
-          rot = eT * 128;
+          z = 400 + eT * (220 - 400);
+          rot = eT * 132;
         } else if (absOffset <= 2) {
           const t = absOffset - 1;
           const eT = smoothstep(t);
           const xStart = cardW + GAP;
-          const zStart = 200;
-          const rotStart = 128;
-          const zEnd = -70;
-          const rotEnd = 172;
+          const zStart = 220;
+          const rotStart = 132;
+          const zEnd = -60;
+          const rotEnd = 175;
           const sEnd = D / (D - zEnd);
           const xEnd = (vw / 2 - PEEK) / sEnd - cardW / 2;
           const current = xStart + eT * (xEnd - xStart);
@@ -175,14 +175,14 @@ export function InfluencerCarousel({ creators }: { creators: Creator[] }) {
         } else {
           const t = Math.min(absOffset - 2, 1);
           const eT = smoothstep(t);
-          const zStart = -70;
-          const rotStart = 172;
-          const zEnd3 = -260;
-          const rotEnd3 = 192;
+          const zStart = -60;
+          const rotStart = 175;
+          const zEnd3 = -250;
+          const rotEnd3 = 195;
           const sEnd2 = D / (D - zStart);
           const xEnd2 = (vw / 2 - PEEK) / sEnd2 - cardW / 2;
           const sEnd3 = D / (D - zEnd3);
-          const xEnd3 = (vw / 2 + 90) / sEnd3 + cardW / 2;
+          const xEnd3 = (vw / 2 + 100) / sEnd3 + cardW / 2;
           const current = xEnd2 + eT * (xEnd3 - xEnd2);
           x = -sign * current;
           z = zStart + eT * (zEnd3 - zStart);
@@ -266,7 +266,7 @@ export function InfluencerCarousel({ creators }: { creators: Creator[] }) {
         ref={stageRef}
         className="relative w-full touch-pan-y select-none outline-none"
         style={{
-          height: metrics.cardH * 1.9 + 40,
+          height: metrics.cardH * 1.5 + 40,
           perspective: PERSPECTIVE,
           isolation: "isolate",
           overflow: "hidden",

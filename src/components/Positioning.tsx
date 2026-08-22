@@ -28,11 +28,11 @@ export function Positioning() {
 
           <Reveal delay={0.15} className="flex flex-col justify-between gap-10">
             <p className="text-base leading-relaxed text-paper/60 md:text-lg">
-              Produção boa não termina quando a câmera para. Ela precisa
-              funcionar onde sua marca vive: Instagram, YouTube, campanha,
-              apresentação, tela de cinema. Por isso definimos onde a peça
-              será vista, para quem e qual ação ela precisa gerar, antes de
-              gravar o primeiro frame.
+              A maioria entrega arquivo de vídeo. Nós entregamos resultado
+              de negócio. Produção boa não termina quando a câmera para: ela
+              precisa funcionar onde sua marca vive, do Instagram à tela de
+              cinema. Por isso definimos onde a peça será vista, para quem e
+              qual ação ela precisa gerar, antes de gravar o primeiro frame.
             </p>
 
             <ul className="flex flex-wrap gap-x-3 gap-y-3 text-sm">

@@ -23,7 +23,7 @@ export function Portfolio() {
             Vozes reais para marcas reais.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Uma rede de criadores selecionados para dar rosto e voz ao seu conteúdo.
+            Uma rede de criadores selecionados a dedo, prontos para dar rosto e voz autêntica à sua marca.
           </p>
         </Reveal>
       </div>
