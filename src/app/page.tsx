@@ -6,6 +6,7 @@ import { Positioning } from "@/components/Positioning";
 import { Services } from "@/components/Services";
 import { MobileToCinema } from "@/components/MobileToCinema";
 import { HumanExperience } from "@/components/HumanExperience";
+import { LumiTeam } from "@/components/LumiTeam";
 import { Portfolio } from "@/components/Portfolio";
 import { Process } from "@/components/Process";
 import { Manifesto } from "@/components/Manifesto";
@@ -25,6 +26,7 @@ export default function Home() {
         <Services />
         <MobileToCinema />
         <HumanExperience />
+        <LumiTeam />
         <Portfolio />
         <Process />
         <Manifesto />

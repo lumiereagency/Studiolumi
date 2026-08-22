@@ -58,8 +58,25 @@ const TIERS: Tier[] = [
 
 export function Packages() {
   return (
-    <section id="pacotes" className="relative scroll-mt-24 bg-ink py-20 md:py-36">
-      <div className="container-lumi">
+    <section id="pacotes" className="relative scroll-mt-24 overflow-hidden bg-ink py-20 md:py-36">
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute left-[18%] top-[8%] h-[46vh] w-[46vh] rounded-full blur-[110px]"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(232,80,2,0.55) 0%, rgba(193,8,1,0.3) 45%, transparent 75%)",
+          }}
+        />
+        <div
+          className="absolute right-[14%] top-[22%] h-[42vh] w-[42vh] rounded-full blur-[110px]"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(217,195,171,0.32) 0%, rgba(241,96,1,0.18) 50%, transparent 75%)",
+          }}
+        />
+      </div>
+
+      <div className="container-lumi relative">
         <Reveal className="max-w-2xl">
           <Eyebrow>Pacotes</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
@@ -77,10 +94,10 @@ export function Packages() {
             <Reveal key={tier.id} delay={i * 0.1}>
               <div
                 className={cn(
-                  "flex h-full flex-col rounded-2xl border p-8 md:p-9",
+                  "flex h-full flex-col rounded-2xl border p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl md:p-9",
                   tier.highlighted
-                    ? "border-orange-bright/50 bg-ink-elevated"
-                    : "border-line bg-ink-soft"
+                    ? "border-orange-bright/40 bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_0_60px_-15px_rgba(241,96,1,0.45)]"
+                    : "border-white/10 bg-white/[0.05]"
                 )}
               >
                 {tier.highlighted && (
