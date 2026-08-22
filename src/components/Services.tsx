@@ -17,7 +17,7 @@ const SERVICES: Service[] = [
   {
     id: "institucional",
     label: "Filme Institucional",
-    text: "Autoridade e posicionamento em vídeo — a peça que apresenta sua marca como ela merece ser vista.",
+    text: "Autoridade e posicionamento em vídeo: a peça que apresenta sua marca como ela merece ser vista.",
     pattern: "cinema",
   },
   {
@@ -29,7 +29,7 @@ const SERVICES: Service[] = [
   {
     id: "eventos",
     label: "Cobertura de Eventos",
-    text: "Sua marca registrada com direção, não só câmera — presente do início ao encerramento.",
+    text: "Sua marca registrada com direção, não só câmera, presente do início ao encerramento.",
     pattern: "camera",
   },
   {
@@ -41,7 +41,7 @@ const SERVICES: Service[] = [
   {
     id: "drone",
     label: "Aéreas & Drone",
-    text: "Escala e perspectiva que elevam a narrativa — outra dimensão para o mesmo objetivo.",
+    text: "Escala e perspectiva que elevam a narrativa: outra dimensão para o mesmo objetivo.",
     pattern: "drone",
   },
   {
@@ -82,7 +82,7 @@ export function Services() {
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
             Do filme institucional à cobertura de evento, cada serviço nasce
-            do mesmo processo — entender o objetivo antes de escolher o
+            do mesmo processo: entender o objetivo antes de escolher o
             formato.
           </p>
         </Reveal>

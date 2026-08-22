@@ -19,7 +19,7 @@ export function HumanExperience() {
           <p className="mt-6 max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
             Antes da câmera, existe um briefing de negócio. Entendemos seu
             objetivo, seu público e o que precisa mudar depois da entrega.
-            Produção premium não é sobre equipamento — é sobre decisão certa
+            Produção premium não é sobre equipamento. É sobre decisão certa
             em cada etapa.
           </p>
         </Reveal>

@@ -66,8 +66,8 @@ export function Packages() {
             Uma estrutura para cada escala de história.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Os valores ainda são definidos sob briefing — cada produção tem
-            um escopo próprio. Estas são as três formas mais comuns de
+            Os valores ainda são definidos sob briefing, pois cada produção
+            tem um escopo próprio. Estas são as três formas mais comuns de
             começar uma conversa com o StudioLumi.
           </p>
         </Reveal>

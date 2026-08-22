@@ -4,9 +4,9 @@ import { useState, type FormEvent } from "react";
 import { cn } from "@/lib/utils";
 
 const PROJECT_TYPES = [
-  "Mobile — conteúdo ágil",
-  "Produção — câmera e narrativa",
-  "Cinema — grande escala",
+  "Mobile: conteúdo ágil",
+  "Produção: câmera e narrativa",
+  "Cinema: grande escala",
   "Ainda não sei, quero conversar",
 ];
 

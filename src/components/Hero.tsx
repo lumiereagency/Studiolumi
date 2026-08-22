@@ -75,7 +75,7 @@ export function Hero() {
           className="mt-10 flex max-w-3xl flex-col gap-4 md:mt-14"
         >
           <p className="text-xl text-paper/85 md:text-2xl">
-            Audiovisual estratégico para marcas que precisam performar — do
+            Audiovisual estratégico para marcas que precisam performar, do
             conteúdo ágil ao filme institucional.
           </p>
           <p className="max-w-xl text-base text-paper/55 md:text-lg">

@@ -52,7 +52,7 @@ export function Nav() {
           href="#top"
           onClick={close}
           className="flex items-center gap-2.5 text-paper"
-          aria-label="StudioLumi — início"
+          aria-label="Página inicial da StudioLumi"
         >
           <LogoMark className="h-6 w-12 text-paper" strokeWidth={18} />
           <span className="font-display text-sm font-medium tracking-[0.18em] uppercase">

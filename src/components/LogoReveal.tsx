@@ -118,7 +118,7 @@ export function LogoReveal() {
             dentro, cor, sensibilidade e histórias.
           </p>
           <p className="mt-4 max-w-md text-sm text-paper/40">
-            Aproxime o cursor — ou o dedo, no toque — do símbolo ao lado.
+            Aproxime o cursor (ou o dedo, no toque) do símbolo ao lado.
           </p>
         </Reveal>
 

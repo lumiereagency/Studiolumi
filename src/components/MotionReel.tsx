@@ -7,18 +7,6 @@ import type { ReelCategory } from "./ReelPatterns";
 
 const CATEGORIES: ReelCategory[] = [
   {
-    id: "martorelli",
-    label: "Martorelli",
-    tagline: "Brand Content.",
-    pattern: "brandfilm",
-  },
-  {
-    id: "sargentos",
-    label: "Sargento's",
-    tagline: "Social & Brand Content.",
-    pattern: "social",
-  },
-  {
     id: "jacaranda",
     label: "Meu Pé de Jacarandá",
     tagline: "Experiência & Eventos.",
@@ -78,7 +66,7 @@ export function MotionReel() {
             Marcas e pessoas que já colocamos em movimento.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Cada card é um projeto real — do brand content ao evento, do
+            Cada card é um projeto real, do brand content ao evento, do
             conteúdo de rede à campanha institucional. Arraste, role ou use as
             setas para conhecer os cases.
           </p>

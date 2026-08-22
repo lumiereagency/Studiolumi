@@ -18,7 +18,7 @@ export function Manifesto() {
           <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-paper/70 md:text-lg">
             Trabalhamos para marcas que entendem audiovisual como
             investimento, não como despesa de marketing. Cada produção nasce
-            de um objetivo claro — presença, autoridade ou conversão. É isso
+            de um objetivo claro: presença, autoridade ou conversão. É isso
             que medimos, não curtidas.
           </p>
         </Reveal>

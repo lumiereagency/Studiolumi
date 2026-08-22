@@ -10,27 +10,27 @@ type Project = {
   client: string;
   type: string;
   year: string;
-  gradient: string;
+  image: string;
 };
 
 const PROJECTS: Project[] = [
   {
-    client: "Martorelli",
-    type: "Brand Content",
+    client: "Bruno Carvalho",
+    type: "CEO & Fundador, BBox Training",
     year: "2026",
-    gradient: "linear-gradient(135deg, #000 0%, #c10801 55%, #f16001 100%)",
+    image: "/videos/case-bruno-poster.jpg",
   },
   {
     client: "Meu Pé de Jacarandá",
     type: "Experiência & Eventos",
     year: "2026",
-    gradient: "linear-gradient(135deg, #0c0a09 0%, #333333 60%, #d9c3ab 130%)",
+    image: "/videos/case-evento-poster.jpg",
   },
   {
-    client: "Sargento's",
-    type: "Social & Brand Content",
+    client: "Luciana Grion",
+    type: "CEO & Fundadora, Studio9",
     year: "2026",
-    gradient: "linear-gradient(135deg, #000 0%, #e85002 70%, #d9c3ab 140%)",
+    image: "/videos/case-luciana-poster.jpg",
   },
 ];
 
@@ -67,7 +67,7 @@ export function Portfolio() {
           <ReelPattern pattern="camera" />
         </motion.div>
 
-        {/* project — Martorelli */}
+        {/* project — Bruno Carvalho */}
         <motion.article
           whileHover="hover"
           initial="rest"
@@ -76,17 +76,18 @@ export function Portfolio() {
             "group left-[10%] top-[20%] z-10 h-[52%] w-[46%] rotate-2 cursor-default hover:z-40 sm:left-[6%] sm:top-[12%] sm:h-[62%] sm:w-[42%] sm:rotate-3 md:left-[4%] md:top-[10%] md:h-[68%] md:w-[32%]"
           )}
         >
-          <motion.div
+          <motion.img
+            src={PROJECTS[0].image}
+            alt=""
             variants={{ rest: { scale: 1 }, hover: { scale: 1.05 } }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0"
-            style={{ background: PROJECTS[0].gradient }}
+            className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="grain absolute inset-0 opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20" />
           <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-7">
             <span className="text-[10px] uppercase tracking-[0.22em] text-paper/50">
-              {PROJECTS[0].type} — {PROJECTS[0].year}
+              {PROJECTS[0].type} · {PROJECTS[0].year}
             </span>
             <h3 className="font-display mt-1.5 text-xl font-medium uppercase tracking-tight text-paper md:text-2xl">
               {PROJECTS[0].client}
@@ -107,7 +108,7 @@ export function Portfolio() {
           <ReelPattern pattern="drone" />
         </motion.div>
 
-        {/* project — Sargento's */}
+        {/* project — Luciana Grion */}
         <motion.article
           whileHover="hover"
           initial="rest"
@@ -116,17 +117,18 @@ export function Portfolio() {
             "group right-[6%] top-[32%] z-20 h-[42%] w-[38%] -rotate-3 cursor-default hover:z-40 sm:right-[4%] sm:top-[24%] sm:h-[54%] sm:w-[36%] sm:-rotate-4 md:right-[10%] md:top-[22%] md:h-[56%] md:w-[26%]"
           )}
         >
-          <motion.div
+          <motion.img
+            src={PROJECTS[2].image}
+            alt=""
             variants={{ rest: { scale: 1 }, hover: { scale: 1.05 } }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0"
-            style={{ background: PROJECTS[2].gradient }}
+            className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="grain absolute inset-0 opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20" />
           <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-7">
             <span className="text-[10px] uppercase tracking-[0.22em] text-paper/50">
-              {PROJECTS[2].type} — {PROJECTS[2].year}
+              {PROJECTS[2].type} · {PROJECTS[2].year}
             </span>
             <h3 className="font-display mt-1.5 text-xl font-medium uppercase tracking-tight text-paper md:text-2xl">
               {PROJECTS[2].client}
@@ -143,17 +145,18 @@ export function Portfolio() {
             "group left-[24%] bottom-[0%] z-30 h-[38%] w-[46%] -rotate-2 cursor-default hover:z-40 sm:left-[30%] sm:h-[46%] sm:w-[38%] md:left-[36%] md:h-[50%] md:w-[28%]"
           )}
         >
-          <motion.div
+          <motion.img
+            src={PROJECTS[1].image}
+            alt=""
             variants={{ rest: { scale: 1 }, hover: { scale: 1.05 } }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0"
-            style={{ background: PROJECTS[1].gradient }}
+            className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="grain absolute inset-0 opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20" />
           <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-7">
             <span className="text-[10px] uppercase tracking-[0.22em] text-paper/50">
-              {PROJECTS[1].type} — {PROJECTS[1].year}
+              {PROJECTS[1].type} · {PROJECTS[1].year}
             </span>
             <h3 className="font-display mt-1.5 text-xl font-medium uppercase tracking-tight text-paper md:text-2xl">
               {PROJECTS[1].client}

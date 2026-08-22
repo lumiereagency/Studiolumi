@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "StudioLumi — Do mobile ao cinema.",
+  title: "StudioLumi | Do mobile ao cinema.",
   description:
     "StudioLumi é uma produtora audiovisual responsiva e estratégica. Do conteúdo mobile às produções cinematográficas, encontramos a linguagem certa para cada história.",
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "cinema",
   ],
   openGraph: {
-    title: "StudioLumi — Do mobile ao cinema.",
+    title: "StudioLumi | Do mobile ao cinema.",
     description: "Uma linguagem para cada história.",
     type: "website",
     locale: "pt_BR",

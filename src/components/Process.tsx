@@ -5,7 +5,7 @@ const STEPS = [
   { n: "01", title: "Imersão", text: "Entendemos seu negócio, seu público e o objetivo da produção." },
   { n: "02", title: "Estratégia", text: "Definimos o que precisa ser dito, para quem e com que resultado." },
   { n: "03", title: "Produção", text: "Executamos com direção técnica e artística." },
-  { n: "04", title: "Pós-produção", text: "Edição, cor e ritmo — sem perder o prazo." },
+  { n: "04", title: "Pós-produção", text: "Edição, cor e ritmo, sem perder o prazo." },
   { n: "05", title: "Entrega", text: "Material pronto para performar no canal certo." },
 ];
 

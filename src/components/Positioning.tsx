@@ -31,7 +31,7 @@ export function Positioning() {
               Produção boa não termina quando a câmera para. Ela precisa
               funcionar onde sua marca vive: Instagram, YouTube, campanha,
               apresentação, tela de cinema. Por isso definimos onde a peça
-              será vista, para quem e qual ação ela precisa gerar — antes de
+              será vista, para quem e qual ação ela precisa gerar, antes de
               gravar o primeiro frame.
             </p>
 

@@ -19,7 +19,7 @@ export function Footer() {
     <footer className="border-t border-line bg-ink">
       <div className="container-lumi flex flex-col gap-12 py-16 md:flex-row md:items-start md:justify-between md:py-20">
         <div className="max-w-sm">
-          <a href="#top" className="flex items-center gap-2.5 text-paper" aria-label="StudioLumi — início">
+          <a href="#top" className="flex items-center gap-2.5 text-paper" aria-label="Página inicial da StudioLumi">
             <LogoMark className="h-6 w-12 text-paper" strokeWidth={18} />
             <span className="font-display text-sm font-medium tracking-[0.18em] uppercase">
               StudioLumi
