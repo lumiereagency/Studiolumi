@@ -10,6 +10,7 @@ import { Process } from "@/components/Process";
 import { Manifesto } from "@/components/Manifesto";
 import { Packages } from "@/components/Packages";
 import { FinalCTA } from "@/components/FinalCTA";
+import { BrandMark } from "@/components/BrandMark";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
         <Manifesto />
         <Packages />
         <FinalCTA />
+        <BrandMark />
       </main>
       <Footer />
     </>

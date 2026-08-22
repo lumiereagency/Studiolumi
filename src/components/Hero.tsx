@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { InteractiveLogo } from "./InteractiveLogo";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -13,61 +12,46 @@ export function Hero() {
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-lumi-radial" />
+
         <motion.div
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 0.55, scale: 1 }}
-          transition={{ duration: 2.4, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute -bottom-1/3 left-1/2 h-[70vh] w-[70vh] -translate-x-1/2 rounded-full blur-[140px]"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(232,80,2,0.5) 0%, rgba(193,8,1,0.25) 45%, transparent 75%)",
-          }}
-        />
-        {!reduceMotion && (
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute left-1/2 top-[-45vh] h-[90vh] w-[90vh] -translate-x-1/2 sm:h-[105vh] sm:w-[105vh]"
+        >
           <motion.div
-            animate={{ opacity: [0.25, 0.4, 0.25] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute right-[8%] top-[18%] h-[40vh] w-[40vh] rounded-full blur-[120px]"
+            className="h-full w-full rounded-full"
             style={{
               background:
-                "radial-gradient(circle, rgba(241,96,1,0.35) 0%, transparent 70%)",
+                "radial-gradient(circle, transparent 0%, transparent 54%, rgba(241,96,1,0.7) 61%, rgba(232,80,2,0.45) 70%, transparent 82%)",
+              filter: "blur(30px)",
             }}
+            animate={reduceMotion ? {} : { x: [-24, 24, -24] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           />
-        )}
+        </motion.div>
+
         <div className="grain absolute inset-0" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
       </div>
 
       <div className="container-lumi relative z-10 flex flex-col items-center">
-        <div className="relative">
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display max-w-3xl whitespace-nowrap text-2xl font-medium leading-[1.15] text-paper sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            Toda marca tem
-            <br />
-            <span className="text-gradient-lumi">uma luz.</span>
-            <br />
-            Poucas a encontram.
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-auto absolute left-1/2 top-1/2 w-40 -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_30px_60px_rgba(0,0,0,0.55)] sm:w-52 md:w-64 lg:w-72"
-          >
-            <InteractiveLogo className="w-full" />
-          </motion.div>
-        </div>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-lg text-sm leading-relaxed text-paper/70 sm:text-base"
+        >
+          Estratégia, imagem e direção em um único lugar. Sem terceirização.
+          Sem fórmulas prontas. Apenas produção audiovisual que projeta sua
+          marca para o próximo nível.
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4 md:mt-14"
+          transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-8 flex flex-wrap items-center justify-center gap-4"
         >
           <a
             href="#contato"

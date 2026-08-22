@@ -155,6 +155,39 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+.starfield {
+  background-image: radial-gradient(1.6px 1.6px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 110px, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 150px 60px, #fff, transparent),
+    radial-gradient(1px 1px at 60px 170px, #fff, transparent),
+    radial-gradient(1.8px 1.8px at 180px 20px, #fff, transparent),
+    radial-gradient(1px 1px at 10px 140px, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 130px 150px, #fff, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: star-twinkle 6s ease-in-out infinite;
+}
+
+.starfield-far {
+  background-image: radial-gradient(1px 1px at 40px 60px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 160px 30px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 100px 140px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 30px 190px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 190px 170px, rgba(255, 255, 255, 0.6), transparent);
+  background-repeat: repeat;
+  background-size: 260px 260px;
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 .container-lumi {
   width: 100%;
   max-width: 1440px;
