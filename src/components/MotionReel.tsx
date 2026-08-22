@@ -34,6 +34,38 @@ const CATEGORIES: ReelCategory[] = [
     videoSrc: "/videos/case-social.mp4",
     poster: "/videos/case-social-poster.jpg",
   },
+  {
+    id: "bruno-carvalho",
+    label: "Bruno Carvalho",
+    tagline: "CEO & Fundador, BBox Training.",
+    pattern: "camera",
+    videoSrc: "/videos/case-bruno.mp4",
+    poster: "/videos/case-bruno-poster.jpg",
+  },
+  {
+    id: "joyce-turques",
+    label: "Joyce Turques",
+    tagline: "Esteticista & Biomédica.",
+    pattern: "brandfilm",
+    videoSrc: "/videos/case-joyce.mp4",
+    poster: "/videos/case-joyce-poster.jpg",
+  },
+  {
+    id: "paola-passos",
+    label: "Paola Passos",
+    tagline: "Fundadora, Uniher.",
+    pattern: "cinema",
+    videoSrc: "/videos/case-paola.mp4",
+    poster: "/videos/case-paola-poster.jpg",
+  },
+  {
+    id: "luciana-grion",
+    label: "Luciana Grion",
+    tagline: "CEO & Fundadora, Studio9.",
+    pattern: "social",
+    videoSrc: "/videos/case-luciana.mp4",
+    poster: "/videos/case-luciana-poster.jpg",
+  },
 ];
 
 export function MotionReel() {
