@@ -26,8 +26,8 @@ export function Footer() {
             </span>
           </a>
           <p className="mt-5 text-sm leading-relaxed text-paper/50">
-            Produção audiovisual responsiva e estratégica. Do mobile ao
-            cinema, uma linguagem para cada história.
+            Produção audiovisual estratégica para marcas que querem ser
+            lembradas, não apenas vistas.
           </p>
         </div>
 

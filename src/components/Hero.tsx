@@ -2,8 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Eyebrow";
-
-const HEADLINE = ["Do", "mobile", "ao", "cinema."];
+import { InteractiveLogo } from "./InteractiveLogo";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -11,7 +10,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink pb-12 pt-28 sm:pb-16 md:pb-24 md:pt-40"
+      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-ink px-6 pb-16 pt-32 text-center sm:pb-20 md:pt-40"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-lumi-radial" />
@@ -40,55 +39,45 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
       </div>
 
-      <div className="container-lumi relative z-10">
+      <div className="container-lumi relative z-10 flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <Eyebrow>Produção audiovisual responsiva</Eyebrow>
+          <Eyebrow className="justify-center">Produção audiovisual estratégica</Eyebrow>
         </motion.div>
 
-        <h1 className="text-gradient-lumi font-display mt-6 text-[15vw] uppercase leading-[0.94] font-medium tracking-tight sm:text-[11vw] md:text-[8.5vw] lg:text-[7.5vw]">
-          {HEADLINE.map((word, i) => (
-            <span key={word} className="inline-block overflow-hidden pb-[0.05em] pr-[0.15em] align-top">
-              <motion.span
-                className="inline-block"
-                initial={{ y: "110%" }}
-                animate={{ y: "0%" }}
-                transition={{
-                  duration: 1,
-                  delay: 0.35 + i * 0.09,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-              >
-                {word}
-              </motion.span>
-            </span>
-          ))}
-        </h1>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-10 md:mt-14"
+        >
+          <InteractiveLogo className="w-44 sm:w-56 md:w-64" />
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 flex max-w-3xl flex-col gap-4 md:mt-14"
+          transition={{ duration: 0.9, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-10 flex max-w-2xl flex-col items-center gap-4 md:mt-14"
         >
           <p className="text-xl text-paper/85 md:text-2xl">
             Enquanto a maioria entrega vídeo, a StudioLumi entrega presença
             de marca, do primeiro post ao filme institucional.
           </p>
-          <p className="max-w-xl text-base text-paper/55 md:text-lg">
-            Menos estética pela estética. Mais direção, estratégia e
-            resultado em cada entrega.
+          <p className="max-w-lg text-sm text-paper/50 md:text-base">
+            As marcas que mais crescem sabem algo que a concorrência ainda
+            não percebeu. Quer descobrir o que é?
           </p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 flex flex-wrap items-center gap-4 md:mt-14"
+          transition={{ duration: 0.9, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-4 md:mt-14"
         >
           <a
             href="#contato"

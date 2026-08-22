@@ -1,16 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
-import { ReelPattern, type ReelCategory } from "./ReelPatterns";
 import { cn } from "@/lib/utils";
 
 type Service = {
   id: string;
   label: string;
   text: string;
-  pattern: ReelCategory["pattern"];
+  glow: string;
 };
 
 const SERVICES: Service[] = [
@@ -18,37 +18,37 @@ const SERVICES: Service[] = [
     id: "institucional",
     label: "Filme Institucional",
     text: "Autoridade e posicionamento em vídeo: a peça que apresenta sua marca como ela merece ser vista.",
-    pattern: "cinema",
+    glow: "rgba(232,80,2,0.42)",
   },
   {
     id: "redes",
     label: "Conteúdo para Redes",
     text: "Séries ágeis pensadas para performance social, do roteiro ao corte vertical.",
-    pattern: "social",
+    glow: "rgba(193,8,1,0.4)",
   },
   {
     id: "eventos",
     label: "Cobertura de Eventos",
     text: "Sua marca registrada com direção, não só câmera, presente do início ao encerramento.",
-    pattern: "camera",
+    glow: "rgba(241,96,1,0.42)",
   },
   {
     id: "motion",
     label: "Motion & Branding",
     text: "Identidade em movimento: vinhetas, logo animada e motion graphics que sustentam a marca em tela.",
-    pattern: "brandfilm",
+    glow: "rgba(217,195,171,0.38)",
   },
   {
     id: "drone",
     label: "Aéreas & Drone",
     text: "Escala e perspectiva que elevam a narrativa: outra dimensão para o mesmo objetivo.",
-    pattern: "drone",
+    glow: "rgba(193,8,1,0.34)",
   },
   {
     id: "fotografia",
     label: "Fotografia de Produção",
     text: "Still que sustenta a campanha em qualquer formato, da vitrine ao feed.",
-    pattern: "mobile",
+    glow: "rgba(232,80,2,0.36)",
   },
 ];
 
@@ -73,8 +73,16 @@ export function Services() {
   }, []);
 
   return (
-    <section id="servicos" className="relative scroll-mt-24 bg-ink py-20 md:py-36">
-      <div className="container-lumi">
+    <section id="servicos" className="relative scroll-mt-24 overflow-hidden bg-ink py-20 md:py-36">
+      <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <motion.div
+          animate={{ backgroundColor: SERVICES[active].glow }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="h-[46vh] w-[46vh] rounded-full blur-[130px]"
+        />
+      </div>
+
+      <div className="container-lumi relative">
         <Reveal className="max-w-xl">
           <Eyebrow>Serviços</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
@@ -86,30 +94,8 @@ export function Services() {
             formato.
           </p>
         </Reveal>
-      </div>
 
-      <div className="container-lumi mt-14 flex flex-col gap-8 md:mt-20 lg:grid lg:grid-cols-2 lg:items-start lg:gap-16">
-        <div className="sticky top-24 z-10">
-          <div className="relative h-[46vh] min-h-[280px] overflow-hidden rounded-2xl border border-line sm:h-[50vh] lg:h-[60vh]">
-            {SERVICES.map((service, i) => (
-              <div
-                key={service.id}
-                className="absolute inset-0 transition-opacity duration-700 ease-out"
-                style={{ opacity: active === i ? 1 : 0 }}
-                aria-hidden={active !== i}
-              >
-                <ReelPattern pattern={service.pattern} />
-              </div>
-            ))}
-            <div className="grain absolute inset-0 opacity-40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-            <span className="absolute bottom-6 left-6 font-display text-sm uppercase tracking-[0.24em] text-paper/70">
-              0{active + 1} / 0{SERVICES.length}
-            </span>
-          </div>
-        </div>
-
-        <div className="flex flex-col">
+        <div className="relative mx-auto mt-14 max-w-2xl md:mt-20">
           {SERVICES.map((service, i) => (
             <div
               key={service.id}
@@ -117,8 +103,15 @@ export function Services() {
                 rowRefs.current[i] = el;
               }}
               data-index={i}
-              className="flex min-h-[20vh] flex-col justify-center border-b border-line py-6 first:pt-0 last:border-b-0 lg:min-h-[45vh]"
+              className="relative flex min-h-[18vh] flex-col justify-center border-b border-line py-6 pl-7 first:pt-0 last:border-b-0 lg:min-h-[24vh]"
             >
+              {active === i && (
+                <motion.span
+                  layoutId="service-indicator"
+                  transition={{ type: "spring", stiffness: 380, damping: 34 }}
+                  className="absolute left-0 top-1/2 h-9 w-1 -translate-y-1/2 rounded-full bg-orange-bright"
+                />
+              )}
               <span
                 className={cn(
                   "font-display text-3xl font-medium transition-colors duration-500 md:text-4xl",
