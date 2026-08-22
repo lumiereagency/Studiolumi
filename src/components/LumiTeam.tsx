@@ -140,7 +140,7 @@ function TeamCard({
         zIndex: count - depth,
         pointerEvents: hidden ? "none" : "auto",
       }}
-      className="absolute left-1/2 top-1/2 h-[280px] w-[158px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-xl border border-line-strong shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] focus-visible:outline-none sm:h-[340px] sm:w-[191px] md:h-[400px] md:w-[225px]"
+      className="absolute left-1/2 top-1/2 h-[280px] w-[158px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-xl border border-line-strong shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] focus-visible:outline-none sm:h-[340px] sm:w-[191px] md:h-[462px] md:w-[260px] lg:h-[533px] lg:w-[300px]"
       aria-label={`Ver ${member.role}`}
     >
       <div className="absolute inset-0" style={{ background: member.pattern }} />
@@ -164,17 +164,16 @@ function TeamCard({
 export function LumiTeam() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [frontIndex, setFrontIndex] = useState(0);
-  const reduceMotion = useReducedMotion();
   const count = TEAM.length;
   const active = TEAM.find((m) => m.id === activeId) ?? null;
 
   useEffect(() => {
-    if (reduceMotion || activeId) return;
+    if (activeId) return;
     const id = setInterval(() => {
       setFrontIndex((i) => (i + 1) % count);
     }, 3200);
     return () => clearInterval(id);
-  }, [reduceMotion, activeId, count]);
+  }, [activeId, count]);
 
   return (
     <section className="relative overflow-hidden bg-ink py-20 md:py-36">
@@ -190,7 +189,7 @@ export function LumiTeam() {
         </Reveal>
       </div>
 
-      <div className="relative mx-auto mt-14 h-[340px] max-w-5xl sm:h-[400px] md:mt-20 md:h-[460px]">
+      <div className="relative mx-auto mt-14 h-[340px] max-w-5xl sm:h-[400px] md:mt-20 md:h-[560px] lg:h-[620px]">
         {TEAM.map((member, i) => {
           const depth = (i - frontIndex + count) % count;
           return (
@@ -221,7 +220,7 @@ export function LumiTeam() {
             <motion.div
               layoutId={`team-card-${active.id}`}
               transition={{ layout: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } }}
-              className="absolute left-1/2 top-1/2 z-50 h-[400px] w-[225px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-line-strong shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] sm:h-[498px] sm:w-[280px]"
+              className="absolute left-1/2 top-1/2 z-50 h-[400px] w-[225px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-line-strong shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] sm:h-[498px] sm:w-[280px] md:h-[600px] md:w-[338px] lg:h-[660px] lg:w-[371px]"
               role="dialog"
               aria-label={active.role}
             >

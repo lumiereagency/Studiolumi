@@ -39,22 +39,29 @@ export function Hero() {
       </div>
 
       <div className="container-lumi relative z-10 flex flex-col items-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <InteractiveLogo className="w-64 sm:w-80 md:w-[28rem]" />
-        </motion.div>
+        <div className="relative">
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display max-w-3xl whitespace-nowrap text-2xl font-medium leading-[1.15] text-paper sm:text-5xl md:text-6xl lg:text-7xl"
+          >
+            Toda marca tem
+            <br />
+            <span className="text-gradient-lumi">uma luz.</span>
+            <br />
+            Poucas a encontram.
+          </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display mt-10 text-xl font-medium text-paper/90 md:mt-14 md:text-2xl"
-        >
-          Toda marca tem uma luz. Poucas a encontram.
-        </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="pointer-events-auto absolute left-1/2 top-1/2 w-40 -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_30px_60px_rgba(0,0,0,0.55)] sm:w-52 md:w-64 lg:w-72"
+          >
+            <InteractiveLogo className="w-full" />
+          </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

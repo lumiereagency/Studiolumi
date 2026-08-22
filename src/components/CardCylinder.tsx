@@ -99,7 +99,7 @@ export function CardCylinder({ categories }: { categories: ReelCategory[] }) {
     const activeRef = { current: active };
 
     const render = () => {
-      const settleRate = reduceMotion.current ? 1 : 0.14;
+      const settleRate = reduceMotion.current ? 0.4 : 0.14;
       if (dragging.current) {
         // progress already tracks the pointer 1:1 — nothing to settle.
       } else if (Math.abs(targetProgress.current - progress.current) < PROGRESS_EPS) {
