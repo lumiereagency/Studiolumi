@@ -149,7 +149,7 @@ export function ContactForm() {
         disabled={status === "loading"}
         className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-medium text-ink transition-transform duration-300 hover:scale-[1.01] disabled:opacity-60 md:w-auto"
       >
-        {status === "loading" ? "Enviando..." : "Começar um projeto"}
+        {status === "loading" ? "Enviando..." : "Falar com o StudioLumi →"}
       </button>
     </form>
   );

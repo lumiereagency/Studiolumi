@@ -63,12 +63,13 @@ export function MotionReel() {
         <Reveal className="max-w-xl">
           <Eyebrow>Cases</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Marcas e pessoas que já colocamos em movimento.
+            Projetos que exigiram mais do que uma boa câmera.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Cada card é um projeto real, do brand content ao evento, do
-            conteúdo de rede à campanha institucional. Arraste, role ou use as
-            setas para conhecer os cases.
+            Cada produção nasce de um objetivo diferente. Campanhas, conteúdo
+            recorrente, posicionamento de marca, eventos, produtos e
+            projetos especiais. Aqui estão alguns dos trabalhos que traduzem
+            a forma como pensamos, dirigimos e entregamos.
           </p>
         </Reveal>
       </div>

@@ -20,19 +20,19 @@ export function Positioning() {
           <Reveal>
             <Eyebrow>Posicionamento</Eyebrow>
             <h2 className="font-display mt-5 max-w-xl text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-              Não produzimos apenas vídeos.
+              Produção sem direção
               <br />
-              <span className="text-gradient-lumi">Criamos presença.</span>
+              <span className="text-gradient-lumi">é apenas execução.</span>
             </h2>
           </Reveal>
 
           <Reveal delay={0.15} className="flex flex-col justify-between gap-10">
             <p className="text-base leading-relaxed text-paper/60 md:text-lg">
-              A maioria entrega arquivo de vídeo. Nós entregamos resultado
-              de negócio. Produção boa não termina quando a câmera para: ela
-              precisa funcionar onde sua marca vive, do Instagram à tela de
-              cinema. Por isso definimos onde a peça será vista, para quem e
-              qual ação ela precisa gerar, antes de gravar o primeiro frame.
+              Antes de produzir, entendemos o que precisa ser comunicado.
+              Objetivo, público, contexto, linguagem e onde aquela imagem
+              precisa funcionar. É isso que transforma uma produção
+              audiovisual em uma ferramenta real de posicionamento para a
+              marca.
             </p>
 
             <ul className="flex flex-wrap gap-x-3 gap-y-3 text-sm">

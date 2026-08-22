@@ -77,7 +77,7 @@ export function Nav() {
           href="#contato"
           className="hidden rounded-full border border-line-strong px-5 py-2.5 text-sm text-paper transition-colors hover:border-orange-bright hover:text-orange-bright md:inline-block"
         >
-          Agendar conversa
+          Iniciar um projeto
         </a>
 
         <button
@@ -148,7 +148,7 @@ export function Nav() {
                   onClick={close}
                   className="inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-medium text-ink"
                 >
-                  Agendar conversa →
+                  Iniciar um projeto →
                 </a>
               </motion.li>
             </ul>

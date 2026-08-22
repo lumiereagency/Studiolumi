@@ -20,10 +20,16 @@ export function Portfolio() {
         <Reveal className="max-w-2xl">
           <Eyebrow>Criadores UGC</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Vozes reais para marcas reais.
+            Conteúdo com rosto, contexto e credibilidade.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Uma rede de criadores selecionados a dedo, prontos para dar rosto e voz autêntica à sua marca.
+            Conectamos marcas a criadores selecionados para produzir
+            conteúdos que parecem naturais para quem assiste e estratégicos
+            para quem comunica. UGC para anúncios, redes sociais,
+            lançamentos, produtos e campanhas.
+          </p>
+          <p className="mt-3 text-sm text-paper/40">
+            A escolha do criador também faz parte da estratégia.
           </p>
         </Reveal>
       </div>

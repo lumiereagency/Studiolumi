@@ -76,7 +76,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#contato" className="text-sm text-orange-bright">
-                  Agendar conversa →
+                  Iniciar um projeto →
                 </a>
               </li>
             </ul>

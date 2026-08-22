@@ -50,7 +50,7 @@ export function Hero() {
         >
           <Eyebrow>Produção audiovisual</Eyebrow>
           <span className="hidden text-xs font-medium uppercase tracking-[0.28em] text-paper/40 sm:block">
-            Estúdio criativo
+            Direção criativa
           </span>
         </motion.div>
 
@@ -60,19 +60,27 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="font-display mt-8 max-w-5xl text-4xl font-medium uppercase leading-[1.08] text-paper sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          Direção e clareza para marcas que precisam ser{" "}
-          <span className="text-gradient-lumi">lembradas.</span>
+          Imagem que <span className="text-gradient-lumi">posiciona.</span>
+          <br />
+          Produção que entrega.
         </motion.h1>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 max-w-md text-sm leading-relaxed text-paper/55 md:text-base"
+          className="mt-8 flex max-w-md flex-col gap-3 text-sm leading-relaxed text-paper/55 md:text-base"
         >
-          StudioLumi é um estúdio de produção audiovisual e direção de marca,
-          construindo sistemas de imagem claros para presença de mercado.
-        </motion.p>
+          <p>
+            O StudioLumi desenvolve produções audiovisuais para marcas,
+            empresas e profissionais que precisam comunicar com clareza,
+            presença e padrão de qualidade.
+          </p>
+          <p>
+            Da estratégia à entrega, unimos direção, produção e pós-produção
+            em uma única operação.
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

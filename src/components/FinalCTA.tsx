@@ -11,16 +11,17 @@ export function FinalCTA() {
         <Reveal>
           <Eyebrow>Vamos começar</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Tem um objetivo de negócio para transformar em audiovisual?
+            Vamos construir a próxima produção da sua marca.
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
-            Conte seu objetivo. Nós cuidamos da estratégia, direção e
-            entrega.
+            Conte o que você precisa produzir. A partir do objetivo,
+            construímos a estrutura, a equipe e o formato ideal para o
+            projeto.
           </p>
           <p className="mt-10 text-sm text-paper/40">
-            Do mobile ao cinema.
+            Direção, produção e pós-produção.
             <br />
-            Do primeiro frame ao último detalhe.
+            Uma única operação.
           </p>
         </Reveal>
 

@@ -8,18 +8,20 @@ export function Manifesto() {
       <div className="container-lumi relative text-center">
         <Reveal>
           <p className="font-display mx-auto max-w-4xl text-3xl font-medium leading-[1.15] text-paper md:text-5xl">
-            Vídeo bonito não é o objetivo.
+            A imagem é o meio.
             <br />
-            Resultado é.
+            O posicionamento é o resultado.
           </p>
         </Reveal>
 
         <Reveal delay={0.15}>
           <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-paper/70 md:text-lg">
-            Trabalhamos para marcas que entendem audiovisual como
-            investimento, não como despesa de marketing. Cada produção nasce
-            de um objetivo claro: presença, autoridade ou conversão. É isso
-            que medimos, não curtidas.
+            Produzimos para marcas que entendem audiovisual como parte da
+            sua presença no mercado. Cada projeto nasce de uma necessidade
+            real: apresentar, posicionar, vender, lançar, fortalecer ou
+            gerar percepção. Por isso, qualidade visual é ponto de partida.
+            O que importa é o que essa imagem faz pela marca depois que sai
+            do estúdio.
           </p>
         </Reveal>
 
@@ -29,7 +31,8 @@ export function Manifesto() {
             StudioLumi
           </span>
           <span className="text-sm text-paper/60">
-            Produções que comunicam antes mesmo da primeira palavra.
+            Produção audiovisual pensada para marcas que levam sua imagem a
+            sério.
           </span>
         </Reveal>
       </div>

@@ -181,10 +181,13 @@ export function LumiTeam() {
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow className="justify-center">Lumi Team</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            As pessoas por trás de cada produção.
+            Uma equipe. Diferentes especialidades. Um mesmo padrão.
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-paper/60 md:text-lg">
-            Direção, imagem e estratégia com nomes e funções bem definidas. Toque em cada card para conhecer o time.
+            Direção, produção, imagem, edição e estratégia trabalham de
+            forma integrada. Cada profissional entra no projeto com uma
+            função clara, e todos trabalham para manter a mesma visão do
+            início à entrega.
           </p>
         </Reveal>
       </div>

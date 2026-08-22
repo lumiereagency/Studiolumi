@@ -2,9 +2,21 @@ import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
 
 const HIGHLIGHTS = [
-  { n: "01", label: "Olhar técnico" },
-  { n: "02", label: "Sensibilidade humana" },
-  { n: "03", label: "Resultado estratégico" },
+  {
+    n: "01",
+    label: "Direção precisa",
+    text: "Do briefing ao último take, cada decisão tem uma função.",
+  },
+  {
+    n: "02",
+    label: "Olhar criativo",
+    text: "Estética, narrativa e linguagem trabalham juntas para construir percepção.",
+  },
+  {
+    n: "03",
+    label: "Entrega com propósito",
+    text: "O material não termina na exportação. Ele precisa funcionar no canal, no contexto e para o objetivo definido.",
+  },
 ];
 
 export function HumanExperience() {
@@ -12,15 +24,16 @@ export function HumanExperience() {
     <section className="relative border-y border-line bg-ink-soft py-20 md:py-36">
       <div className="container-lumi grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <Reveal>
-          <Eyebrow>Experiência humana</Eyebrow>
+          <Eyebrow>Experiência</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Seu projeto não é mais um projeto.
+            Uma produção premium começa antes da câmera.
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
-            Antes da câmera, existe uma decisão de negócio. Entendemos seu
-            objetivo, seu público e o que precisa mudar depois da entrega.
-            Produção premium não se mede pelo equipamento: se mede pela
-            decisão certa em cada etapa, do briefing à entrega final.
+            Cada projeto recebe atenção proporcional ao que precisa
+            entregar. Entendemos o contexto, alinhamos objetivos, definimos
+            a linguagem e construímos a produção antes da captação. O
+            resultado é mais controle, mais consistência e uma entrega
+            pensada para funcionar de verdade.
           </p>
         </Reveal>
 
@@ -29,14 +42,19 @@ export function HumanExperience() {
             <Reveal
               key={item.n}
               delay={0.1 + i * 0.08}
-              className={i === 0 ? "flex items-baseline gap-6 pb-8" : "flex items-baseline gap-6 pt-8 pb-8 last:pb-0"}
+              className={i === 0 ? "flex gap-6 pb-8" : "flex gap-6 pt-8 pb-8 last:pb-0"}
             >
-              <span className="font-display text-sm text-orange-bright/80">
+              <span className="font-display shrink-0 text-sm text-orange-bright/80">
                 {item.n}
               </span>
-              <span className="font-display text-2xl font-medium text-paper md:text-3xl">
-                {item.label}
-              </span>
+              <div>
+                <span className="font-display block text-2xl font-medium text-paper md:text-3xl">
+                  {item.label}
+                </span>
+                <p className="mt-2 max-w-sm text-sm leading-relaxed text-paper/55 md:text-base">
+                  {item.text}
+                </p>
+              </div>
             </Reveal>
           ))}
         </div>

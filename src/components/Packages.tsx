@@ -15,27 +15,31 @@ const TIERS: Tier[] = [
   {
     id: "mobile",
     name: "Mobile",
-    tagline: "Agilidade que acompanha o ritmo das redes",
+    tagline: "Conteúdo ágil. Produção inteligente.",
     description:
-      "Conteúdo ágil, pensado para social media e para marcas que precisam publicar com frequência sem perder consistência.",
+      "Para marcas que precisam manter presença constante nas redes sem abrir mão de direção e qualidade.",
     features: [
-      "Roteiro e direção enxutos",
-      "Captação com celular ou câmera compacta",
+      "Roteiro e direção",
+      "Captação mobile",
       "Edição para redes sociais",
-      "Entrega em formatos verticais e quadrados",
+      "Formatos verticais e quadrados",
+      "Entrega otimizada para publicação",
     ],
   },
   {
     id: "producao",
     name: "Produção",
-    tagline: "Mais controle. Mais narrativa.",
+    tagline: "Mais controle. Mais possibilidades.",
     description:
-      "Produção completa com câmera, equipe e direção, para marcas que precisam de uma narrativa mais elaborada.",
+      "Uma produção completa para marcas que precisam de mais estrutura, direção e consistência visual.",
     features: [
-      "Estratégia e roteiro dedicados",
-      "Captação com equipe e equipamento profissional",
-      "Direção de arte e fotografia",
-      "Edição, color e motion graphics",
+      "Estratégia e roteiro",
+      "Direção criativa",
+      "Captação profissional",
+      "Equipe e equipamentos",
+      "Direção de fotografia",
+      "Edição e colorização",
+      "Motion graphics",
       "Entrega multiplataforma",
     ],
     highlighted: true,
@@ -43,15 +47,17 @@ const TIERS: Tier[] = [
   {
     id: "cinema",
     name: "Cinema",
-    tagline: "Grande escala. Experiências memoráveis.",
+    tagline: "Grande escala. Grande presença.",
     description:
-      "Produções cinematográficas para brand films, campanhas e projetos que exigem a maior régua de qualidade.",
+      "Para campanhas, brand films e projetos especiais que exigem uma estrutura cinematográfica e um nível superior de produção.",
     features: [
-      "Imersão e estratégia aprofundadas",
-      "Equipe completa e equipamento cinematográfico",
-      "Direção, fotografia e drone",
-      "Pós-produção e finalização premium",
-      "Acompanhamento de ponta a ponta",
+      "Conceito e estratégia aprofundados",
+      "Equipe e estrutura cinematográfica",
+      "Direção e fotografia",
+      "Captação aérea com drone",
+      "Pós-produção avançada",
+      "Colorização e finalização",
+      "Acompanhamento completo da produção",
     ],
   },
 ];
@@ -80,12 +86,15 @@ export function Packages() {
         <Reveal className="max-w-2xl">
           <Eyebrow>Pacotes</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Uma estrutura para cada escala de história.
+            Produção para diferentes ritmos.
+            <br />O mesmo padrão de qualidade.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Cada produção tem escopo próprio, por isso o investimento é
-            sempre definido sob briefing. Estes são os três pontos de
-            partida mais comuns para quem decide levar audiovisual a sério.
+            Nem toda marca precisa da mesma estrutura de produção. Por isso,
+            organizamos diferentes níveis de operação, da produção ágil para
+            redes sociais a projetos completos com equipe, direção e
+            linguagem cinematográfica. O escopo final é definido de acordo
+            com o objetivo de cada projeto.
           </p>
         </Reveal>
 
