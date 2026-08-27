@@ -18,7 +18,7 @@ export function FinalCTA() {
             construímos a estrutura, a equipe e o formato ideal para o
             projeto.
           </p>
-          <p className="mt-10 text-sm text-paper/40">
+          <p className="mt-10 text-sm text-paper/55">
             Direção, produção e pós-produção.
             <br />
             Uma única operação.

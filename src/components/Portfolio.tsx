@@ -28,7 +28,7 @@ export function Portfolio() {
             para quem comunica. UGC para anúncios, redes sociais,
             lançamentos, produtos e campanhas.
           </p>
-          <p className="mt-3 text-sm text-paper/40">
+          <p className="mt-3 text-sm text-paper/55">
             A escolha do criador também faz parte da estratégia.
           </p>
         </Reveal>

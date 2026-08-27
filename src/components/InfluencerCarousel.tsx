@@ -363,7 +363,7 @@ export function InfluencerCarousel({ creators }: { creators: Creator[] }) {
                       <div className="absolute inset-x-0 bottom-0 p-5">
                         {creator.name ? (
                           <>
-                            <span className="text-[10px] uppercase tracking-[0.24em] text-paper/45">
+                            <span className="text-[10px] uppercase tracking-[0.24em] text-paper/55">
                               {creator.handle}
                             </span>
                             <h3 className="font-display mt-1 text-lg font-medium text-paper">
@@ -371,7 +371,7 @@ export function InfluencerCarousel({ creators }: { creators: Creator[] }) {
                             </h3>
                           </>
                         ) : (
-                          <span className="text-[11px] uppercase tracking-[0.24em] text-paper/40">
+                          <span className="text-[11px] uppercase tracking-[0.24em] text-paper/55">
                             Em breve
                           </span>
                         )}

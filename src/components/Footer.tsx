@@ -33,7 +33,7 @@ export function Footer() {
 
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
           <div>
-            <span className="text-xs uppercase tracking-[0.2em] text-paper/40">Navegação</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-paper/55">Navegação</span>
             <ul className="mt-4 flex flex-col gap-3">
               {NAV.map((item) => (
                 <li key={item.href}>
@@ -46,7 +46,7 @@ export function Footer() {
           </div>
 
           <div>
-            <span className="text-xs uppercase tracking-[0.2em] text-paper/40">Social</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-paper/55">Social</span>
             <ul className="mt-4 flex flex-col gap-3">
               {SOCIAL.map((item) => (
                 <li key={item.href}>
@@ -64,7 +64,7 @@ export function Footer() {
           </div>
 
           <div>
-            <span className="text-xs uppercase tracking-[0.2em] text-paper/40">Contato</span>
+            <span className="text-xs uppercase tracking-[0.2em] text-paper/55">Contato</span>
             <ul className="mt-4 flex flex-col gap-3">
               <li>
                 <a
@@ -84,7 +84,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container-lumi flex flex-col gap-3 border-t border-line py-6 text-xs text-paper/35 sm:flex-row sm:items-center sm:justify-between">
+      <div className="container-lumi flex flex-col gap-3 border-t border-line py-6 text-xs text-paper/50 sm:flex-row sm:items-center sm:justify-between">
         <span>© {new Date().getFullYear()} StudioLumi. Todos os direitos reservados.</span>
         <span>Produções que comunicam antes mesmo da primeira palavra.</span>
       </div>

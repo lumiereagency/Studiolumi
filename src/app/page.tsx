@@ -1,6 +1,7 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { MotionReel } from "@/components/MotionReel";
+import { ClientRoster } from "@/components/ClientRoster";
 import { Positioning } from "@/components/Positioning";
 import { Services } from "@/components/Services";
 import { HumanExperience } from "@/components/HumanExperience";
@@ -19,6 +20,7 @@ export default function Home() {
       <main>
         <Hero />
         <MotionReel />
+        <ClientRoster />
         <Positioning />
         <Services />
         <HumanExperience />

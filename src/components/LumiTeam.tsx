@@ -247,7 +247,7 @@ export function LumiTeam() {
                 <RoleIcon icon={active.icon} className="h-3.5 w-3.5 text-orange-bright" />
               </span>
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-5">
-                <span className="text-[10px] uppercase tracking-[0.24em] text-paper/40">Em breve</span>
+                <span className="text-[10px] uppercase tracking-[0.24em] text-paper/55">Em breve</span>
                 <p className="font-display mt-1 text-xl font-medium text-paper">{active.role}</p>
               </div>
             </motion.div>

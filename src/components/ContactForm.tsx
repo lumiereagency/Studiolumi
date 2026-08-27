@@ -156,7 +156,7 @@ export function ContactForm() {
 }
 
 const inputClass =
-  "w-full rounded-lg border border-line-strong bg-transparent px-4 py-3 text-sm text-paper placeholder:text-paper/35 outline-none transition-colors focus:border-orange-bright";
+  "w-full rounded-lg border border-line-strong bg-transparent px-4 py-3 text-sm text-paper placeholder:text-paper/45 outline-none transition-colors focus:border-orange-bright";
 
 function Field({
   label,

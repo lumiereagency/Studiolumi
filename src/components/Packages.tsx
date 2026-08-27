@@ -140,7 +140,7 @@ export function Packages() {
                   <p className="font-display text-lg text-paper">
                     Sob consulta
                   </p>
-                  <p className="mt-1 text-xs text-paper/40">
+                  <p className="mt-1 text-xs text-paper/55">
                     Investimento definido conforme briefing
                   </p>
                   <a

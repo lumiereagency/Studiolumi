@@ -49,7 +49,7 @@ export function Hero() {
           className="flex items-start justify-between"
         >
           <Eyebrow>Produção audiovisual</Eyebrow>
-          <span className="hidden text-xs font-medium uppercase tracking-[0.28em] text-paper/40 sm:block">
+          <span className="hidden text-xs font-medium uppercase tracking-[0.28em] text-paper/55 sm:block">
             Direção criativa
           </span>
         </motion.div>
@@ -110,7 +110,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6, duration: 1 }}
-        className="pointer-events-none absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-paper/40 md:flex"
+        className="pointer-events-none absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-paper/55 md:flex"
       >
         <span className="text-[10px] uppercase tracking-[0.3em]">Role</span>
         <motion.span
