@@ -22,18 +22,17 @@ export function StudioStandard() {
 
       <div className="container-lumi relative">
         <Reveal className="max-w-xl">
-          <Eyebrow>Como operamos</Eyebrow>
+          <Eyebrow>Acesso</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Poucos projetos por vez.
-            <br />O mesmo padrão em todos.
+            Você não contrata o StudioLumi.
+            <br />Você entra na lista dele.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/70 md:text-lg">
-            Da direção à entrega, a mesma equipe acompanha o projeto do
-            início ao fim. Isso limita quantos projetos o StudioLumi conduz
-            ao mesmo tempo, e é esse limite que sustenta o padrão.
+            O acesso começa por um formulário. A partir do envio, o estúdio
+            avalia o projeto e retorna diretamente com os próximos passos.
           </p>
           <p className="mt-8 text-sm text-paper/55">
-            Por isso, cada projeto novo começa com uma conversa.
+            Preencha o formulário abaixo e aguarde nosso retorno.
           </p>
         </Reveal>
       </div>
