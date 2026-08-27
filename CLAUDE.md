@@ -63,5 +63,5 @@ Portuguese (pt-BR). Premium, direct, editorial. **No em-dashes** in any user-vis
 
 ## Known incomplete pieces
 
-- `src/app/api/contact/route.ts` validates the contact form and only `console.log`s the payload — it does not send anywhere yet. Needs a real provider (e.g. Resend) wired in before launch.
+- `src/app/api/contact/route.ts` sends via Resend when `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and `CONTACT_FROM_EMAIL` are set (see `.env.example`); without them it falls back to `console.log`/`console.warn` so the form still works in local dev. Needs those three env vars set in production before launch.
 - Lumi Team and Criadores UGC sections are intentional placeholders, waiting on real photos/names.
