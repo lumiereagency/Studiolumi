@@ -2,7 +2,6 @@ import { LogoMark } from "./LogoMark";
 
 const NAV = [
   { label: "Experiência", href: "#experiencia" },
-  { label: "Portfólio", href: "#portfolio" },
   { label: "Processo", href: "#processo" },
   { label: "Pacotes", href: "#pacotes" },
   { label: "Contato", href: "#contato" },

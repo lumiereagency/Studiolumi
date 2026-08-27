@@ -4,11 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { LogoMark } from "./LogoMark";
 
 /**
- * Auto-advancing 9:16 coverflow for UGC creators. Same rig family as
- * CardCylinder (magnetic-snap easing, perspective-exact edge alignment,
- * direct DOM writes per frame) but a slow autoplay drift instead of a
- * resting idle state, since this one is meant to keep turning on its own
- * until a visitor steps in.
+ * Auto-advancing 9:16 coverflow for people cards (team, UGC creators).
+ * Same rig family as CardCylinder (magnetic-snap easing, perspective-exact
+ * edge alignment, direct DOM writes per frame) but a slow autoplay drift
+ * instead of a resting idle state, since this one is meant to keep turning
+ * on its own until a visitor steps in.
  */
 
 const GAP = 26;
@@ -363,9 +363,11 @@ export function InfluencerCarousel({ creators }: { creators: Creator[] }) {
                       <div className="absolute inset-x-0 bottom-0 p-5">
                         {creator.name ? (
                           <>
-                            <span className="text-[10px] uppercase tracking-[0.24em] text-paper/55">
-                              {creator.handle}
-                            </span>
+                            {creator.handle && (
+                              <span className="text-[10px] uppercase tracking-[0.24em] text-paper/55">
+                                {creator.handle}
+                              </span>
+                            )}
                             <h3 className="font-display mt-1 text-lg font-medium text-paper">
                               {creator.name}
                             </h3>

@@ -65,22 +65,15 @@ export function Hero() {
           Produção que entrega.
         </motion.h1>
 
-        <motion.div
+        <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 flex max-w-md flex-col gap-3 text-sm leading-relaxed text-paper/55 md:text-base"
+          className="mt-8 max-w-md text-sm leading-relaxed text-paper/55 md:text-base"
         >
-          <p>
-            O StudioLumi desenvolve produções audiovisuais para marcas,
-            empresas e profissionais que precisam comunicar com clareza,
-            presença e padrão de qualidade.
-          </p>
-          <p>
-            Da estratégia à entrega, unimos direção, produção e pós-produção
-            em uma única operação.
-          </p>
-        </motion.div>
+          Direção, produção e pós-produção em uma única operação, para marcas
+          que não abrem mão de padrão.
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -92,13 +85,13 @@ export function Hero() {
             href="#contato"
             className="group inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-medium text-ink transition-transform duration-300 hover:scale-[1.03]"
           >
-            Conheça o StudioLumi
+            Iniciar um projeto
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
           </a>
           <a
-            href="#portfolio"
+            href="#experiencia"
             className="inline-flex items-center gap-2 rounded-full border border-line-strong px-7 py-3.5 text-sm font-medium text-paper transition-colors duration-300 hover:border-orange-bright hover:text-orange-bright"
           >
             Ver produções

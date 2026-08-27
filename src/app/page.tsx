@@ -6,7 +6,6 @@ import { Positioning } from "@/components/Positioning";
 import { Services } from "@/components/Services";
 import { HumanExperience } from "@/components/HumanExperience";
 import { LumiTeam } from "@/components/LumiTeam";
-import { Portfolio } from "@/components/Portfolio";
 import { Process } from "@/components/Process";
 import { Manifesto } from "@/components/Manifesto";
 import { Packages } from "@/components/Packages";
@@ -25,7 +24,7 @@ export default function Home() {
         <Services />
         <HumanExperience />
         <LumiTeam />
-        <Portfolio />
+        {/* <Portfolio /> — Criadores UGC volta quando tivermos criadores parceiros reais para mostrar. */}
         <Process />
         <Manifesto />
         <Packages />

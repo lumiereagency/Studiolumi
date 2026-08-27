@@ -8,7 +8,6 @@ import { Sheet, SheetContent, SheetTitle, SheetDescription } from "./ui/sheet";
 
 const LINKS = [
   { href: "#experiencia", label: "Experiência" },
-  { href: "#portfolio", label: "Portfólio" },
   { href: "#processo", label: "Processo" },
   { href: "#pacotes", label: "Pacotes" },
 ];
