@@ -56,9 +56,31 @@ const CATEGORIES: ReelCategory[] = [
   },
 ];
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://studiolumi.com.br";
+
+const videoListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: CATEGORIES.map((category, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "VideoObject",
+      name: category.label,
+      description: category.tagline,
+      thumbnailUrl: category.poster ? `${siteUrl}${category.poster}` : undefined,
+      contentUrl: category.videoSrc ? `${siteUrl}${category.videoSrc}` : undefined,
+    },
+  })),
+};
+
 export function MotionReel() {
   return (
     <section id="experiencia" className="relative scroll-mt-24 bg-ink py-20 md:py-36">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(videoListJsonLd) }}
+      />
       <div className="container-lumi">
         <Reveal className="max-w-xl">
           <Eyebrow>Cases</Eyebrow>

@@ -54,7 +54,7 @@ const SERVICES: Service[] = [
 
 export function Services() {
   const [active, setActive] = useState(0);
-  const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const rowRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -97,13 +97,18 @@ export function Services() {
 
         <div className="relative mx-auto mt-14 max-w-2xl md:mt-20">
           {SERVICES.map((service, i) => (
-            <div
+            <button
               key={service.id}
+              type="button"
               ref={(el) => {
                 rowRefs.current[i] = el;
               }}
               data-index={i}
-              className="relative flex min-h-[18vh] flex-col justify-center border-b border-line py-6 pl-7 first:pt-0 last:border-b-0 lg:min-h-[24vh]"
+              onClick={() =>
+                rowRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "center" })
+              }
+              aria-current={active === i}
+              className="group relative flex min-h-[18vh] w-full flex-col justify-center border-b border-line py-6 pl-7 text-left first:pt-0 last:border-b-0 lg:min-h-[24vh]"
             >
               {active === i && (
                 <motion.span
@@ -115,7 +120,7 @@ export function Services() {
               <span
                 className={cn(
                   "font-display text-3xl font-medium transition-colors duration-500 md:text-4xl",
-                  active === i ? "text-paper" : "text-paper/25"
+                  active === i ? "text-paper" : "text-paper/25 group-hover:text-paper/45"
                 )}
               >
                 {service.label}
@@ -123,12 +128,12 @@ export function Services() {
               <p
                 className={cn(
                   "mt-3 max-w-sm text-sm leading-relaxed transition-colors duration-500 md:text-base",
-                  active === i ? "text-paper/60" : "text-paper/20"
+                  active === i ? "text-paper/60" : "text-paper/20 group-hover:text-paper/35"
                 )}
               >
                 {service.text}
               </p>
-            </div>
+            </button>
           ))}
         </div>
       </div>
