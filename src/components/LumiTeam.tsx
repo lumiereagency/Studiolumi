@@ -31,7 +31,11 @@ export function LumiTeam() {
       </div>
 
       <Reveal delay={0.15} className="mt-14 md:mt-20">
-        <InfluencerCarousel creators={TEAM} />
+        <InfluencerCarousel
+          creators={TEAM}
+          regionLabel="Carrossel da equipe StudioLumi. Arraste ou use as setas para navegar."
+          itemLabel="integrante"
+        />
       </Reveal>
     </section>
   );

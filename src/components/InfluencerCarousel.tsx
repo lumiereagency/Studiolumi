@@ -42,7 +42,15 @@ function computeMetrics(vw: number, vh: number) {
   return { cardW: Math.round(cardW), cardH: Math.round(cardH) };
 }
 
-export function InfluencerCarousel({ creators }: { creators: Creator[] }) {
+export function InfluencerCarousel({
+  creators,
+  regionLabel = "Carrossel de criadores UGC parceiros do StudioLumi. Arraste ou use as setas para navegar.",
+  itemLabel = "criador",
+}: {
+  creators: Creator[];
+  regionLabel?: string;
+  itemLabel?: string;
+}) {
   const count = creators.length;
   const stageRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -273,7 +281,7 @@ export function InfluencerCarousel({ creators }: { creators: Creator[] }) {
         }}
         tabIndex={0}
         role="region"
-        aria-label="Carrossel de criadores UGC parceiros do StudioLumi. Arraste ou use as setas para navegar."
+        aria-label={regionLabel}
       >
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div
@@ -411,7 +419,7 @@ export function InfluencerCarousel({ creators }: { creators: Creator[] }) {
         <button
           type="button"
           onClick={() => { paused.current = true; step(-1); }}
-          aria-label="Criador anterior"
+          aria-label={`${itemLabel} anterior`}
           className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong text-paper transition-colors hover:border-orange-bright hover:text-orange-bright"
         >
           ←
@@ -422,7 +430,7 @@ export function InfluencerCarousel({ creators }: { creators: Creator[] }) {
               key={creator.id}
               type="button"
               onClick={() => { paused.current = true; goTo(i); }}
-              aria-label={`Ir para criador ${i + 1}`}
+              aria-label={`Ir para ${itemLabel} ${i + 1}`}
               aria-current={i === active}
               className={
                 i === active
@@ -435,7 +443,7 @@ export function InfluencerCarousel({ creators }: { creators: Creator[] }) {
         <button
           type="button"
           onClick={() => { paused.current = true; step(1); }}
-          aria-label="Próximo criador"
+          aria-label={`Próximo ${itemLabel}`}
           className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong text-paper transition-colors hover:border-orange-bright hover:text-orange-bright"
         >
           →
