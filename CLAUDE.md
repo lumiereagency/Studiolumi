@@ -1,5 +1,41 @@
 @AGENTS.md
 
+# Studio Lumi — Instruções do Projeto
+
+## Objetivo
+
+Transformar o site do Studio Lumi em um portfólio audiovisual premium, cinematográfico, moderno e altamente responsivo.
+
+## Regras
+
+- Preservar rotas, conteúdos e funcionalidades existentes.
+- Não substituir componentes funcionais sem justificativa.
+- Não utilizar componentes aleatórios apenas por serem visualmente chamativos.
+- Priorizar performance, acessibilidade e responsividade.
+- Usar shadcn/ui como base estrutural.
+- Usar 21st.dev para blocos e composições.
+- Usar React Bits e Magic UI somente em animações estratégicas.
+- Respeitar `prefers-reduced-motion`.
+- Evitar excesso de blur, glow, gradientes e partículas.
+- Não criar aparência genérica de site produzido por IA.
+- Testar desktop, tablet e mobile.
+- Executar lint, typecheck e build após cada etapa.
+- Trabalhar uma seção por vez.
+- Apresentar o plano antes de mudanças estruturais.
+
+## Direção
+
+O site deve transmitir:
+
+- Direção criativa
+- Produção audiovisual
+- Cinema
+- Tecnologia
+- Sofisticação
+- Movimento
+- Credibilidade
+- Identidade autoral
+
 # StudioLumi — Engineering Guide
 
 ## Stack
