@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { LogoMark } from "./LogoMark";
 import { cn } from "@/lib/utils";
+import { Sheet, SheetContent, SheetTitle, SheetDescription } from "./ui/sheet";
 
 const LINKS = [
   { href: "#experiencia", label: "Experiência" },
@@ -102,59 +103,57 @@ export function Nav() {
         </button>
       </nav>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: reduceMotion ? 0.01 : 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="h-[calc(100dvh-5rem)] overflow-y-auto bg-ink md:hidden"
-          >
-            <ul className="container-lumi flex flex-col gap-2 pb-20 pt-8">
-              {LINKS.map((link, i) => (
-                <motion.li
-                  key={link.href}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: reduceMotion ? 0.01 : 0.45,
-                    delay: reduceMotion ? 0 : 0.08 + i * 0.06,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  className="border-b border-line"
-                >
-                  <a
-                    href={link.href}
-                    onClick={close}
-                    className="font-display block py-4 text-3xl font-medium text-paper transition-colors active:text-orange-bright"
-                  >
-                    {link.label}
-                  </a>
-                </motion.li>
-              ))}
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetContent
+          open={open}
+          showOverlay={false}
+          className="inset-x-0 top-20 h-[calc(100dvh-5rem)] w-full overflow-y-auto md:hidden"
+        >
+          <SheetTitle className="sr-only">Menu de navegação</SheetTitle>
+          <SheetDescription className="sr-only">Links de navegação do StudioLumi</SheetDescription>
+          <ul className="container-lumi flex flex-col gap-2 pb-20 pt-8">
+            {LINKS.map((link, i) => (
               <motion.li
+                key={link.href}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: reduceMotion ? 0.01 : 0.45,
-                  delay: reduceMotion ? 0 : 0.08 + LINKS.length * 0.06,
+                  delay: reduceMotion ? 0 : 0.08 + i * 0.06,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="mt-6"
+                className="border-b border-line"
               >
                 <a
-                  href="#contato"
+                  href={link.href}
                   onClick={close}
-                  className="inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-medium text-ink"
+                  className="font-display block py-4 text-3xl font-medium text-paper transition-colors active:text-orange-bright"
                 >
-                  Iniciar um projeto →
+                  {link.label}
                 </a>
               </motion.li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ))}
+            <motion.li
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: reduceMotion ? 0.01 : 0.45,
+                delay: reduceMotion ? 0 : 0.08 + LINKS.length * 0.06,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="mt-6"
+            >
+              <a
+                href="#contato"
+                onClick={close}
+                className="inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-medium text-ink"
+              >
+                Iniciar um projeto →
+              </a>
+            </motion.li>
+          </ul>
+        </SheetContent>
+      </Sheet>
     </motion.header>
   );
 }
