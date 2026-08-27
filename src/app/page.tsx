@@ -9,6 +9,7 @@ import { LumiTeam } from "@/components/LumiTeam";
 import { Process } from "@/components/Process";
 import { Manifesto } from "@/components/Manifesto";
 import { Packages } from "@/components/Packages";
+import { StudioStandard } from "@/components/StudioStandard";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 
@@ -28,6 +29,7 @@ export default function Home() {
         <Process />
         <Manifesto />
         <Packages />
+        <StudioStandard />
         <FinalCTA />
       </main>
       <Footer />
