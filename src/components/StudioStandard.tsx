@@ -24,12 +24,12 @@ export function StudioStandard() {
         <Reveal className="max-w-xl">
           <Eyebrow>Acesso</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Você não contrata o StudioLumi.
-            <br />Você entra na lista dele.
+            Você não nos contrata como um estúdio.
+            <br />Você entra para a nossa lista.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/70 md:text-lg">
-            O acesso começa por um formulário. A partir do envio, o estúdio
-            avalia o projeto e retorna diretamente com os próximos passos.
+            O acesso começa por um formulário. A partir do envio, avaliamos
+            o projeto e retornamos diretamente com os próximos passos.
           </p>
           <p className="mt-8 text-sm text-paper/55">
             Preencha o formulário abaixo e aguarde nosso retorno.
