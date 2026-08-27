@@ -22,17 +22,13 @@ export function StudioStandard() {
 
       <div className="container-lumi relative">
         <Reveal className="max-w-xl">
-          <Eyebrow>Acesso</Eyebrow>
+          <Eyebrow>Como trabalhamos</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Você não nos contrata como um estúdio.
-            <br />Você entra para a nossa lista.
+            Cada projeto recebe atenção do início ao fim.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/70 md:text-lg">
-            O acesso começa por um formulário. A partir do envio, avaliamos
-            o projeto e retornamos diretamente com os próximos passos.
-          </p>
-          <p className="mt-8 text-sm text-paper/55">
-            Preencha o formulário abaixo e aguarde nosso retorno.
+            Não trabalhamos em série. Conte sua ideia e vamos conversar
+            sobre o próximo passo.
           </p>
         </Reveal>
       </div>
