@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { LogoMark } from "./LogoMark";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from "./ui/sheet";
+import { buttonVariants } from "./ui/button";
 
 const LINKS = [
   { href: "#experiencia", label: "Experiência" },
@@ -75,7 +76,7 @@ export function Nav() {
 
         <a
           href="#contato"
-          className="hidden rounded-full border border-line-strong px-5 py-2.5 text-sm text-paper transition-colors hover:border-orange-bright hover:text-orange-bright md:inline-block"
+          className={cn(buttonVariants({ variant: "secondary", size: "nav" }), "hidden md:inline-block")}
         >
           Iniciar um projeto
         </a>
@@ -145,7 +146,7 @@ export function Nav() {
               <a
                 href="#contato"
                 onClick={close}
-                className="inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-medium text-ink"
+                className={buttonVariants({ variant: "primary" })}
               >
                 Iniciar um projeto →
               </a>

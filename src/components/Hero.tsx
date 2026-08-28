@@ -2,6 +2,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Eyebrow";
+import { buttonVariants } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -83,17 +85,14 @@ export function Hero() {
         >
           <a
             href="#contato"
-            className="group inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm font-medium text-ink transition-transform duration-300 hover:scale-[1.03]"
+            className={cn(buttonVariants({ variant: "primary" }), "group transition-transform duration-300 hover:scale-[1.03]")}
           >
             Iniciar um projeto
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
           </a>
-          <a
-            href="#experiencia"
-            className="inline-flex items-center gap-2 rounded-full border border-line-strong px-7 py-3.5 text-sm font-medium text-paper transition-colors duration-300 hover:border-orange-bright hover:text-orange-bright"
-          >
+          <a href="#experiencia" className={buttonVariants({ variant: "secondary" })}>
             Ver produções
           </a>
         </motion.div>

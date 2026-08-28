@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { LogoMark } from "./LogoMark";
 import { ReelPattern, type ReelCategory } from "./ReelPatterns";
+import { Button } from "./ui/button";
 
 /**
  * High-performance 3D "cylinder" carousel for 9:16 reels. Cards sit on a
@@ -461,14 +462,15 @@ export function CardCylinder({ categories }: { categories: ReelCategory[] }) {
     </div>
 
       <div className="flex items-center gap-6">
-        <button
+        <Button
           type="button"
           onClick={() => step(-1)}
           aria-label="Item anterior"
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong text-paper transition-colors hover:border-orange-bright hover:text-orange-bright"
+          variant="icon"
+          size="icon"
         >
           ←
-        </button>
+        </Button>
         <div className="flex items-center gap-2">
           {categories.map((category, i) => (
             <button
@@ -485,14 +487,15 @@ export function CardCylinder({ categories }: { categories: ReelCategory[] }) {
             />
           ))}
         </div>
-        <button
+        <Button
           type="button"
           onClick={() => step(1)}
           aria-label="Próximo item"
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong text-paper transition-colors hover:border-orange-bright hover:text-orange-bright"
+          variant="icon"
+          size="icon"
         >
           →
-        </button>
+        </Button>
       </div>
     </div>
   );

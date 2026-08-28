@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { Marquee } from "./ui/marquee";
 
 const CLIENTS = [
   { name: "Meu Pé de Jacarandá", role: "Experiência & Eventos" },
@@ -20,16 +21,18 @@ export function ClientRoster() {
         </Reveal>
 
         <Reveal delay={0.1} className="mt-10 md:mt-12">
-          <ul className="flex flex-wrap items-baseline justify-center gap-x-10 gap-y-6 md:gap-x-14">
-            {CLIENTS.map((client) => (
-              <li key={client.name} className="flex flex-col items-center text-center">
-                <span className="font-display text-lg font-medium text-paper/85 md:text-xl">
-                  {client.name}
-                </span>
-                <span className="mt-1 text-xs text-paper/55">{client.role}</span>
-              </li>
-            ))}
-          </ul>
+          <Marquee>
+            <ul className="flex shrink-0 items-baseline gap-14">
+              {CLIENTS.map((client) => (
+                <li key={client.name} className="flex flex-col items-center whitespace-nowrap text-center">
+                  <span className="font-display text-lg font-medium text-paper/85 md:text-xl">
+                    {client.name}
+                  </span>
+                  <span className="mt-1 text-xs text-paper/55">{client.role}</span>
+                </li>
+              ))}
+            </ul>
+          </Marquee>
         </Reveal>
       </div>
     </section>

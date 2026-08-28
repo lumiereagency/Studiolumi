@@ -1,6 +1,9 @@
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
 import { cn } from "@/lib/utils";
+import { Badge } from "./ui/badge";
+import { buttonVariants } from "./ui/button";
+import { SpotlightCard } from "./ui/spotlight-card";
 
 type Tier = {
   id: string;
@@ -101,19 +104,15 @@ export function Packages() {
         <div className="mt-16 grid gap-5 md:mt-20 lg:grid-cols-3">
           {TIERS.map((tier, i) => (
             <Reveal key={tier.id} delay={i * 0.1}>
-              <div
+              <SpotlightCard
                 className={cn(
-                  "flex h-full flex-col rounded-2xl border p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl md:p-9",
+                  "rounded-2xl border p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl md:p-9",
                   tier.highlighted
                     ? "border-orange-bright/40 bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_0_60px_-15px_rgba(241,96,1,0.45)]"
                     : "border-white/10 bg-white/[0.05]"
                 )}
               >
-                {tier.highlighted && (
-                  <span className="mb-6 inline-flex w-fit items-center rounded-full border border-orange-bright/40 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-orange-bright">
-                    Mais escolhido
-                  </span>
-                )}
+                {tier.highlighted && <Badge className="mb-6">Mais escolhido</Badge>}
 
                 <h3 className="font-display text-2xl font-medium text-paper">
                   {tier.name}
@@ -146,16 +145,18 @@ export function Packages() {
                   <a
                     href="#contato"
                     className={cn(
-                      "mt-5 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition-colors duration-300",
-                      tier.highlighted
-                        ? "bg-paper text-ink hover:bg-orange-bright hover:text-ink"
-                        : "border border-line-strong text-paper hover:border-orange-bright hover:text-orange-bright"
+                      buttonVariants({
+                        variant: tier.highlighted ? "primary" : "secondary",
+                        size: "sm",
+                      }),
+                      "mt-5 w-full",
+                      tier.highlighted && "hover:bg-orange-bright hover:text-ink"
                     )}
                   >
                     Falar sobre este pacote
                   </a>
                 </div>
-              </div>
+              </SpotlightCard>
             </Reveal>
           ))}
         </div>

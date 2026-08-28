@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { LogoMark } from "./LogoMark";
+import { Button } from "./ui/button";
 
 /**
  * Auto-advancing 9:16 coverflow for people cards (team, UGC creators).
@@ -416,14 +417,15 @@ export function InfluencerCarousel({
       </div>
 
       <div className="flex items-center gap-6">
-        <button
+        <Button
           type="button"
           onClick={() => { paused.current = true; step(-1); }}
           aria-label={`${itemLabel} anterior`}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong text-paper transition-colors hover:border-orange-bright hover:text-orange-bright"
+          variant="icon"
+          size="icon"
         >
           ←
-        </button>
+        </Button>
         <div className="flex items-center gap-2">
           {creators.map((creator, i) => (
             <button
@@ -440,14 +442,15 @@ export function InfluencerCarousel({
             />
           ))}
         </div>
-        <button
+        <Button
           type="button"
           onClick={() => { paused.current = true; step(1); }}
           aria-label={`Próximo ${itemLabel}`}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong text-paper transition-colors hover:border-orange-bright hover:text-orange-bright"
+          variant="icon"
+          size="icon"
         >
           →
-        </button>
+        </Button>
       </div>
     </div>
   );
