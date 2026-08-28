@@ -39,21 +39,27 @@ Shared CSS utilities: `.text-gradient-lumi` (animated brand-color text gradient)
 
 ## Component patterns
 
-- **CTA buttons**: primary = `rounded-full bg-paper text-ink`, secondary = `rounded-full border border-line-strong` with `hover:border-orange-bright hover:text-orange-bright`. Reused verbatim in Hero, Packages, and FinalCTA — don't introduce a third button style.
+- **CTA buttons**: `src/components/ui/button.tsx` — `buttonVariants({ variant, size })` (variants `primary`/`secondary`/`icon`, sizes `default`/`sm`/`nav`/`icon`). Use this instead of hand-rolling another pill-button className; it already covers every button style used site-wide.
+- **Badges**: `src/components/ui/badge.tsx` — the orange-bordered "accent" pill (e.g. Packages' "Mais escolhido").
 - **Cards**: `rounded-2xl` (or `rounded-xl` for smaller cards), `border border-line` (or `border-line-strong` for emphasis), dark fill (`bg-ink-soft` / `bg-ink-elevated`).
-- **Carousels**: two custom rAF-driven 3D coverflow engines, `CardCylinder` (Cases, real client videos) and `InfluencerCarousel` (Criadores UGC, autoplay drift). Both share the same math lineage — see `CLAUDE.md`'s high-risk section before touching either.
+- **Carousels**: two custom rAF-driven 3D coverflow engines, `CardCylinder` (Cases, real client videos) and `InfluencerCarousel` (generic people-carousel — Lumi Team today, Criadores UGC when it returns). Both share the same math lineage — see `CLAUDE.md`'s high-risk section before touching either.
+- **Marquee**: `src/components/ui/marquee.tsx` — infinite horizontal scroll for short repeating content (client names in `ClientRoster`). Pauses on hover; do not use for anything the reader needs to read carefully, it's a trust-signal skim pattern, not a reading pattern.
+- **Spotlight card**: `src/components/ui/spotlight-card.tsx` — cursor-tracked glow on hover (Packages tier cards). One strategic hover moment; don't spread it across every card on the site or it stops reading as special.
 
 ## Section inventory (current, in page order)
 
-1. **Hero** — left-aligned editorial headline with a gradient accent word, small corner labels, warm one-sided glow, two CTAs.
-2. **Cases** (`MotionReel`) — 3D video coverflow with real client footage (Meu Pé de Jacarandá, Sérgio Mallandro, Bruno Carvalho, Joyce Turques, Paola Passos, Luciana Grion).
-3. **Positioning** — two-column statement + a row of capability tags.
-4. **Services** — single-column list with a sliding active-indicator and a color-shifting ambient glow (no photos).
-5. **Experiência** (`HumanExperience`) — three numbered differentials, each with a label and a supporting description.
-6. **Lumi Team** — fanned card deck (auto-cycling front card) with click-to-expand modal; roles are real, names/photos are placeholder ("Em breve").
-7. **Criadores UGC** (`Portfolio`) — 9:16 autoplay coverflow; all six creator slots are placeholder pending real names/photos.
+1. **Hero** — uppercase editorial headline with a gradient accent word, small corner labels, warm one-sided glow, one tight body line, two CTAs (`buttonVariants`).
+2. **Cases** (`MotionReel`) — 3D video coverflow with real client footage (Meu Pé de Jacarandá, Sérgio Mallandro, Bruno Carvalho, Joyce Turques, Paola Passos, Luciana Grion). Also emits an `ItemList`/`VideoObject` JSON-LD block for those six videos.
+3. **Client roster** (`ClientRoster`) — a `Marquee` of the same six real client names/roles, reused as a lightweight trust strip right after Cases.
+4. **Positioning** — two-column statement + a row of capability tags.
+5. **Services** — single-column list, now real `<button>` rows (click or Tab to jump to any service, not just scroll-spy), sliding active-indicator, color-shifting ambient glow.
+6. **Experiência** (`HumanExperience`) — three numbered differentials, each with a label and a supporting description.
+7. **Lumi Team** — `InfluencerCarousel` showing real role names (Fundador & CEO, Cofundadora, Copywriter, Videomaker, Fotógrafa, Storymaker) with a silhouette placeholder until photos are added. No longer the old fanned-deck/modal layout.
 8. **Processo** — four-step list (Imersão → Direção → Produção → Pós-produção).
 9. **Manifesto** — centered statement + signature block.
-10. **Pacotes** — three pricing tiers (Mobile / Produção / Cinema), priced "sob consulta" with no reference range.
-11. **FinalCTA** — contact form (`ContactForm.tsx`); submit currently only logs server-side, see `CLAUDE.md`.
-12. **Footer**.
+10. **Pacotes** — three pricing tiers (Mobile / Produção / Cinema) as `SpotlightCard`s, priced "sob consulta" with no reference range.
+11. **Como trabalhamos** (`StudioStandard`) — a dimmed real case video (Paola Passos/Uniher) as backdrop, with copy positioning the studio's care/standard ahead of the final CTA. Went through several copy rewrites this project — see git history on `StudioStandard.tsx` before changing the tone again; the short version: no capacity/busyness language, no language that evaluates the client, first-person ("nós"), calm rather than assertive.
+12. **FinalCTA** — contact form (`ContactForm.tsx`); submits via Resend when configured, see `CLAUDE.md`.
+13. **Footer**.
+
+**Not currently mounted**: **Criadores UGC** (`Portfolio.tsx`) — built, working, just commented out in `page.tsx` until there are real partner creators to show. **Depoimentos** — not built at all, no real quotes exist yet.
