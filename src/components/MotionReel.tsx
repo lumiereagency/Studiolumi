@@ -46,14 +46,6 @@ const CATEGORIES: ReelCategory[] = [
     videoSrc: "/videos/case-paola.mp4",
     poster: "/videos/case-paola-poster.jpg",
   },
-  {
-    id: "luciana-grion",
-    label: "Luciana Grion",
-    tagline: "CEO & Fundadora, Studio9.",
-    pattern: "social",
-    videoSrc: "/videos/case-luciana.mp4",
-    poster: "/videos/case-luciana-poster.jpg",
-  },
 ];
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://studiolumi.com.br";

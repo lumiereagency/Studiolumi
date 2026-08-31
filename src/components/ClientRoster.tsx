@@ -7,7 +7,6 @@ const CLIENTS = [
   { name: "Bruno Carvalho", role: "CEO & Fundador, BBox Training" },
   { name: "Joyce Turques", role: "Esteticista & Biomédica" },
   { name: "Paola Passos", role: "Fundadora, Uniher" },
-  { name: "Luciana Grion", role: "CEO & Fundadora, Studio9" },
 ];
 
 export function ClientRoster() {

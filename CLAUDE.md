@@ -70,7 +70,7 @@ Portuguese (pt-BR). Premium, direct, editorial. **No em-dashes** in any user-vis
 ## Known incomplete pieces
 
 - `src/app/api/contact/route.ts` sends via Resend when `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and `CONTACT_FROM_EMAIL` are set (see `.env.example`); without them it falls back to `console.log`/`console.warn` so the form still works in local dev. Needs those three env vars set in production before launch.
-- **Lumi Team** (`LumiTeam.tsx`): roles are real, photos are not yet — add `image: "/team/nome.jpg"` to each `TEAM` entry as photos come in.
+- **Lumi Team** (`LumiTeam.tsx`): 5 real members with real photos in `/public/team/` (Gustavo Turques/Fundador, Ingrid Cardoso/Cofundadora, Mariene Beatriz/Social Media, Attaner Peixoto/Fotógrafo, Jonny Lucas/Videomaker). Photos are stored as `name` = person's real name, `handle` = their role, matching how UGC creators would eventually be shown.
 - **Criadores UGC** (`Portfolio.tsx`): unmounted from `page.tsx` (commented out) until there are real partner creators to show. The component and its `InfluencerCarousel` usage are untouched, so bringing it back is a one-line change in `page.tsx`.
 - **Depoimentos**: deliberately not built. No real client testimonials exist yet, and CLAUDE.md's own copy-voice rule forbids fabricating them; a placeholder "Em breve" testimonials section would also undercut the exclusivity positioning built into `StudioStandard.tsx`. Build it only once real quotes are supplied.
 - Footer's Instagram/YouTube/LinkedIn links (`Footer.tsx`) are generic homepage placeholders, not real profile URLs — don't invent handles, wait for the real links.

@@ -2,14 +2,12 @@ import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
 import { InfluencerCarousel, type Creator } from "./InfluencerCarousel";
 
-/** Add `image: "/team/nome.jpg"` to each entry once the real photos land in /public/team. */
 const TEAM: Creator[] = [
-  { id: "founder", name: "Fundador & CEO" },
-  { id: "cofounder", name: "Cofundadora" },
-  { id: "copywriter", name: "Copywriter" },
-  { id: "videomaker", name: "Videomaker" },
-  { id: "photographer", name: "Fotógrafa" },
-  { id: "storymaker", name: "Storymaker" },
+  { id: "gustavo-turques", name: "Gustavo Turques", handle: "Fundador", image: "/team/gustavo-turques.jpg" },
+  { id: "ingrid-cardoso", name: "Ingrid Cardoso", handle: "Cofundadora", image: "/team/ingrid-cardoso.jpg" },
+  { id: "mariene-beatriz", name: "Mariene Beatriz", handle: "Social Media", image: "/team/mariene-beatriz.jpg" },
+  { id: "attaner-peixoto", name: "Attaner Peixoto", handle: "Fotógrafo", image: "/team/attaner-peixoto.jpg" },
+  { id: "jonny-lucas", name: "Jonny Lucas", handle: "Videomaker", image: "/team/jonny-lucas.jpg" },
 ];
 
 export function LumiTeam() {
