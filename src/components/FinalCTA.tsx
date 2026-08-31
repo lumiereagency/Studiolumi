@@ -19,9 +19,7 @@ export function FinalCTA() {
             projeto.
           </p>
           <p className="mt-10 text-sm text-paper/55">
-            Direção, produção e pós-produção.
-            <br />
-            Uma única operação.
+            A mesma equipe, do roteiro à entrega.
           </p>
         </Reveal>
 

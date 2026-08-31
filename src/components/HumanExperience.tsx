@@ -26,14 +26,13 @@ export function HumanExperience() {
         <Reveal>
           <Eyebrow>Experiência</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Uma produção premium começa antes da câmera.
+            Nada no resultado final é por acaso.
           </h2>
           <p className="mt-6 max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
-            Cada projeto recebe atenção proporcional ao que precisa
-            entregar. Entendemos o contexto, alinhamos objetivos, definimos
-            a linguagem e construímos a produção antes da captação. O
-            resultado é mais controle, mais consistência e uma entrega
-            pensada para funcionar de verdade.
+            Direção, estética e entrega são decisões conscientes, tomadas
+            por quem já viu o que dá errado quando não são. É esse nível de
+            controle que separa uma produção de qualidade de uma produção
+            de sorte.
           </p>
         </Reveal>
 

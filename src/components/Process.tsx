@@ -18,10 +18,9 @@ export function Process() {
             Boas produções não começam na câmera.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Começam no entendimento. Antes da captação, definimos objetivo,
-            linguagem, roteiro, direção e estrutura de produção. Durante a
-            gravação, controlamos cada etapa. Na pós-produção, refinamos a
-            imagem até a entrega final.
+            Da imersão à entrega, cada etapa existe para eliminar
+            improviso. Esse encadeamento é o que transforma uma ideia em
+            produção pronta para publicar.
           </p>
         </Reveal>
 

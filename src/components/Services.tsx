@@ -124,14 +124,13 @@ export function Services() {
             </motion.div>
           </AnimatePresence>
 
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-2.5" role="tablist" aria-label="Serviços">
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-2.5">
             {SERVICES.map((s, i) => (
               <button
                 key={s.id}
                 type="button"
-                role="tab"
-                aria-selected={active === i}
-                aria-label={s.label}
+                aria-current={active === i}
+                aria-label={`Ir para ${s.label}`}
                 onClick={() => select(i)}
                 className={cn(
                   "h-1.5 rounded-full transition-all duration-500",
