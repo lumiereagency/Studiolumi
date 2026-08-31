@@ -52,7 +52,7 @@ Shared CSS utilities: `.text-gradient-lumi` (animated brand-color text gradient)
 2. **Cases** (`MotionReel`) — 3D video coverflow with real client footage (Meu Pé de Jacarandá, Sérgio Mallandro, Bruno Carvalho, Joyce Turques, Paola Passos, Luciana Grion). Also emits an `ItemList`/`VideoObject` JSON-LD block for those six videos.
 3. **Client roster** (`ClientRoster`) — a `Marquee` of the same six real client names/roles, reused as a lightweight trust strip right after Cases.
 4. **Positioning** — two-column statement + a row of capability tags.
-5. **Services** — single-column list, now real `<button>` rows (click or Tab to jump to any service, not just scroll-spy), sliding active-indicator, color-shifting ambient glow.
+5. **Services** — centered auto-advancing showcase: one large service title/description crossfades every ~4.8s (pauses on hover or manual tab click), numbered index, dot-tab row below, color-shifting ambient glow behind it.
 6. **Experiência** (`HumanExperience`) — three numbered differentials, each with a label and a supporting description.
 7. **Lumi Team** — `InfluencerCarousel` showing real role names (Fundador & CEO, Cofundadora, Copywriter, Videomaker, Fotógrafa, Storymaker) with a silhouette placeholder until photos are added. No longer the old fanned-deck/modal layout.
 8. **Processo** — four-step list (Imersão → Direção → Produção → Pós-produção).
