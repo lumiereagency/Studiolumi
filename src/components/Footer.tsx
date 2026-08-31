@@ -8,9 +8,7 @@ const NAV = [
 ];
 
 const SOCIAL = [
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "YouTube", href: "https://youtube.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
+  { label: "Instagram", href: "https://www.instagram.com/studiolumi_co/" },
 ];
 
 export function Footer() {
@@ -67,10 +65,10 @@ export function Footer() {
             <ul className="mt-4 flex flex-col gap-3">
               <li>
                 <a
-                  href="mailto:contato@studiolumi.com.br"
+                  href="mailto:lumiereagencyoficial@gmail.com"
                   className="text-sm text-paper/65 transition-colors hover:text-paper"
                 >
-                  contato@studiolumi.com.br
+                  lumiereagencyoficial@gmail.com
                 </a>
               </li>
               <li>

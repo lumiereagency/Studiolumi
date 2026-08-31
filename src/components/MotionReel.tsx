@@ -48,7 +48,7 @@ const CATEGORIES: ReelCategory[] = [
   },
 ];
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://studiolumi.com.br";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://studiolumi.company";
 
 const videoListJsonLd = {
   "@context": "https://schema.org",

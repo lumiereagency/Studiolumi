@@ -14,7 +14,7 @@ const inter = Inter({
   weight: ["300", "400", "500", "600"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://studiolumi.com.br";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://studiolumi.company";
 const title = "StudioLumi | Produção audiovisual premium";
 const description =
   "StudioLumi é uma produtora audiovisual estratégica. Direção, produção e pós-produção em uma única operação, da produção ágil para redes sociais a projetos cinematográficos.";
@@ -70,7 +70,7 @@ const organizationJsonLd = {
   url: siteUrl,
   logo: `${siteUrl}/opengraph-image`,
   description,
-  email: "contato@studiolumi.com.br",
+  email: "lumiereagencyoficial@gmail.com",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
