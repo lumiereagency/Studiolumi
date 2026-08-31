@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
 import { cn } from "@/lib/utils";
@@ -52,39 +52,42 @@ const SERVICES: Service[] = [
   },
 ];
 
+const AUTO_ADVANCE_MS = 4800;
+
 export function Services() {
   const [active, setActive] = useState(0);
-  const rowRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const paused = useRef(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = Number((entry.target as HTMLElement).dataset.index);
-            setActive(idx);
-          }
-        });
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
-    );
-    rowRefs.current.forEach((el) => el && observer.observe(el));
-    return () => observer.disconnect();
+    const id = setInterval(() => {
+      if (paused.current) return;
+      setActive((i) => (i + 1) % SERVICES.length);
+    }, AUTO_ADVANCE_MS);
+    return () => clearInterval(id);
   }, []);
+
+  const select = (i: number) => {
+    paused.current = true;
+    setActive(i);
+  };
+
+  const service = SERVICES[active];
+  const fadeDuration = reduceMotion ? 0.01 : 0.55;
 
   return (
     <section id="servicos" className="relative scroll-mt-24 overflow-hidden bg-ink py-20 md:py-36">
       <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <motion.div
-          animate={{ backgroundColor: SERVICES[active].glow }}
+          animate={{ backgroundColor: service.glow }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="h-[46vh] w-[46vh] rounded-full blur-[130px]"
         />
       </div>
 
       <div className="container-lumi relative">
-        <Reveal className="max-w-xl">
-          <Eyebrow>Serviços</Eyebrow>
+        <Reveal className="mx-auto max-w-xl text-center">
+          <Eyebrow className="justify-center">Serviços</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
             Seis formas de colocar sua marca em movimento.
           </h2>
@@ -95,46 +98,48 @@ export function Services() {
           </p>
         </Reveal>
 
-        <div className="relative mx-auto mt-14 max-w-2xl md:mt-20">
-          {SERVICES.map((service, i) => (
-            <button
+        <div
+          className="relative mx-auto mt-16 flex min-h-[280px] max-w-2xl flex-col items-center justify-center text-center md:mt-20 md:min-h-[320px]"
+          onMouseEnter={() => (paused.current = true)}
+          onMouseLeave={() => (paused.current = false)}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
               key={service.id}
-              type="button"
-              ref={(el) => {
-                rowRefs.current[i] = el;
-              }}
-              data-index={i}
-              onClick={() =>
-                rowRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "center" })
-              }
-              aria-current={active === i}
-              className="group relative flex min-h-[18vh] w-full flex-col justify-center border-b border-line py-6 pl-7 text-left first:pt-0 last:border-b-0 lg:min-h-[24vh]"
+              initial={{ opacity: 0, y: reduceMotion ? 0 : 18, filter: reduceMotion ? "none" : "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: reduceMotion ? 0 : -18, filter: reduceMotion ? "none" : "blur(6px)" }}
+              transition={{ duration: fadeDuration, ease: [0.16, 1, 0.3, 1] }}
+              aria-live="polite"
             >
-              {active === i && (
-                <motion.span
-                  layoutId="service-indicator"
-                  transition={{ type: "spring", stiffness: 380, damping: 34 }}
-                  className="absolute left-0 top-1/2 h-9 w-1 -translate-y-1/2 rounded-full bg-orange-bright"
-                />
-              )}
-              <span
-                className={cn(
-                  "font-display text-3xl font-medium transition-colors duration-500 md:text-4xl",
-                  active === i ? "text-paper" : "text-paper/25 group-hover:text-paper/45"
-                )}
-              >
-                {service.label}
+              <span className="font-display text-sm text-orange-bright/80">
+                {String(active + 1).padStart(2, "0")}
               </span>
-              <p
-                className={cn(
-                  "mt-3 max-w-sm text-sm leading-relaxed transition-colors duration-500 md:text-base",
-                  active === i ? "text-paper/60" : "text-paper/20 group-hover:text-paper/35"
-                )}
-              >
+              <h3 className="font-display mt-3 text-4xl font-medium text-paper md:text-6xl">
+                {service.label}
+              </h3>
+              <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
                 {service.text}
               </p>
-            </button>
-          ))}
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-2.5" role="tablist" aria-label="Serviços">
+            {SERVICES.map((s, i) => (
+              <button
+                key={s.id}
+                type="button"
+                role="tab"
+                aria-selected={active === i}
+                aria-label={s.label}
+                onClick={() => select(i)}
+                className={cn(
+                  "h-1.5 rounded-full transition-all duration-500",
+                  active === i ? "w-8 bg-orange-bright" : "w-1.5 bg-line-strong hover:bg-paper/40"
+                )}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
