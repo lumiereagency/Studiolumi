@@ -2,25 +2,25 @@ import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
 
 const STEPS = [
-  { n: "01", title: "Imersão", text: "Entendemos você, sua marca e o objetivo." },
-  { n: "02", title: "Estratégia", text: "Definimos o que precisa ser dito e como será percebido." },
-  { n: "03", title: "Produção", text: "Transformamos estratégia em imagem." },
-  { n: "04", title: "Pós-produção", text: "Editamos, refinamos e damos ritmo à história." },
-  { n: "05", title: "Entrega", text: "O conteúdo chega pronto para o lugar onde precisa performar." },
+  { n: "01", title: "Imersão", text: "Entendemos a marca, o contexto e o objetivo da produção." },
+  { n: "02", title: "Direção", text: "Transformamos o objetivo em conceito, linguagem e plano de produção." },
+  { n: "03", title: "Produção", text: "Captação com direção técnica, criativa e controle de cada detalhe." },
+  { n: "04", title: "Pós-produção", text: "Edição, tratamento, cor, motion e finalização para cada formato de entrega." },
 ];
 
 export function Process() {
   return (
-    <section id="processo" className="relative scroll-mt-24 border-y border-line bg-ink-soft py-28 md:py-36">
+    <section id="processo" className="relative scroll-mt-24 border-y border-line bg-ink-soft py-20 md:py-36">
       <div className="container-lumi">
         <Reveal className="max-w-2xl">
           <Eyebrow>Processo</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Grandes imagens não acontecem por acaso.
+            Boas produções não começam na câmera.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Existe estratégia antes da câmera. Direção durante a gravação. E
-            precisão em cada detalhe depois dela.
+            Da imersão à entrega, cada etapa existe para eliminar
+            improviso. Esse encadeamento é o que transforma uma ideia em
+            produção pronta para publicar.
           </p>
         </Reveal>
 

@@ -39,7 +39,7 @@
   --color-gray-dark: var(--gray-dark);
   --color-gray-light: var(--gray-light);
 
-  --font-display: var(--font-space-grotesk);
+  --font-display: var(--font-bricolage);
   --font-body: var(--font-inter);
 
   --animate-marquee: marquee 32s linear infinite;
@@ -52,6 +52,7 @@
 html {
   scroll-behavior: smooth;
   background: var(--ink);
+  overflow-x: hidden;
 }
 
 body {
@@ -60,6 +61,8 @@ body {
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 ::selection {
@@ -94,17 +97,33 @@ body {
 }
 
 .text-gradient-lumi {
-  background: linear-gradient(
-    92deg,
+  background-image: linear-gradient(
+    100deg,
     var(--paper) 0%,
-    var(--paper) 38%,
-    var(--sand) 62%,
-    var(--orange-bright) 82%,
-    var(--orange) 100%
+    var(--sand) 20%,
+    var(--orange-bright) 40%,
+    var(--red) 55%,
+    var(--orange-bright) 70%,
+    var(--sand) 85%,
+    var(--paper) 100%
   );
+  background-size: 260% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: lumi-gradient-pan 9s ease-in-out infinite;
+}
+
+@keyframes lumi-gradient-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .bg-lumi-gradient {

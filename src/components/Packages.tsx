@@ -1,6 +1,9 @@
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
 import { cn } from "@/lib/utils";
+import { Badge } from "./ui/badge";
+import { buttonVariants } from "./ui/button";
+import { SpotlightCard } from "./ui/spotlight-card";
 
 type Tier = {
   id: string;
@@ -15,27 +18,31 @@ const TIERS: Tier[] = [
   {
     id: "mobile",
     name: "Mobile",
-    tagline: "Agilidade que acompanha o ritmo das redes",
+    tagline: "Conteúdo ágil. Produção inteligente.",
     description:
-      "Conteúdo ágil, pensado para social media e para marcas que precisam publicar com frequência sem perder consistência.",
+      "Para marcas que precisam manter presença constante nas redes sem abrir mão de direção e qualidade.",
     features: [
-      "Roteiro e direção enxutos",
-      "Captação com celular ou câmera compacta",
+      "Roteiro e direção",
+      "Captação mobile",
       "Edição para redes sociais",
-      "Entrega em formatos verticais e quadrados",
+      "Formatos verticais e quadrados",
+      "Entrega otimizada para publicação",
     ],
   },
   {
     id: "producao",
     name: "Produção",
-    tagline: "Mais controle. Mais narrativa.",
+    tagline: "Mais controle. Mais possibilidades.",
     description:
-      "Produção completa com câmera, equipe e direção, para marcas que precisam de uma narrativa mais elaborada.",
+      "Uma produção completa para marcas que precisam de mais estrutura, direção e consistência visual.",
     features: [
-      "Estratégia e roteiro dedicados",
-      "Captação com equipe e equipamento profissional",
-      "Direção de arte e fotografia",
-      "Edição, color e motion graphics",
+      "Estratégia e roteiro",
+      "Direção criativa",
+      "Captação profissional",
+      "Equipe e equipamentos",
+      "Direção de fotografia",
+      "Edição e colorização",
+      "Motion graphics",
       "Entrega multiplataforma",
     ],
     highlighted: true,
@@ -43,51 +50,69 @@ const TIERS: Tier[] = [
   {
     id: "cinema",
     name: "Cinema",
-    tagline: "Grande escala. Experiências memoráveis.",
+    tagline: "Grande escala. Grande presença.",
     description:
-      "Produções cinematográficas para brand films, campanhas e projetos que exigem a maior régua de qualidade.",
+      "Para campanhas, brand films e projetos especiais que exigem uma estrutura cinematográfica e um nível superior de produção.",
     features: [
-      "Imersão e estratégia aprofundadas",
-      "Equipe completa e equipamento cinematográfico",
-      "Direção, fotografia e drone",
-      "Pós-produção e finalização premium",
-      "Acompanhamento de ponta a ponta",
+      "Conceito e estratégia aprofundados",
+      "Equipe e estrutura cinematográfica",
+      "Direção e fotografia",
+      "Captação aérea com drone",
+      "Pós-produção avançada",
+      "Colorização e finalização",
+      "Acompanhamento completo da produção",
     ],
   },
 ];
 
 export function Packages() {
   return (
-    <section id="pacotes" className="relative scroll-mt-24 bg-ink py-28 md:py-36">
-      <div className="container-lumi">
+    <section id="pacotes" className="relative scroll-mt-24 overflow-hidden bg-ink py-20 md:py-36">
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute left-[18%] top-[8%] h-[46vh] w-[46vh] rounded-full blur-[110px]"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(232,80,2,0.55) 0%, rgba(193,8,1,0.3) 45%, transparent 75%)",
+          }}
+        />
+        <div
+          className="absolute right-[14%] top-[22%] h-[42vh] w-[42vh] rounded-full blur-[110px]"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(217,195,171,0.32) 0%, rgba(241,96,1,0.18) 50%, transparent 75%)",
+          }}
+        />
+      </div>
+
+      <div className="container-lumi relative">
         <Reveal className="max-w-2xl">
           <Eyebrow>Pacotes</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Uma estrutura para cada escala de história.
+            Produção para diferentes ritmos.
+            <br />O mesmo padrão de qualidade.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Os valores ainda são definidos sob briefing — cada produção tem
-            um escopo próprio. Estas são as três formas mais comuns de
-            começar uma conversa com o StudioLumi.
+            Nem toda marca precisa da mesma estrutura de produção. Por isso,
+            organizamos diferentes níveis de operação, da produção ágil para
+            redes sociais a projetos completos com equipe, direção e
+            linguagem cinematográfica. O escopo final é definido de acordo
+            com o objetivo de cada projeto.
           </p>
         </Reveal>
 
         <div className="mt-16 grid gap-5 md:mt-20 lg:grid-cols-3">
           {TIERS.map((tier, i) => (
             <Reveal key={tier.id} delay={i * 0.1}>
-              <div
+              <SpotlightCard
                 className={cn(
-                  "flex h-full flex-col rounded-2xl border p-8 md:p-9",
+                  "rounded-2xl border p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl md:p-9",
                   tier.highlighted
-                    ? "border-orange-bright/50 bg-ink-elevated"
-                    : "border-line bg-ink-soft"
+                    ? "border-orange-bright/40 bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_0_60px_-15px_rgba(241,96,1,0.45)]"
+                    : "border-white/10 bg-white/[0.05]"
                 )}
               >
-                {tier.highlighted && (
-                  <span className="mb-6 inline-flex w-fit items-center rounded-full border border-orange-bright/40 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-orange-bright">
-                    Mais escolhido
-                  </span>
-                )}
+                {tier.highlighted && <Badge className="mb-6">Mais escolhido</Badge>}
 
                 <h3 className="font-display text-2xl font-medium text-paper">
                   {tier.name}
@@ -114,22 +139,24 @@ export function Packages() {
                   <p className="font-display text-lg text-paper">
                     Sob consulta
                   </p>
-                  <p className="mt-1 text-xs text-paper/40">
+                  <p className="mt-1 text-xs text-paper/55">
                     Investimento definido conforme briefing
                   </p>
                   <a
                     href="#contato"
                     className={cn(
-                      "mt-5 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition-colors duration-300",
-                      tier.highlighted
-                        ? "bg-paper text-ink hover:bg-orange-bright hover:text-ink"
-                        : "border border-line-strong text-paper hover:border-orange-bright hover:text-orange-bright"
+                      buttonVariants({
+                        variant: tier.highlighted ? "primary" : "secondary",
+                        size: "sm",
+                      }),
+                      "mt-5 w-full",
+                      tier.highlighted && "hover:bg-orange-bright hover:text-ink"
                     )}
                   >
                     Falar sobre este pacote
                   </a>
                 </div>
-              </div>
+              </SpotlightCard>
             </Reveal>
           ))}
         </div>
