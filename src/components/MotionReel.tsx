@@ -4,6 +4,7 @@ import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
 import { CardCylinder } from "./CardCylinder";
 import type { ReelCategory } from "./ReelPatterns";
+import { getSiteUrl } from "@/lib/site-url";
 
 const CATEGORIES: ReelCategory[] = [
   {
@@ -48,7 +49,7 @@ const CATEGORIES: ReelCategory[] = [
   },
 ];
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://studiolumi.company";
+const siteUrl = getSiteUrl();
 
 const videoListJsonLd = {
   "@context": "https://schema.org",

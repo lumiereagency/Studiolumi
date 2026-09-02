@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
+import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -14,7 +15,7 @@ const inter = Inter({
   weight: ["300", "400", "500", "600"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://studiolumi.company";
+const siteUrl = getSiteUrl();
 const title = "StudioLumi | Produção audiovisual premium";
 const description =
   "StudioLumi é uma produtora audiovisual estratégica. Direção, produção e pós-produção em uma única operação, da produção ágil para redes sociais a projetos cinematográficos.";
