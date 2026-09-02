@@ -41,6 +41,7 @@ O site deve transmitir:
 ## Stack
 
 - Next.js 16.3.1 (App Router, Turbopack), React 19.2.8, TypeScript (strict).
+- **Static export** (`output: "export"` in `next.config.ts`). There is no server at runtime — no API routes, no middleware, no `next/image` optimization. `npm run build` writes plain HTML/CSS/JS to `out/`, deployable to any static host (GitHub Pages, Hostinger, Netlify, S3, etc.) without Vercel or a Node process. Any new feature that needs a server (a real backend API, auth, server-only secrets) breaks this — check before adding one.
 - Tailwind CSS v4, **CSS-first config** — the theme lives in `src/app/globals.css` under `@theme inline`. There is no `tailwind.config.ts`. Don't create one; add new tokens to `@theme inline` instead.
 - Framer Motion `^13.1.0`, imported as `"framer-motion"` (not the newer `"motion/react"` path).
 - `@radix-ui/react-dialog`, `class-variance-authority`, and `tailwind-merge` are installed; `cn()` in `src/lib/utils.ts` is `twMerge(clsx(inputs))`. `components.json` exists (shadcn/ui config, `new-york` style, no icon library).
@@ -69,7 +70,7 @@ Portuguese (pt-BR). Premium, direct, editorial. **No em-dashes** in any user-vis
 
 ## Known incomplete pieces
 
-- `src/app/api/contact/route.ts` sends via Resend when `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, and `CONTACT_FROM_EMAIL` are set (see `.env.example`); without them it falls back to `console.log`/`console.warn` so the form still works in local dev. `CONTACT_TO_EMAIL` should be `lumiereagencyoficial@gmail.com`; still need `RESEND_API_KEY` and a `CONTACT_FROM_EMAIL` on a domain verified with Resend (likely `@studiolumi.company`, the real production domain — see `NEXT_PUBLIC_SITE_URL`'s default) before this goes live.
+- **Contact form goes to WhatsApp, not email.** `ContactForm.tsx` builds a prefilled `wa.me` link (`src/lib/contact.ts`, `WHATSAPP_NUMBER = "5521966454367"`, StudioLumi's real number) from the form fields and opens it in a new tab; there's no server round-trip. This replaced an earlier Resend-based `/api/contact` route (deleted, along with the `resend` npm dependency) specifically so the site could run as a static export with no backend at all — see the Stack note above. If the WhatsApp number ever changes, update it only in `src/lib/contact.ts`.
 - **Lumi Team** (`LumiTeam.tsx`): 5 real members with real photos in `/public/team/` (Gustavo Turques/Fundador, Ingrid Cardoso/Cofundadora, Mariene Beatriz/Social Media, Attaner Peixoto/Fotógrafo, Jonny Lucas/Videomaker). Photos are stored as `name` = person's real name, `handle` = their role, matching how UGC creators would eventually be shown.
 - **Criadores UGC** (`Portfolio.tsx`): unmounted from `page.tsx` (commented out) until there are real partner creators to show. The component and its `InfluencerCarousel` usage are untouched, so bringing it back is a one-line change in `page.tsx`.
 - **Depoimentos**: deliberately not built. No real client testimonials exist yet, and CLAUDE.md's own copy-voice rule forbids fabricating them; a placeholder "Em breve" testimonials section would also undercut the exclusivity positioning built into `StudioStandard.tsx`. Build it only once real quotes are supplied.

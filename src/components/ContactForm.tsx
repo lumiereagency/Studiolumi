@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { cn } from "@/lib/utils";
+import { buildWhatsappUrl } from "@/lib/contact";
 import { Button } from "./ui/button";
 
 const PROJECT_TYPES = [
@@ -11,49 +12,39 @@ const PROJECT_TYPES = [
   "Ainda não sei, quero conversar",
 ];
 
-type Status = "idle" | "loading" | "success" | "error";
+type Status = "idle" | "sent";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
-  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("loading");
-    setErrorMessage("");
 
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const data = Object.fromEntries(new FormData(form).entries()) as Record<
+      string,
+      string
+    >;
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+    const url = buildWhatsappUrl({
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      projectType: data.projectType,
+      message: data.message,
+    });
 
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error ?? "Não foi possível enviar agora.");
-      }
-
-      setStatus("success");
-      form.reset();
-    } catch (err) {
-      setStatus("error");
-      setErrorMessage(
-        err instanceof Error ? err.message : "Não foi possível enviar agora."
-      );
-    }
+    window.open(url, "_blank", "noopener,noreferrer");
+    setStatus("sent");
+    form.reset();
   };
 
-  if (status === "success") {
+  if (status === "sent") {
     return (
       <div className="rounded-2xl border border-orange-bright/40 bg-ink-elevated p-8 text-center md:p-12">
-        <p className="font-display text-2xl text-paper">Recebemos sua mensagem.</p>
+        <p className="font-display text-2xl text-paper">Abrimos o WhatsApp para você.</p>
         <p className="mt-3 text-paper/60">
-          Em breve alguém do StudioLumi entra em contato para agendar a
-          conversa.
+          Complete o envio por lá para falar direto com o StudioLumi.
         </p>
         <button
           type="button"
@@ -70,7 +61,6 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit}
       className="rounded-2xl border border-line bg-ink-soft p-6 md:p-10"
-      noValidate
     >
       <div className="grid gap-6 md:grid-cols-2">
         <Field label="Nome" htmlFor="name">
@@ -139,18 +129,11 @@ export function ContactForm() {
         </Field>
       </div>
 
-      {status === "error" && (
-        <p role="alert" className="mt-4 text-sm text-red">
-          {errorMessage}
-        </p>
-      )}
-
       <Button
         type="submit"
-        disabled={status === "loading"}
         className="mt-8 w-full transition-transform duration-300 hover:scale-[1.01] md:w-auto"
       >
-        {status === "loading" ? "Enviando..." : "Falar com o StudioLumi →"}
+        Falar com o StudioLumi no WhatsApp →
       </Button>
     </form>
   );

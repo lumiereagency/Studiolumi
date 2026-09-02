@@ -59,7 +59,7 @@ Shared CSS utilities: `.text-gradient-lumi` (animated brand-color text gradient)
 9. **Manifesto** — centered statement + signature block.
 10. **Pacotes** — three pricing tiers (Mobile / Produção / Cinema) as `SpotlightCard`s, priced "sob consulta" with no reference range.
 11. **Como trabalhamos** (`StudioStandard`) — a static warm radial glow (not video — an earlier version reused a Cases video as backdrop, which repeated footage already shown higher on the page) with copy positioning the studio's care/standard ahead of the final CTA. Went through several copy rewrites this project — see git history on `StudioStandard.tsx` before changing the tone again; the short version: no capacity/busyness language, no language that evaluates the client, first-person ("nós"), calm rather than assertive.
-12. **FinalCTA** — contact form (`ContactForm.tsx`); submits via Resend when configured, see `CLAUDE.md`.
+12. **FinalCTA** — contact form (`ContactForm.tsx`); submits via a prefilled WhatsApp link, see `CLAUDE.md`.
 13. **Footer**.
 
 **Not currently mounted**: **Criadores UGC** (`Portfolio.tsx`) — built, working, just commented out in `page.tsx` until there are real partner creators to show. **Depoimentos** — not built at all, no real quotes exist yet.
