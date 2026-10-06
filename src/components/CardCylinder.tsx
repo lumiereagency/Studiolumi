@@ -402,7 +402,7 @@ export function CardCylinder({ categories }: { categories: ReelCategory[] }) {
                     <div className="grain absolute inset-0 opacity-60" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent" />
 
-                    <LogoMark className="absolute right-4 top-4 h-4 w-8 text-paper/70" />
+                    <LogoMark className="absolute right-4 top-4 h-4 w-6 text-paper/70" />
 
                     <div className="absolute inset-x-0 bottom-0 p-5">
                       <span className="text-[10px] uppercase tracking-[0.24em] text-paper/45">
@@ -448,7 +448,7 @@ export function CardCylinder({ categories }: { categories: ReelCategory[] }) {
                   </div>
                   <div className="absolute inset-0 bg-black/40" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                    <LogoMark className="h-5 w-10 text-paper/80" />
+                    <LogoMark className="h-5 w-7 text-paper/80" />
                     <span className="text-[10px] uppercase tracking-[0.24em] text-paper/60">
                       {category.label}
                     </span>

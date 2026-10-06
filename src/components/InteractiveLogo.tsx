@@ -8,11 +8,11 @@ import {
   useReducedMotion,
   useSpring,
 } from "framer-motion";
-import { INFINITY_PATH } from "./LogoMark";
+import { LogoRings } from "./LogoMark";
 import { cn } from "@/lib/utils";
 
-const VB_W = 160;
-const VB_H = 80;
+const VB_W = 112;
+const VB_H = 76;
 
 export function InteractiveLogo({ className }: { className?: string }) {
   const reduceMotion = useReducedMotion();
@@ -104,10 +104,10 @@ export function InteractiveLogo({ className }: { className?: string }) {
       onPointerMove={handlePointerMove}
       onPointerEnter={handlePointerEnter}
       onPointerLeave={handlePointerLeave}
-      className={cn("relative aspect-[2/1] touch-none select-none", className)}
+      className={cn("relative aspect-[34/25] touch-none select-none", className)}
       style={{ perspective: 1000 }}
       role="img"
-      aria-label="Símbolo do StudioLumi, um infinito com acabamento cromado que revela cor ao ser tocado"
+      aria-label="Símbolo do StudioLumi, dois anéis entrelaçados com acabamento cromado que revela cor dourada ao ser tocado"
     >
       <motion.div
         style={{ rotateX: rotX, rotateY: rotY, transformStyle: "preserve-3d" }}
@@ -120,30 +120,23 @@ export function InteractiveLogo({ className }: { className?: string }) {
         />
 
         <svg
-          viewBox={`-12 -12 ${VB_W + 24} ${VB_H + 24}`}
+          viewBox={`-8 -14 ${VB_W + 24} ${VB_H + 24}`}
           className="absolute inset-0 h-full w-full overflow-visible"
           aria-hidden
         >
           <defs>
             <linearGradient id="lumi-color" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#000000" />
-              <stop offset="40%" stopColor="#c10801" />
-              <stop offset="75%" stopColor="#f16001" />
-              <stop offset="100%" stopColor="#d9c3ab" />
+              <stop offset="0%" stopColor="#FBE7B4" />
+              <stop offset="38%" stopColor="#E2BE70" />
+              <stop offset="72%" stopColor="#A9802F" />
+              <stop offset="100%" stopColor="#E4C47C" />
             </linearGradient>
           </defs>
-          <path
-            d={INFINITY_PATH}
-            fill="none"
-            stroke="url(#lumi-color)"
-            strokeWidth={16}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+          <LogoRings id="hero-color" stroke="url(#lumi-color)" strokeWidth={10} />
         </svg>
 
         <motion.svg
-          viewBox={`-12 -12 ${VB_W + 24} ${VB_H + 24}`}
+          viewBox={`-8 -14 ${VB_W + 24} ${VB_H + 24}`}
           className="absolute inset-0 h-full w-full overflow-visible"
           style={{ maskImage, WebkitMaskImage: maskImage }}
           aria-hidden
@@ -165,23 +158,10 @@ export function InteractiveLogo({ className }: { className?: string }) {
               <stop offset="100%" stopColor="#ffffff" stopOpacity="0.5" />
             </linearGradient>
           </defs>
-          <path
-            d={INFINITY_PATH}
-            fill="none"
-            stroke="url(#lumi-chrome)"
-            strokeWidth={16}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d={INFINITY_PATH}
-            fill="none"
-            stroke="url(#lumi-chrome-sheen)"
-            strokeWidth={16}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            opacity={0.55}
-          />
+          <LogoRings id="hero-chrome" stroke="url(#lumi-chrome)" strokeWidth={10} />
+          <g opacity={0.55}>
+            <LogoRings id="hero-chrome-sheen" stroke="url(#lumi-chrome-sheen)" strokeWidth={10} />
+          </g>
         </motion.svg>
       </motion.div>
     </div>

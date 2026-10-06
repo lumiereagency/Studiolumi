@@ -368,7 +368,7 @@ export function InfluencerCarousel({
                       )}
                       <div className="grain absolute inset-0 opacity-60" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
-                      <LogoMark className="absolute right-4 top-4 h-4 w-8 text-paper/70" />
+                      <LogoMark className="absolute right-4 top-4 h-4 w-6 text-paper/70" />
                       <div className="absolute inset-x-0 bottom-0 p-5">
                         {creator.name ? (
                           <>
@@ -403,7 +403,7 @@ export function InfluencerCarousel({
                   >
                     <div className="absolute inset-0 bg-[#120a06]" />
                     <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                      <LogoMark className="h-5 w-10 text-paper/70" />
+                      <LogoMark className="h-5 w-7 text-paper/70" />
                       <span className="text-[10px] uppercase tracking-[0.24em] text-paper/50">
                         {creator.name ?? "Em breve"}
                       </span>

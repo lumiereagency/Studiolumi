@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { INFINITY_PATH } from "@/components/LogoMark";
+import { RING_LEFT, RING_RIGHT } from "@/components/LogoMark";
 
 export const dynamic = "force-static";
 export const size = { width: 1200, height: 630 };
@@ -21,14 +21,9 @@ export default async function OpengraphImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <svg width="120" height="60" viewBox="-12 -12 184 104" fill="none">
-          <path
-            d={INFINITY_PATH}
-            stroke="#f9f9f9"
-            strokeWidth={16}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+        <svg width="90" height="61" viewBox="4 -2 112 76" fill="none">
+          <circle cx={RING_LEFT.cx} cy={RING_LEFT.cy} r={RING_LEFT.r} stroke="#f9f9f9" strokeWidth={10} />
+          <circle cx={RING_RIGHT.cx} cy={RING_RIGHT.cy} r={RING_RIGHT.r} stroke="#f9f9f9" strokeWidth={10} />
         </svg>
         <div
           style={{
