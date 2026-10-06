@@ -39,7 +39,7 @@
   --color-gray-dark: var(--gray-dark);
   --color-gray-light: var(--gray-light);
 
-  --font-display: var(--font-bricolage);
+  --font-display: var(--font-schibsted);
   --font-body: var(--font-inter);
 
   --animate-marquee: marquee 32s linear infinite;
