@@ -50,6 +50,12 @@ const SERVICES: Service[] = [
     text: "Still que sustenta a campanha em qualquer formato, da vitrine ao feed.",
     glow: "rgba(232,80,2,0.36)",
   },
+  {
+    id: "tempo-real",
+    label: "Conteúdo em Tempo Real",
+    text: "Captação, edição e publicação durante o próprio evento. Sua marca presente enquanto a pauta ainda está quente.",
+    glow: "rgba(193,8,1,0.44)",
+  },
 ];
 
 const AUTO_ADVANCE_MS = 4800;
@@ -89,7 +95,7 @@ export function Services() {
         <Reveal className="mx-auto max-w-xl text-center">
           <Eyebrow className="justify-center">Serviços</Eyebrow>
           <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Seis formas de colocar sua marca em movimento.
+            Sete formas de colocar sua marca em movimento.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
             Do filme institucional à cobertura de evento, cada serviço nasce

@@ -4,6 +4,7 @@ import { MotionReel } from "@/components/MotionReel";
 import { ClientRoster } from "@/components/ClientRoster";
 import { Positioning } from "@/components/Positioning";
 import { Services } from "@/components/Services";
+import { RealTimeReel } from "@/components/RealTimeReel";
 import { HumanExperience } from "@/components/HumanExperience";
 import { LumiTeam } from "@/components/LumiTeam";
 import { Process } from "@/components/Process";
@@ -23,6 +24,7 @@ export default function Home() {
         <ClientRoster />
         <Positioning />
         <Services />
+        <RealTimeReel />
         <HumanExperience />
         <LumiTeam />
         {/* <Portfolio /> — Criadores UGC volta quando tivermos criadores parceiros reais para mostrar. */}
