@@ -84,9 +84,12 @@ export function RealTimeReel() {
                 />
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/0 to-ink/0"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-ink/0"
                 />
-                <figcaption className="absolute inset-x-0 bottom-0 p-3 text-xs leading-snug text-paper/80 md:p-4 md:text-sm">
+                <span className="absolute left-3 top-3 rounded-full border border-paper/20 bg-paper/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-paper/90 backdrop-blur-md">
+                  Tempo real
+                </span>
+                <figcaption className="absolute inset-x-3 bottom-3 rounded-lg border border-paper/15 bg-ink/40 p-3 text-xs leading-snug text-paper/90 backdrop-blur-md md:text-sm">
                   {clip.caption}
                 </figcaption>
               </figure>

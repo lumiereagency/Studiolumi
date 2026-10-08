@@ -7,6 +7,7 @@ import { Services } from "@/components/Services";
 import { RealTimeReel } from "@/components/RealTimeReel";
 import { HumanExperience } from "@/components/HumanExperience";
 import { LumiTeam } from "@/components/LumiTeam";
+import { Partners } from "@/components/Partners";
 import { Process } from "@/components/Process";
 import { Manifesto } from "@/components/Manifesto";
 import { Packages } from "@/components/Packages";
@@ -27,7 +28,7 @@ export default function Home() {
         <RealTimeReel />
         <HumanExperience />
         <LumiTeam />
-        {/* <Portfolio /> — Criadores UGC volta quando tivermos criadores parceiros reais para mostrar. */}
+        <Partners />
         <Process />
         <Manifesto />
         <Packages />
