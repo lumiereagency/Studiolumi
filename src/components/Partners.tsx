@@ -5,12 +5,9 @@ import { Eyebrow } from "./Eyebrow";
 import { InfluencerCarousel, type Creator } from "./InfluencerCarousel";
 
 const PARTNERS: Creator[] = [
-  { id: "p1" },
-  { id: "p2" },
-  { id: "p3" },
-  { id: "p4" },
-  { id: "p5" },
-  { id: "p6" },
+  { id: "p1", name: "Sergio Mallandro" },
+  { id: "p2", name: "Sr. Bemvindo Sequeira" },
+  { id: "p3", name: "Gustavo Mendes" },
 ];
 
 export function Partners() {
@@ -26,9 +23,6 @@ export function Partners() {
             Para parceiros e criadores selecionados, cuidamos da gestão de
             perfil e da edição de vídeo como uma operação contínua, não um
             projeto avulso.
-          </p>
-          <p className="mt-3 text-sm text-paper/55">
-            Em breve, os parceiros reais entram aqui.
           </p>
         </Reveal>
       </div>
