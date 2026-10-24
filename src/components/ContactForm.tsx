@@ -9,6 +9,8 @@ const PROJECT_TYPES = [
   "Mobile: conteúdo ágil",
   "Produção: câmera e narrativa",
   "Cinema: grande escala",
+  "Gestão + edição para figuras públicas",
+  "Casamento ou pré-wedding",
   "Ainda não sei, quero conversar",
 ];
 

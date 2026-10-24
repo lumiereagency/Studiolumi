@@ -49,7 +49,7 @@ function Word({
   return (
     <motion.span
       style={still ? undefined : { opacity }}
-      className={cn("mr-[0.25em]", accent && "text-orange-gradient")}
+      className={cn("mr-[0.25em]", accent && "text-orange-bright")}
     >
       {children}
     </motion.span>
