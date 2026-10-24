@@ -10,20 +10,15 @@ export function Eyebrow({
   light?: boolean;
 }) {
   return (
-    <div
+    <span
       className={cn(
-        "flex items-center gap-3 text-xs font-medium uppercase tracking-[0.28em]",
-        light ? "text-ink/50" : "text-paper/50",
+        "inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-medium",
+        light ? "border-ink/15 text-ink/70" : "border-line-strong text-paper/70",
         className
       )}
     >
-      <span
-        className={cn(
-          "h-px w-8",
-          light ? "bg-ink/40" : "bg-orange-bright/70"
-        )}
-      />
+      <span className="h-1.5 w-1.5 rounded-full bg-orange-bright" />
       {children}
-    </div>
+    </span>
   );
 }

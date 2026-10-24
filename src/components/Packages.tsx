@@ -1,9 +1,7 @@
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
+import { ArrowLink } from "./ui/arrow-link";
 import { cn } from "@/lib/utils";
-import { Badge } from "./ui/badge";
-import { buttonVariants } from "./ui/button";
-import { SpotlightCard } from "./ui/spotlight-card";
 
 type Tier = {
   id: string;
@@ -11,6 +9,7 @@ type Tier = {
   tagline: string;
   description: string;
   features: string[];
+  price: string;
   highlighted?: boolean;
 };
 
@@ -19,8 +18,7 @@ const TIERS: Tier[] = [
     id: "mobile",
     name: "Mobile",
     tagline: "Conteúdo ágil. Produção inteligente.",
-    description:
-      "Para marcas que precisam manter presença constante nas redes sem abrir mão de direção e qualidade.",
+    description: "Para marcas que precisam manter presença constante nas redes sem abrir mão de direção e qualidade.",
     features: [
       "Roteiro e direção",
       "Captação mobile",
@@ -28,13 +26,13 @@ const TIERS: Tier[] = [
       "Formatos verticais e quadrados",
       "Entrega otimizada para publicação",
     ],
+    price: "R$ 1.500",
   },
   {
     id: "producao",
     name: "Produção",
     tagline: "Mais controle. Mais possibilidades.",
-    description:
-      "Uma produção completa para marcas que precisam de mais estrutura, direção e consistência visual.",
+    description: "Uma produção completa para marcas que precisam de mais estrutura, direção e consistência visual.",
     features: [
       "Estratégia e roteiro",
       "Direção criativa",
@@ -45,6 +43,7 @@ const TIERS: Tier[] = [
       "Motion graphics",
       "Entrega multiplataforma",
     ],
+    price: "R$ 4.500",
     highlighted: true,
   },
   {
@@ -52,7 +51,7 @@ const TIERS: Tier[] = [
     name: "Cinema",
     tagline: "Grande escala. Grande presença.",
     description:
-      "Para campanhas, brand films e projetos especiais que exigem uma estrutura cinematográfica e um nível superior de produção.",
+      "Para campanhas, brand films e projetos especiais que exigem estrutura cinematográfica e um nível superior de produção.",
     features: [
       "Conceito e estratégia aprofundados",
       "Equipe e estrutura cinematográfica",
@@ -62,101 +61,75 @@ const TIERS: Tier[] = [
       "Colorização e finalização",
       "Acompanhamento completo da produção",
     ],
+    price: "R$ 12.000",
   },
 ];
 
 export function Packages() {
   return (
-    <section id="pacotes" className="relative scroll-mt-24 overflow-hidden bg-ink py-20 md:py-36">
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div
-          className="absolute left-[18%] top-[8%] h-[46vh] w-[46vh] rounded-full blur-[110px]"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(232,80,2,0.55) 0%, rgba(193,8,1,0.3) 45%, transparent 75%)",
-          }}
-        />
-        <div
-          className="absolute right-[14%] top-[22%] h-[42vh] w-[42vh] rounded-full blur-[110px]"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(217,195,171,0.32) 0%, rgba(241,96,1,0.18) 50%, transparent 75%)",
-          }}
-        />
-      </div>
+    <section id="pacotes" className="relative scroll-mt-20 bg-ink py-24 md:py-36">
+      <div className="container-lumi">
+        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <Reveal>
+            <Eyebrow>Pacotes</Eyebrow>
+            <h2 className="heading-lg mt-6 max-w-3xl text-paper">
+              Ritmos diferentes. <span className="text-orange-gradient">O mesmo padrão.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1} className="max-w-sm">
+            <p className="text-base leading-relaxed text-paper/60">
+              Da produção ágil para redes a projetos com linguagem
+              cinematográfica. Valores de referência: o escopo final é definido
+              pelo objetivo de cada projeto.
+            </p>
+          </Reveal>
+        </div>
 
-      <div className="container-lumi relative">
-        <Reveal className="max-w-2xl">
-          <Eyebrow>Pacotes</Eyebrow>
-          <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Produção para diferentes ritmos.
-            <br />O mesmo padrão de qualidade.
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Nem toda marca precisa da mesma estrutura de produção. Por isso,
-            organizamos diferentes níveis de operação, da produção ágil para
-            redes sociais a projetos completos com equipe, direção e
-            linguagem cinematográfica. O escopo final é definido de acordo
-            com o objetivo de cada projeto.
-          </p>
-        </Reveal>
-
-        <div className="mt-16 grid gap-5 md:mt-20 lg:grid-cols-3">
+        <div className="mt-14 grid gap-3 md:mt-20 lg:grid-cols-3 lg:gap-4">
           {TIERS.map((tier, i) => (
-            <Reveal key={tier.id} delay={i * 0.1}>
-              <SpotlightCard
-                className={cn(
-                  "rounded-2xl border p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl md:p-9",
-                  tier.highlighted
-                    ? "border-orange-bright/40 bg-white/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_0_60px_-15px_rgba(241,96,1,0.45)]"
-                    : "border-white/10 bg-white/[0.05]"
+            <Reveal
+              key={tier.id}
+              delay={i * 0.08}
+              className={cn(
+                "flex flex-col rounded-3xl p-7 md:p-9",
+                tier.highlighted ? "bg-orange-card text-paper" : "border border-line-strong bg-ink-soft text-paper"
+              )}
+            >
+              <div className="flex items-center justify-between">
+                <h3 className="font-display text-4xl font-medium">{tier.name}</h3>
+                {tier.highlighted && (
+                  <span className="rounded-full bg-paper px-3 py-1 text-xs font-medium text-ink">Mais escolhido</span>
                 )}
-              >
-                {tier.highlighted && <Badge className="mb-6">Mais escolhido</Badge>}
+              </div>
+              <p className={cn("mt-2 text-sm", tier.highlighted ? "text-paper/85" : "text-paper/50")}>{tier.tagline}</p>
+              <p className={cn("mt-6 text-sm leading-relaxed", tier.highlighted ? "text-paper/90" : "text-paper/60")}>
+                {tier.description}
+              </p>
 
-                <h3 className="font-display text-2xl font-medium text-paper">
-                  {tier.name}
-                </h3>
-                <p className="mt-2 text-sm text-paper/50">{tier.tagline}</p>
-
-                <p className="mt-6 text-sm leading-relaxed text-paper/60">
-                  {tier.description}
-                </p>
-
-                <ul className="mt-8 flex flex-1 flex-col gap-3">
-                  {tier.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-3 text-sm text-paper/70"
-                    >
-                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-orange-bright" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-9 border-t border-line pt-6">
-                  <p className="font-display text-lg text-paper">
-                    Sob consulta
-                  </p>
-                  <p className="mt-1 text-xs text-paper/55">
-                    Investimento definido conforme briefing
-                  </p>
-                  <a
-                    href="#contato"
+              <ul className={cn("mt-8 flex flex-1 flex-col border-t", tier.highlighted ? "border-paper/25" : "border-line")}>
+                {tier.features.map((feature) => (
+                  <li
+                    key={feature}
                     className={cn(
-                      buttonVariants({
-                        variant: tier.highlighted ? "primary" : "secondary",
-                        size: "sm",
-                      }),
-                      "mt-5 w-full",
-                      tier.highlighted && "hover:bg-orange-bright hover:text-ink"
+                      "flex items-center gap-3 border-b py-3 text-sm",
+                      tier.highlighted ? "border-paper/25 text-paper" : "border-line text-paper/75"
                     )}
                   >
-                    Falar sobre este pacote
-                  </a>
+                    <span className={cn("h-1.5 w-1.5 shrink-0 rounded-full", tier.highlighted ? "bg-paper" : "bg-orange-bright")} />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 flex flex-wrap items-end justify-between gap-4">
+                <div>
+                  <p className={cn("text-xs", tier.highlighted ? "text-paper/85" : "text-paper/50")}>A partir de</p>
+                  <p className="font-display mt-0.5 text-3xl font-medium">{tier.price}</p>
                 </div>
-              </SpotlightCard>
+                <ArrowLink href="#contato" variant={tier.highlighted ? "light" : "dark"}>
+                  Quero este
+                </ArrowLink>
+              </div>
             </Reveal>
           ))}
         </div>

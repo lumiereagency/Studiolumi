@@ -1,52 +1,36 @@
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
+import { ScrollWords } from "./ScrollWords";
 
-const HIGHLIGHTS = [
-  "Estratégia",
-  "Direção",
-  "Captação",
-  "Edição",
-  "Motion",
-  "Fotografia",
-  "Drone",
-  "Conteúdo",
-];
+const HIGHLIGHTS = ["Estratégia", "Direção", "Captação", "Edição", "Motion", "Fotografia", "Drone", "Conteúdo"];
 
 export function Positioning() {
   return (
-    <section className="relative border-y border-line bg-ink-soft py-20 md:py-36">
+    <section className="relative bg-ink py-24 md:py-44">
       <div className="container-lumi">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
-          <Reveal>
-            <Eyebrow>Posicionamento</Eyebrow>
-            <h2 className="font-display mt-5 max-w-xl text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-              Produção sem direção
-              <br />
-              <span className="text-gradient-lumi">é apenas execução.</span>
-            </h2>
-          </Reveal>
+        <Reveal>
+          <Eyebrow>Posicionamento</Eyebrow>
+        </Reveal>
 
-          <Reveal delay={0.15} className="flex flex-col justify-between gap-10">
-            <p className="text-base leading-relaxed text-paper/60 md:text-lg">
-              Antes de produzir, entendemos o que precisa ser comunicado.
-              Objetivo, público, contexto, linguagem e onde aquela imagem
-              precisa funcionar. É isso que transforma uma produção
-              audiovisual em uma ferramenta real de posicionamento para a
-              marca.
-            </p>
+        <ScrollWords
+          className="font-display mt-8 max-w-6xl text-[2rem] font-medium leading-[1.08] text-paper md:text-6xl lg:text-7xl"
+          segments={[
+            { text: "Produção sem direção é apenas execução." , accent: true },
+            {
+              text: "Antes de produzir, entendemos o que precisa ser comunicado. Objetivo, público, contexto e linguagem. É isso que transforma imagem em posicionamento.",
+            },
+          ]}
+        />
 
-            <ul className="flex flex-wrap gap-x-3 gap-y-3 text-sm">
-              {HIGHLIGHTS.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-full border border-line-strong px-4 py-2 text-paper/70"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
+        <Reveal delay={0.1} className="mt-14 md:mt-20">
+          <ul className="flex flex-wrap gap-2.5 text-sm">
+            {HIGHLIGHTS.map((item) => (
+              <li key={item} className="rounded-full border border-line-strong px-4 py-2 text-paper/70">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );

@@ -4,26 +4,43 @@ import { ContactForm } from "./ContactForm";
 
 export function FinalCTA() {
   return (
-    <section id="contato" className="relative scroll-mt-24 bg-ink py-20 md:py-36">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-lumi-radial opacity-50" />
+    <section id="contato" className="relative scroll-mt-20 bg-ink py-24 md:py-36">
+      <div className="container-lumi grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
+        <Reveal className="flex flex-col justify-between gap-10">
+          <div>
+            <Eyebrow>Vamos começar</Eyebrow>
+            <h2 className="heading-lg mt-6 text-paper">
+              Vamos construir a próxima produção <span className="text-orange-gradient">da sua marca.</span>
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
+              Não trabalhamos em série. Conte o que você precisa produzir e, a
+              partir do objetivo, montamos a estrutura, a equipe e o formato
+              ideal.
+            </p>
+          </div>
 
-      <div className="container-lumi relative grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-        <Reveal>
-          <Eyebrow>Vamos começar</Eyebrow>
-          <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Vamos construir a próxima produção da sua marca.
-          </h2>
-          <p className="mt-6 max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
-            Conte o que você precisa produzir. A partir do objetivo,
-            construímos a estrutura, a equipe e o formato ideal para o
-            projeto.
-          </p>
-          <p className="mt-10 text-sm text-paper/55">
-            A mesma equipe, do roteiro à entrega.
-          </p>
+          <dl className="grid grid-cols-2 gap-6 border-t border-line pt-8 text-sm">
+            <div>
+              <dt className="text-paper/45">Resposta</dt>
+              <dd className="mt-1 text-paper">Direto no WhatsApp</dd>
+            </div>
+            <div>
+              <dt className="text-paper/45">Instagram</dt>
+              <dd className="mt-1">
+                <a
+                  href="https://www.instagram.com/studiolumi_co/"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-paper transition-colors hover:text-orange-bright"
+                >
+                  @studiolumi_co
+                </a>
+              </dd>
+            </div>
+          </dl>
         </Reveal>
 
-        <Reveal delay={0.15}>
+        <Reveal delay={0.12}>
           <ContactForm />
         </Reveal>
       </div>

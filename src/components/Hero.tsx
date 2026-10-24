@@ -1,116 +1,115 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { Eyebrow } from "./Eyebrow";
-import { buttonVariants } from "./ui/button";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { InViewVideo } from "./InViewVideo";
+import { ArrowLink } from "./ui/arrow-link";
 import { cn } from "@/lib/utils";
+
+const REEL = [
+  { src: "/videos/realtime-keynote.mp4", poster: "/videos/realtime-keynote-poster.jpg" },
+  { src: "/videos/case-bruno.mp4", poster: "/videos/case-bruno-poster.jpg", desktopOnly: true },
+  { src: "/videos/realtime-palco.mp4", poster: "/videos/realtime-palco-poster.jpg" },
+  { src: "/videos/case-joyce.mp4", poster: "/videos/case-joyce-poster.jpg", desktopOnly: true },
+];
+
+const TEAM_FACES = ["gustavo-turques", "ingrid-cardoso", "mariene-beatriz"];
+
+const ease = [0.16, 1, 0.3, 1] as const;
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
+  const frameRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: frameRef, offset: ["start end", "start 0.15"] });
+  const scale = useTransform(scrollYProgress, [0, 1], [0.86, 1]);
+  const radius = useTransform(scrollYProgress, [0, 1], [40, 20]);
+
+  const intro = (delay: number) => ({
+    initial: { opacity: 0, y: reduceMotion ? 0 : 24, filter: reduceMotion ? "none" : "blur(8px)" },
+    animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+    transition: { duration: reduceMotion ? 0.01 : 1.1, delay: reduceMotion ? 0 : delay, ease },
+  });
 
   return (
-    <section
-      id="top"
-      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-ink px-6 pb-16 pt-32 sm:pb-20 md:pt-40"
-    >
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-lumi-radial" />
+    <section id="top" className="relative overflow-hidden bg-ink pt-28 md:pt-40">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[-20%] top-[-30%] h-[80vh] w-[80vh] rounded-full opacity-70 blur-[120px] md:right-[-5%]"
+        style={{ background: "radial-gradient(circle, rgba(241,96,1,0.45) 0%, rgba(193,8,1,0.15) 55%, transparent 75%)" }}
+      />
 
-        <motion.div
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute -right-1/4 top-[-10%] h-[85vh] w-[85vh] rounded-full blur-[110px] sm:-right-[10%]"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(241,96,1,0.55) 0%, rgba(232,80,2,0.35) 40%, rgba(193,8,1,0.15) 62%, transparent 78%)",
-          }}
-        />
-        {!reduceMotion && (
-          <motion.div
-            animate={{ opacity: [0.6, 0.85, 0.6] }}
-            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -right-1/4 top-[-10%] h-[85vh] w-[85vh] rounded-full blur-[110px] sm:-right-[10%]"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(241,96,1,0.35) 0%, transparent 65%)",
-            }}
-          />
-        )}
+      <div className="container-lumi relative">
+        <motion.span {...intro(0.1)} className="inline-flex items-center gap-2 text-sm text-paper/60">
+          <span className="h-1.5 w-1.5 rounded-full bg-orange-bright" />
+          Produção audiovisual e direção criativa
+        </motion.span>
 
-        <div className="grain absolute inset-0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/40 to-transparent" />
-      </div>
-
-      <div className="container-lumi relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-start justify-between"
-        >
-          <Eyebrow>Produção audiovisual</Eyebrow>
-          <span className="hidden text-xs font-medium uppercase tracking-[0.28em] text-paper/55 sm:block">
-            Direção criativa
-          </span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display mt-8 max-w-5xl text-4xl font-medium uppercase leading-[1.08] text-paper sm:text-5xl md:text-6xl lg:text-7xl"
-        >
-          Imagem que <span className="text-gradient-lumi">posiciona.</span>
+        <motion.h1 {...intro(0.2)} className="heading-xl mt-6 text-paper">
+          Imagem que <span className="text-orange-gradient">posiciona.</span>
           <br />
           Produção que entrega.
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 max-w-md text-sm leading-relaxed text-paper/55 md:text-base"
-        >
-          Direção, produção e pós-produção em uma única operação, para marcas
-          que não abrem mão de padrão.
-        </motion.p>
+        <div className="mt-10 flex flex-col gap-8 md:mt-14 md:flex-row md:items-end md:justify-between">
+          <motion.p {...intro(0.35)} className="max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
+            Direção, produção e pós-produção em uma única operação, para marcas
+            que não abrem mão de padrão.
+          </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 flex flex-wrap items-center gap-4"
-        >
-          <a
-            href="#contato"
-            className={cn(buttonVariants({ variant: "primary" }), "group transition-transform duration-300 hover:scale-[1.03]")}
-          >
-            Iniciar um projeto
-            <span className="transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
-          </a>
-          <a href="#experiencia" className={buttonVariants({ variant: "secondary" })}>
-            Ver produções
-          </a>
-        </motion.div>
+          <motion.div {...intro(0.45)} className="flex flex-wrap items-center gap-3">
+            <ArrowLink href="#contato">Iniciar um projeto</ArrowLink>
+            <ArrowLink href="#trabalhos" variant="dark">
+              Ver trabalhos
+            </ArrowLink>
+          </motion.div>
+        </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: 1 }}
-        className="pointer-events-none absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-paper/55 md:flex"
-      >
-        <span className="text-[10px] uppercase tracking-[0.3em]">Role</span>
-        <motion.span
-          animate={reduceMotion ? {} : { y: [0, 8, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="h-8 w-px bg-gradient-to-b from-paper/50 to-transparent"
-        />
-      </motion.div>
+      <div className="container-lumi relative mt-14 pb-6 md:mt-20 md:pb-10">
+        <motion.div
+          ref={frameRef}
+          style={reduceMotion ? { borderRadius: 20 } : { scale, borderRadius: radius }}
+          className="relative grid aspect-[9/8] origin-top grid-cols-2 overflow-hidden bg-ink-soft md:aspect-[2.25/1] md:grid-cols-4"
+        >
+          {REEL.map((clip) => (
+            <div key={clip.src} className={cn("relative h-full", clip.desktopOnly && "hidden md:block")}>
+              <InViewVideo src={clip.src} poster={clip.poster} />
+            </div>
+          ))}
+
+          <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
+
+          <div className="absolute inset-x-3 bottom-3 flex items-end justify-between gap-3 md:inset-x-6 md:bottom-6">
+            <div className="rounded-2xl border border-paper/15 bg-ink/35 p-4 backdrop-blur-xl md:p-5">
+              <p className="font-display text-lg font-medium leading-tight text-paper md:text-2xl">
+                Da estratégia à imagem.
+              </p>
+              <p className="font-display text-lg font-medium leading-tight text-paper/55 md:text-2xl">
+                Da imagem ao resultado.
+              </p>
+            </div>
+
+            <div className="hidden items-center gap-3 rounded-full border border-paper/15 bg-ink/35 py-1.5 pl-1.5 pr-4 backdrop-blur-xl sm:flex">
+              <div className="flex -space-x-2.5">
+                {TEAM_FACES.map((id) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={id}
+                    src={`/team/${id}.jpg`}
+                    alt=""
+                    className="h-8 w-8 rounded-full border-2 border-ink object-cover object-top"
+                  />
+                ))}
+              </div>
+              <span className="text-xs leading-tight text-paper/80">
+                Uma equipe,
+                <br />
+                do roteiro à entrega
+              </span>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }

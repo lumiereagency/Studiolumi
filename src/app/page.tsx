@@ -1,15 +1,15 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { MotionReel } from "@/components/MotionReel";
 import { ClientRoster } from "@/components/ClientRoster";
 import { Positioning } from "@/components/Positioning";
+import { Work } from "@/components/Work";
+import { About } from "@/components/About";
 import { Services } from "@/components/Services";
-import { HumanExperience } from "@/components/HumanExperience";
-import { LumiTeam } from "@/components/LumiTeam";
+import { RealTimeReel } from "@/components/RealTimeReel";
 import { Process } from "@/components/Process";
-import { Manifesto } from "@/components/Manifesto";
+import { Partners } from "@/components/Partners";
 import { Packages } from "@/components/Packages";
-import { StudioStandard } from "@/components/StudioStandard";
+import { Manifesto } from "@/components/Manifesto";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 
@@ -19,17 +19,16 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <MotionReel />
         <ClientRoster />
         <Positioning />
+        <Work />
+        <About />
         <Services />
-        <HumanExperience />
-        <LumiTeam />
-        {/* <Portfolio /> — Criadores UGC volta quando tivermos criadores parceiros reais para mostrar. */}
+        <RealTimeReel />
         <Process />
-        <Manifesto />
+        <Partners />
         <Packages />
-        <StudioStandard />
+        <Manifesto />
         <FinalCTA />
       </main>
       <Footer />
