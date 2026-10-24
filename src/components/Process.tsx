@@ -16,7 +16,7 @@ export function Process() {
           <Reveal>
             <Eyebrow>Processo</Eyebrow>
             <h2 className="heading-lg mt-6 text-paper">
-              Boas produções não começam <span className="text-orange-bright">na câmera.</span>
+              Boas produções não começam <span className="text-orange-gradient">na câmera.</span>
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
               Da imersão à entrega, cada etapa existe para eliminar improviso.

@@ -11,7 +11,7 @@ export function Partners() {
           <Reveal>
             <Eyebrow>Partners</Eyebrow>
             <h2 className="heading-lg mt-6 max-w-3xl text-paper">
-              Figuras públicas que <span className="text-orange-bright">produzimos de ponta a ponta.</span>
+              Figuras públicas que <span className="text-orange-gradient">produzimos de ponta a ponta.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="max-w-sm">

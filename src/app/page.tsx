@@ -7,7 +7,6 @@ import { About } from "@/components/About";
 import { Services } from "@/components/Services";
 import { RealTimeReel } from "@/components/RealTimeReel";
 import { Process } from "@/components/Process";
-import { LumiTeam } from "@/components/LumiTeam";
 import { Partners } from "@/components/Partners";
 import { Packages } from "@/components/Packages";
 import { Manifesto } from "@/components/Manifesto";
@@ -27,7 +26,6 @@ export default function Home() {
         <Services />
         <RealTimeReel />
         <Process />
-        <LumiTeam />
         <Partners />
         <Packages />
         <Manifesto />

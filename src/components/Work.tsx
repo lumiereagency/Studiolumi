@@ -84,7 +84,7 @@ export function Work() {
           <Reveal>
             <Eyebrow>Trabalhos selecionados</Eyebrow>
             <h2 className="heading-lg mt-6 max-w-3xl text-paper">
-              Projetos que exigiram mais do que <span className="text-orange-bright">uma boa câmera.</span>
+              Projetos que exigiram mais do que <span className="text-orange-gradient">uma boa câmera.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="max-w-sm">

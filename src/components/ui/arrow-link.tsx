@@ -20,7 +20,7 @@ export function ArrowCircle({
       aria-hidden
       className={cn(
         "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-45",
-        tone === "orange" && "bg-orange-bright text-paper",
+        tone === "orange" && "bg-orange-grad text-paper",
         tone === "ink" && "bg-ink text-paper",
         tone === "paper" && "bg-paper text-ink",
         className
@@ -52,7 +52,7 @@ export function ArrowLink({
         "group inline-flex items-center gap-3 rounded-full py-1.5 pl-5 pr-1.5 text-sm font-medium transition-colors duration-300",
         variant === "light" && "bg-paper text-ink hover:bg-cream",
         variant === "dark" && "border border-line-strong text-paper hover:border-paper/40",
-        variant === "orange" && "bg-orange-bright text-paper hover:bg-orange",
+        variant === "orange" && "bg-orange-grad text-paper hover:brightness-110",
         className
       )}
     >

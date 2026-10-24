@@ -13,7 +13,7 @@ const REEL = [
   { src: "/videos/case-joyce.mp4", poster: "/videos/case-joyce-poster.jpg", desktopOnly: true },
 ];
 
-const TEAM_FACES = ["gustavo-turques", "ingrid-cardoso", "attaner-peixoto", "jonny-lucas"];
+const TEAM_FACES = ["gustavo-turques", "ingrid-cardoso", "mariene-beatriz"];
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -45,7 +45,7 @@ export function Hero() {
         </motion.span>
 
         <motion.h1 {...intro(0.2)} className="heading-xl mt-6 text-paper">
-          Imagem que <span className="text-orange-bright">posiciona.</span>
+          Imagem que <span className="text-orange-gradient">posiciona.</span>
           <br />
           Produção que entrega.
         </motion.h1>

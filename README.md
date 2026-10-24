@@ -41,6 +41,6 @@ Abra [http://localhost:3000](http://localhost:3000).
   está disponível no repositório. Trocar o `d` em `INFINITY_PATH`
   (`src/components/LogoMark.tsx`) por uma versão vetorizada do logo real
   assim que ele for fornecido.
-- **Pacotes/preços**: os valores ainda não foram definidos pelo estúdio, por
-  isso a seção de pacotes mostra "Sob consulta" e direciona para o
-  formulário de contato.
+- **Pacotes/preços**: os valores "a partir de" em `src/components/Packages.tsx`
+  (R$ 1.500 / R$ 4.500 / R$ 12.000) são estimativas de mercado provisórias,
+  não a tabela oficial do estúdio. Ajustar no campo `price` de cada pacote.

@@ -69,7 +69,7 @@ export function Services() {
         <Reveal className="flex flex-col items-start gap-6 md:items-end md:text-right">
           <Eyebrow>Serviços</Eyebrow>
           <h2 className="heading-lg max-w-4xl text-paper">
-            <span className="text-orange-bright">Sete formas</span> de colocar sua marca em movimento.
+            <span className="text-orange-gradient">Sete formas</span> de colocar sua marca em movimento.
           </h2>
         </Reveal>
 

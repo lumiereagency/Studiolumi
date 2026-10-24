@@ -11,7 +11,11 @@ const PRINCIPLES = [
   },
 ];
 
-const TEAM_FACES = ["gustavo-turques", "ingrid-cardoso", "mariene-beatriz", "attaner-peixoto", "jonny-lucas"];
+const TEAM = [
+  { id: "gustavo-turques", name: "Gustavo Turques", role: "Fundador" },
+  { id: "ingrid-cardoso", name: "Ingrid Cardoso", role: "Cofundadora" },
+  { id: "mariene-beatriz", name: "Mariene Beatriz", role: "Social Media" },
+];
 
 export function About() {
   return (
@@ -21,7 +25,7 @@ export function About() {
           <Reveal>
             <Eyebrow>Sobre o estúdio</Eyebrow>
             <h2 className="heading-lg mt-6 max-w-4xl text-paper">
-              Nada no resultado final <span className="text-orange-bright">é por acaso.</span>
+              Nada no resultado final <span className="text-orange-gradient">é por acaso.</span>
             </h2>
           </Reveal>
 
@@ -41,30 +45,12 @@ export function About() {
             </Reveal>
 
             <div className="flex flex-col gap-4 lg:gap-6">
-              <Reveal delay={0.1} className="flex flex-col gap-6 py-2 md:flex-row md:items-end md:justify-between lg:py-4">
+              <Reveal delay={0.1} className="py-2 lg:py-4">
                 <p className="max-w-md text-base leading-relaxed text-paper/65 md:text-lg">
                   Decisões tomadas por quem já viu o que dá errado quando não são.
                   É esse nível de controle que separa uma produção de qualidade de
                   uma produção de sorte.
                 </p>
-                <div className="flex shrink-0 items-center gap-3">
-                  <div className="flex -space-x-3">
-                    {TEAM_FACES.map((id) => (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        key={id}
-                        src={`/team/${id}.jpg`}
-                        alt=""
-                        className="h-11 w-11 rounded-full border-2 border-ink-soft object-cover object-top"
-                      />
-                    ))}
-                  </div>
-                  <span className="text-xs leading-tight text-paper/60">
-                    Equipe
-                    <br />
-                    integrada
-                  </span>
-                </div>
               </Reveal>
 
               <div className="grid flex-1 gap-4 md:grid-cols-2 lg:gap-6">
@@ -97,6 +83,38 @@ export function About() {
                 </Reveal>
               </div>
             </div>
+          </div>
+
+          <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4 lg:mt-6 lg:gap-6">
+            {TEAM.map((m, i) => (
+              <Reveal key={m.id} delay={i * 0.06} className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/team/${m.id}.jpg`}
+                  alt={`${m.name}, ${m.role} no StudioLumi`}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover object-top grayscale brightness-110 contrast-110 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] group-hover:grayscale-0"
+                />
+                <div aria-hidden className="absolute inset-0 bg-orange-bright mix-blend-color opacity-90 transition-opacity duration-700 group-hover:opacity-0" />
+                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent" />
+                <div className="absolute inset-x-4 bottom-4">
+                  <p className="font-display text-base font-medium leading-tight text-paper md:text-xl">{m.name}</p>
+                  <p className="mt-0.5 text-xs text-paper/70">{m.role}</p>
+                </div>
+              </Reveal>
+            ))}
+
+            <Reveal delay={0.2} className="bg-orange-card relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-3xl p-4 md:p-6">
+              <span className="font-display text-4xl font-medium leading-none text-paper md:text-6xl">+</span>
+              <div>
+                <p className="font-display text-base font-medium leading-tight text-paper md:text-xl">
+                  Entre outros colaboradores
+                </p>
+                <p className="mt-1.5 hidden text-sm leading-snug text-paper/90 md:block">
+                  Captação, edição, fotografia e motion, escalados conforme cada projeto.
+                </p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>

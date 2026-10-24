@@ -32,7 +32,7 @@ export function RealTimeReel() {
         <Reveal>
           <Eyebrow>Em tempo real</Eyebrow>
           <h2 className="heading-lg mt-6 max-w-3xl text-paper">
-            Direto do evento, <span className="text-orange-bright">enquanto ele acontece.</span>
+            Direto do evento, <span className="text-orange-gradient">enquanto ele acontece.</span>
           </h2>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-paper/60 md:text-lg">
             Equipe em campo, edição em tempo real e publicação ainda durante o

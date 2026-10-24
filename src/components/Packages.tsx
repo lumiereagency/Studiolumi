@@ -9,6 +9,7 @@ type Tier = {
   tagline: string;
   description: string;
   features: string[];
+  price: string;
   highlighted?: boolean;
 };
 
@@ -25,6 +26,7 @@ const TIERS: Tier[] = [
       "Formatos verticais e quadrados",
       "Entrega otimizada para publicação",
     ],
+    price: "R$ 1.500",
   },
   {
     id: "producao",
@@ -41,6 +43,7 @@ const TIERS: Tier[] = [
       "Motion graphics",
       "Entrega multiplataforma",
     ],
+    price: "R$ 4.500",
     highlighted: true,
   },
   {
@@ -58,6 +61,7 @@ const TIERS: Tier[] = [
       "Colorização e finalização",
       "Acompanhamento completo da produção",
     ],
+    price: "R$ 12.000",
   },
 ];
 
@@ -69,14 +73,14 @@ export function Packages() {
           <Reveal>
             <Eyebrow>Pacotes</Eyebrow>
             <h2 className="heading-lg mt-6 max-w-3xl text-paper">
-              Ritmos diferentes. <span className="text-orange-bright">O mesmo padrão.</span>
+              Ritmos diferentes. <span className="text-orange-gradient">O mesmo padrão.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="max-w-sm">
             <p className="text-base leading-relaxed text-paper/60">
               Da produção ágil para redes a projetos com linguagem
-              cinematográfica. O escopo final é definido pelo objetivo de cada
-              projeto.
+              cinematográfica. Valores de referência: o escopo final é definido
+              pelo objetivo de cada projeto.
             </p>
           </Reveal>
         </div>
@@ -119,10 +123,8 @@ export function Packages() {
 
               <div className="mt-8 flex flex-wrap items-end justify-between gap-4">
                 <div>
-                  <p className="font-display text-xl font-medium">Sob consulta</p>
-                  <p className={cn("mt-0.5 text-xs", tier.highlighted ? "text-paper/85" : "text-paper/50")}>
-                    Investimento conforme briefing
-                  </p>
+                  <p className={cn("text-xs", tier.highlighted ? "text-paper/85" : "text-paper/50")}>A partir de</p>
+                  <p className="font-display mt-0.5 text-3xl font-medium">{tier.price}</p>
                 </div>
                 <ArrowLink href="#contato" variant={tier.highlighted ? "light" : "dark"}>
                   Quero este

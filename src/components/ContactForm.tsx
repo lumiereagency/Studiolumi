@@ -131,7 +131,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="group mt-8 inline-flex w-full items-center justify-between gap-3 rounded-full bg-orange-bright py-1.5 pl-6 pr-1.5 text-sm font-medium text-paper transition-colors hover:bg-orange md:w-auto"
+        className="group mt-8 inline-flex w-full items-center justify-between gap-3 rounded-full bg-orange-grad py-1.5 pl-6 pr-1.5 text-sm font-medium text-paper transition-[filter] hover:brightness-110 md:w-auto"
       >
         Falar com o StudioLumi no WhatsApp
         <ArrowCircle tone="paper" />

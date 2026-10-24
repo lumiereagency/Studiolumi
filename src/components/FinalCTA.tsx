@@ -10,7 +10,7 @@ export function FinalCTA() {
           <div>
             <Eyebrow>Vamos começar</Eyebrow>
             <h2 className="heading-lg mt-6 text-paper">
-              Vamos construir a próxima produção <span className="text-orange-bright">da sua marca.</span>
+              Vamos construir a próxima produção <span className="text-orange-gradient">da sua marca.</span>
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
               Não trabalhamos em série. Conte o que você precisa produzir e, a
