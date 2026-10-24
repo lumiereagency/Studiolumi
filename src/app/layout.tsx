@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter_Tight, Inter } from "next/font/google";
 import { getSiteUrl } from "@/lib/site-url";
+import { STUDIO, buildSiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const interTight = Inter_Tight({
@@ -16,9 +17,7 @@ const inter = Inter({
 });
 
 const siteUrl = getSiteUrl();
-const title = "StudioLumi | Produção audiovisual premium";
-const description =
-  "StudioLumi é uma produtora audiovisual estratégica. Direção, produção e pós-produção em uma única operação, da produção ágil para redes sociais a projetos cinematográficos.";
+const { title, metaDescription: description } = STUDIO;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -27,20 +26,32 @@ export const metadata: Metadata = {
     template: "%s | StudioLumi",
   },
   description,
+  applicationName: "StudioLumi",
+  category: "Produção audiovisual",
   keywords: [
-    "produtora audiovisual",
+    "produtora audiovisual Rio de Janeiro",
+    "produtora de vídeo RJ",
+    "vídeo institucional Rio de Janeiro",
+    "filmagem de eventos Rio de Janeiro",
+    "cobertura de eventos corporativos",
+    "conteúdo em tempo real para eventos",
+    "produção de conteúdo para redes sociais",
+    "gestão de redes sociais para figuras públicas",
+    "edição de vídeo para Reels e TikTok",
+    "filmagem de casamento Rio de Janeiro",
+    "pré-wedding",
     "brand film",
-    "produção de vídeo",
+    "captação com drone",
     "StudioLumi",
-    "conteúdo social",
-    "vídeo institucional",
-    "cinema",
   ],
-  authors: [{ name: "StudioLumi" }],
+  authors: [{ name: "StudioLumi", url: siteUrl }],
+  creator: "StudioLumi",
+  publisher: "StudioLumi",
+  formatDetection: { telephone: true, email: true, address: false },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-video-preview": -1, "max-snippet": -1 },
   },
   alternates: {
     canonical: "/",
@@ -58,21 +69,17 @@ export const metadata: Metadata = {
     title,
     description,
   },
+  other: {
+    "geo.region": "BR-RJ",
+    "geo.placename": "Rio de Janeiro",
+  },
 };
 
 export const viewport: Viewport = {
   themeColor: "#050403",
 };
 
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "StudioLumi",
-  url: siteUrl,
-  logo: `${siteUrl}/opengraph-image`,
-  description,
-  email: "lumiereagencyoficial@gmail.com",
-};
+const siteJsonLd = buildSiteJsonLd();
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -83,7 +90,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-ink text-paper">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
         {children}
       </body>

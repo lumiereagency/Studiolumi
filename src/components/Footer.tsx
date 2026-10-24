@@ -1,4 +1,5 @@
 import { LogoMark } from "./LogoMark";
+import { STUDIO } from "@/lib/seo";
 
 const NAV = [
   { label: "Trabalhos", href: "#trabalhos" },
@@ -6,6 +7,7 @@ const NAV = [
   { label: "Tempo real", href: "#tempo-real" },
   { label: "Partners", href: "#partners" },
   { label: "Pacotes", href: "#pacotes" },
+  { label: "Perguntas", href: "#perguntas" },
   { label: "Contato", href: "#contato" },
 ];
 
@@ -22,6 +24,7 @@ export function Footer() {
             Produção audiovisual estratégica para marcas que querem ser lembradas,
             não apenas vistas.
           </p>
+          <p className="mt-4 text-sm text-paper/70">Rio de Janeiro, RJ · Atendemos todo o Brasil</p>
         </div>
 
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
@@ -63,6 +66,16 @@ export function Footer() {
                   className="break-all text-sm text-paper/70 transition-colors hover:text-paper"
                 >
                   lumiereagencyoficial@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href={STUDIO.whatsapp}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-sm text-paper/70 transition-colors hover:text-paper"
+                >
+                  WhatsApp {STUDIO.phoneDisplay}
                 </a>
               </li>
               <li>

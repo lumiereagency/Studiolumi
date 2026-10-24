@@ -11,6 +11,7 @@ type Case = {
   category: string;
   videoSrc: string;
   poster: string;
+  published: string;
 };
 
 const CASES: Case[] = [
@@ -21,6 +22,7 @@ const CASES: Case[] = [
     category: "Evento",
     videoSrc: "/videos/case-evento.mp4",
     poster: "/videos/case-evento-poster.jpg",
+    published: "2026-08-21",
   },
   {
     id: "sergio-mallandro",
@@ -29,6 +31,7 @@ const CASES: Case[] = [
     category: "Redes",
     videoSrc: "/videos/case-social.mp4",
     poster: "/videos/case-social-poster.jpg",
+    published: "2026-08-21",
   },
   {
     id: "bruno-carvalho",
@@ -37,6 +40,7 @@ const CASES: Case[] = [
     category: "Posicionamento",
     videoSrc: "/videos/case-bruno.mp4",
     poster: "/videos/case-bruno-poster.jpg",
+    published: "2026-08-22",
   },
   {
     id: "joyce-turques",
@@ -45,6 +49,7 @@ const CASES: Case[] = [
     category: "Brand film",
     videoSrc: "/videos/case-joyce.mp4",
     poster: "/videos/case-joyce-poster.jpg",
+    published: "2026-08-22",
   },
   {
     id: "paola-passos",
@@ -53,6 +58,7 @@ const CASES: Case[] = [
     category: "Autoridade",
     videoSrc: "/videos/case-paola.mp4",
     poster: "/videos/case-paola-poster.jpg",
+    published: "2026-08-22",
   },
 ];
 
@@ -66,10 +72,13 @@ const videoListJsonLd = {
     position: i + 1,
     item: {
       "@type": "VideoObject",
-      name: c.label,
-      description: c.tagline,
+      name: `${c.label}: ${c.category} | StudioLumi`,
+      description: `${c.category} para ${c.label} (${c.tagline}), produzido pela StudioLumi, produtora audiovisual no Rio de Janeiro.`,
       thumbnailUrl: `${siteUrl}${c.poster}`,
       contentUrl: `${siteUrl}${c.videoSrc}`,
+      uploadDate: `${c.published}T12:00:00-03:00`,
+      inLanguage: "pt-BR",
+      publisher: { "@id": `${siteUrl}/#organization` },
     },
   })),
 };

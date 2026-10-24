@@ -41,7 +41,7 @@ export function Hero() {
       <div className="container-lumi relative">
         <motion.span {...intro(0.1)} className="inline-flex items-center gap-2 text-sm text-paper/60">
           <span className="h-1.5 w-1.5 rounded-full bg-orange-bright" />
-          Produção audiovisual e direção criativa
+          Produtora audiovisual no Rio de Janeiro
         </motion.span>
 
         <motion.h1 {...intro(0.2)} className="heading-xl mt-6 text-paper">
