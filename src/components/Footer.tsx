@@ -46,12 +46,12 @@ export function Footer() {
             <ul className="mt-4 flex flex-col gap-2.5">
               <li>
                 <a
-                  href="https://www.instagram.com/studiolumi_co/"
+                  href={STUDIO.instagram}
                   target="_blank"
                   rel="noreferrer noopener"
                   className="text-sm text-paper/70 transition-colors hover:text-paper"
                 >
-                  Instagram
+                  {STUDIO.instagramHandle}
                 </a>
               </li>
             </ul>

@@ -5,7 +5,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import { LogoMark } from "./LogoMark";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from "./ui/sheet";
-import { ArrowLink } from "./ui/arrow-link";
+import { ArrowLink, InstagramIcon } from "./ui/arrow-link";
+import { STUDIO } from "@/lib/seo";
 
 const LINKS = [
   { href: "#trabalhos", label: "Trabalhos" },
@@ -77,9 +78,18 @@ export function Nav() {
           ))}
         </ul>
 
-        <ArrowLink href="#contato" className="hidden md:inline-flex">
-          Iniciar projeto
-        </ArrowLink>
+        <div className="hidden items-center gap-2 md:flex">
+          <a
+            href={STUDIO.instagram}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label={`Instagram da StudioLumi, ${STUDIO.instagramHandle}`}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong text-paper transition-colors hover:border-transparent hover:bg-orange-grad"
+          >
+            <InstagramIcon />
+          </a>
+          <ArrowLink href="#contato">Iniciar projeto</ArrowLink>
+        </div>
 
         <button
           type="button"
@@ -123,10 +133,19 @@ export function Nav() {
                 </a>
               </motion.li>
             ))}
-            <li className="mt-8" onClick={close}>
+            <li className="mt-8 flex flex-wrap items-center gap-3" onClick={close}>
               <ArrowLink href="#contato" variant="orange">
                 Iniciar um projeto
               </ArrowLink>
+              <a
+                href={STUDIO.instagram}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-2 rounded-full border border-line-strong px-4 py-3 text-sm text-paper"
+              >
+                <InstagramIcon />
+                {STUDIO.instagramHandle}
+              </a>
             </li>
           </ul>
         </SheetContent>
