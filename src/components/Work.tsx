@@ -3,6 +3,7 @@ import { Eyebrow } from "./Eyebrow";
 import { InViewVideo } from "./InViewVideo";
 import { ArrowCircle, ArrowLink } from "./ui/arrow-link";
 import { getSiteUrl } from "@/lib/site-url";
+import { STUDIO } from "@/lib/seo";
 
 type Case = {
   id: string;
@@ -153,7 +154,7 @@ export function Work() {
         </ul>
 
         <Reveal className="mt-10 flex justify-center md:mt-14">
-          <ArrowLink href="https://www.instagram.com/studiolumi_co/" variant="dark" external>
+          <ArrowLink href={STUDIO.instagram} variant="dark" external>
             Mais produções no Instagram
           </ArrowLink>
         </Reveal>

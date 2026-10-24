@@ -38,12 +38,12 @@ export function FinalCTA() {
               <dt className="text-paper/45">Instagram</dt>
               <dd className="mt-1">
                 <a
-                  href="https://www.instagram.com/studiolumi_co/"
+                  href={STUDIO.instagram}
                   target="_blank"
                   rel="noreferrer noopener"
                   className="text-paper transition-colors hover:text-orange-bright"
                 >
-                  @studiolumi_co
+                  {STUDIO.instagramHandle}
                 </a>
               </dd>
             </div>
