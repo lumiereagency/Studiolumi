@@ -1,17 +1,16 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { MotionReel } from "@/components/MotionReel";
 import { ClientRoster } from "@/components/ClientRoster";
 import { Positioning } from "@/components/Positioning";
+import { Work } from "@/components/Work";
+import { About } from "@/components/About";
 import { Services } from "@/components/Services";
 import { RealTimeReel } from "@/components/RealTimeReel";
-import { HumanExperience } from "@/components/HumanExperience";
+import { Process } from "@/components/Process";
 import { LumiTeam } from "@/components/LumiTeam";
 import { Partners } from "@/components/Partners";
-import { Process } from "@/components/Process";
-import { Manifesto } from "@/components/Manifesto";
 import { Packages } from "@/components/Packages";
-import { StudioStandard } from "@/components/StudioStandard";
+import { Manifesto } from "@/components/Manifesto";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 
@@ -21,18 +20,17 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <MotionReel />
         <ClientRoster />
         <Positioning />
+        <Work />
+        <About />
         <Services />
         <RealTimeReel />
-        <HumanExperience />
+        <Process />
         <LumiTeam />
         <Partners />
-        <Process />
-        <Manifesto />
         <Packages />
-        <StudioStandard />
+        <Manifesto />
         <FinalCTA />
       </main>
       <Footer />

@@ -1,4 +1,3 @@
-import { Reveal } from "./Reveal";
 import { Marquee } from "./ui/marquee";
 
 const CLIENTS = [
@@ -11,28 +10,23 @@ const CLIENTS = [
 
 export function ClientRoster() {
   return (
-    <section className="relative border-t border-line bg-ink py-14 md:py-20">
-      <div className="container-lumi">
-        <Reveal>
-          <p className="text-center text-xs font-medium uppercase tracking-[0.28em] text-paper/55">
-            Marcas e profissionais que já produziram com o StudioLumi
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.1} className="mt-10 md:mt-12">
-          <Marquee>
-            <ul className="flex shrink-0 items-baseline gap-14">
-              {CLIENTS.map((client) => (
-                <li key={client.name} className="flex flex-col items-center whitespace-nowrap text-center">
-                  <span className="font-display text-lg font-medium text-paper/85 md:text-xl">
-                    {client.name}
-                  </span>
-                  <span className="mt-1 text-xs text-paper/55">{client.role}</span>
-                </li>
-              ))}
-            </ul>
-          </Marquee>
-        </Reveal>
+    <section className="relative border-y border-line bg-ink py-8 md:py-10">
+      <div className="container-lumi flex flex-col gap-6 md:flex-row md:items-center md:gap-12">
+        <p className="shrink-0 text-sm leading-snug text-paper/50 md:max-w-[11rem]">
+          Marcas e profissionais que já produziram com a gente
+        </p>
+        <div className="min-w-0 flex-1">
+        <Marquee>
+          <ul className="flex shrink-0 items-center gap-14">
+            {CLIENTS.map((client) => (
+              <li key={client.name} className="flex items-baseline gap-3 whitespace-nowrap">
+                <span className="font-display text-xl font-medium text-paper md:text-2xl">{client.name}</span>
+                <span className="text-xs text-paper/45">{client.role}</span>
+              </li>
+            ))}
+          </ul>
+        </Marquee>
+        </div>
       </div>
     </section>
   );

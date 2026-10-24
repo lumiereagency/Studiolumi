@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { cn } from "@/lib/utils";
 import { buildWhatsappUrl } from "@/lib/contact";
-import { Button } from "./ui/button";
+import { ArrowCircle } from "./ui/arrow-link";
 
 const PROJECT_TYPES = [
   "Mobile: conteúdo ágil",
@@ -41,7 +41,7 @@ export function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="rounded-2xl border border-orange-bright/40 bg-ink-elevated p-8 text-center md:p-12">
+      <div className="rounded-3xl border border-orange-bright/40 bg-ink-elevated p-8 text-center md:p-12">
         <p className="font-display text-2xl text-paper">Abrimos o WhatsApp para você.</p>
         <p className="mt-3 text-paper/60">
           Complete o envio por lá para falar direto com o StudioLumi.
@@ -60,7 +60,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-line bg-ink-soft p-6 md:p-10"
+      className="rounded-3xl border border-line bg-ink-soft p-5 md:p-9"
     >
       <div className="grid gap-6 md:grid-cols-2">
         <Field label="Nome" htmlFor="name">
@@ -129,18 +129,19 @@ export function ContactForm() {
         </Field>
       </div>
 
-      <Button
+      <button
         type="submit"
-        className="mt-8 w-full transition-transform duration-300 hover:scale-[1.01] md:w-auto"
+        className="group mt-8 inline-flex w-full items-center justify-between gap-3 rounded-full bg-orange-bright py-1.5 pl-6 pr-1.5 text-sm font-medium text-paper transition-colors hover:bg-orange md:w-auto"
       >
-        Falar com o StudioLumi no WhatsApp →
-      </Button>
+        Falar com o StudioLumi no WhatsApp
+        <ArrowCircle tone="paper" />
+      </button>
     </form>
   );
 }
 
 const inputClass =
-  "w-full rounded-lg border border-line-strong bg-transparent px-4 py-3 text-sm text-paper placeholder:text-paper/45 outline-none transition-colors focus:border-orange-bright";
+  "w-full rounded-xl border border-line-strong bg-ink/40 px-4 py-3.5 text-sm text-paper placeholder:text-paper/45 outline-none transition-colors focus:border-orange-bright";
 
 function Field({
   label,
@@ -155,7 +156,7 @@ function Field({
 }) {
   return (
     <div className={cn("flex flex-col gap-2", className)}>
-      <label htmlFor={htmlFor} className="text-xs uppercase tracking-[0.16em] text-paper/50">
+      <label htmlFor={htmlFor} className="text-xs text-paper/55">
         {label}
       </label>
       {children}

@@ -1,102 +1,87 @@
 "use client";
 
-import { useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
+import { InViewVideo } from "./InViewVideo";
+import { ArrowIcon } from "./ui/arrow-link";
 
-type Clip = {
-  id: string;
-  src: string;
-  poster: string;
-  caption: string;
-};
-
-const CLIPS: Clip[] = [
-  {
-    id: "keynote",
-    src: "/videos/realtime-keynote.mp4",
-    poster: "/videos/realtime-keynote-poster.jpg",
-    caption: "Captação de palco durante keynote",
-  },
-  {
-    id: "bastidores",
-    src: "/videos/realtime-bastidores.mp4",
-    poster: "/videos/realtime-bastidores-poster.jpg",
-    caption: "Dos bastidores ao palco, no mesmo take",
-  },
-  {
-    id: "plateia",
-    src: "/videos/realtime-plateia.mp4",
-    poster: "/videos/realtime-plateia-poster.jpg",
-    caption: "Cobertura do público durante o evento",
-  },
-  {
-    id: "palco",
-    src: "/videos/realtime-palco.mp4",
-    poster: "/videos/realtime-palco-poster.jpg",
-    caption: "Captação de palco em tempo real",
-  },
-  {
-    id: "painel",
-    src: "/videos/realtime-painel.mp4",
-    poster: "/videos/realtime-painel-poster.jpg",
-    caption: "Painel e bate-papo captados ao vivo",
-  },
-  {
-    id: "ativacao",
-    src: "/videos/realtime-ativacao.mp4",
-    poster: "/videos/realtime-ativacao-poster.jpg",
-    caption: "Ativação de marca em tempo real",
-  },
+const CLIPS = [
+  { id: "keynote", caption: "Captação de palco durante keynote" },
+  { id: "bastidores", caption: "Dos bastidores ao palco, no mesmo take" },
+  { id: "plateia", caption: "Cobertura do público durante o evento" },
+  { id: "palco", caption: "Captação de palco em tempo real" },
+  { id: "painel", caption: "Painel e bate-papo captados ao vivo" },
+  { id: "ativacao", caption: "Ativação de marca em tempo real" },
 ];
 
 export function RealTimeReel() {
-  const reduceMotion = useReducedMotion();
+  const track = useRef<HTMLUListElement>(null);
+
+  const scrollBy = (dir: 1 | -1) => {
+    const el = track.current;
+    if (!el) return;
+    const card = el.querySelector("li");
+    const step = card ? card.getBoundingClientRect().width + 16 : el.clientWidth * 0.8;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  };
 
   return (
-    <section className="relative border-t border-line bg-ink-soft py-20 md:py-36">
-      <div className="container-lumi">
-        <Reveal className="max-w-xl">
+    <section id="tempo-real" className="relative scroll-mt-20 overflow-hidden bg-ink-soft py-24 md:py-36">
+      <div className="container-lumi flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <Reveal>
           <Eyebrow>Em tempo real</Eyebrow>
-          <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Direto do evento, enquanto ele acontece.
+          <h2 className="heading-lg mt-6 max-w-3xl text-paper">
+            Direto do evento, <span className="text-orange-bright">enquanto ele acontece.</span>
           </h2>
-          <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Equipe em campo, edição em tempo real e publicação ainda durante
-            o evento. Alguns momentos de produções recentes, sem cortes
-            editados para esta vitrine.
+          <p className="mt-6 max-w-lg text-base leading-relaxed text-paper/60 md:text-lg">
+            Equipe em campo, edição em tempo real e publicação ainda durante o
+            evento.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-2 gap-3 md:mt-16 md:grid-cols-3 md:gap-5">
-          {CLIPS.map((clip, i) => (
-            <Reveal key={clip.id} delay={i * 0.06}>
-              <figure className="group relative aspect-[9/16] overflow-hidden rounded-xl border border-line-strong bg-ink">
-                <video
-                  src={clip.src}
-                  poster={clip.poster}
-                  muted
-                  loop
-                  playsInline
-                  autoPlay={!reduceMotion}
-                  preload="metadata"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-ink/0"
-                />
-                <span className="absolute left-3 top-3 rounded-full border border-paper/20 bg-paper/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-paper/90 backdrop-blur-md">
+        <div className="hidden gap-2 md:flex">
+          <button
+            type="button"
+            onClick={() => scrollBy(-1)}
+            aria-label="Clipe anterior"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-line-strong text-paper transition-colors hover:bg-paper hover:text-ink"
+          >
+            <ArrowIcon className="-rotate-[135deg]" />
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollBy(1)}
+            aria-label="Próximo clipe"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-line-strong text-paper transition-colors hover:bg-paper hover:text-ink"
+          >
+            <ArrowIcon className="rotate-45" />
+          </button>
+        </div>
+      </div>
+
+      <Reveal delay={0.1}>
+        <ul
+          ref={track}
+          className="no-scrollbar mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-6 px-6 md:mt-16 md:gap-4 md:scroll-px-12 md:px-12 xl:scroll-px-20 xl:px-20"
+        >
+          {CLIPS.map((clip) => (
+            <li key={clip.id} className="w-[68vw] shrink-0 snap-start sm:w-[42vw] md:w-[300px] lg:w-[340px]">
+              <figure className="relative aspect-[9/16] overflow-hidden rounded-3xl bg-ink">
+                <InViewVideo src={`/videos/realtime-${clip.id}.mp4`} poster={`/videos/realtime-${clip.id}-poster.jpg`} />
+                <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-ink/0" />
+                <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-paper/20 bg-paper/10 px-3 py-1 text-[11px] text-paper/90 backdrop-blur-md">
+                  <span className="h-1.5 w-1.5 rounded-full bg-orange-bright" />
                   Tempo real
                 </span>
-                <figcaption className="absolute inset-x-3 bottom-3 rounded-lg border border-paper/15 bg-ink/40 p-3 text-xs leading-snug text-paper/90 backdrop-blur-md md:text-sm">
+                <figcaption className="absolute inset-x-3 bottom-3 rounded-2xl border border-paper/15 bg-ink/40 p-3.5 text-sm leading-snug text-paper/90 backdrop-blur-md">
                   {clip.caption}
                 </figcaption>
               </figure>
-            </Reveal>
+            </li>
           ))}
-        </div>
-      </div>
+        </ul>
+      </Reveal>
     </section>
   );
 }

@@ -15,6 +15,8 @@
   --orange-bright: #f16001;
   --red: #c10801;
   --sand: #d9c3ab;
+  --cream: #f6f0e7;
+  --orange-deep: #c23d02;
 
   --gray: #646464;
   --gray-dark: #333333;
@@ -35,11 +37,13 @@
   --color-orange-bright: var(--orange-bright);
   --color-red: var(--red);
   --color-sand: var(--sand);
+  --color-cream: var(--cream);
+  --color-orange-deep: var(--orange-deep);
   --color-gray: var(--gray);
   --color-gray-dark: var(--gray-dark);
   --color-gray-light: var(--gray-light);
 
-  --font-display: var(--font-schibsted);
+  --font-display: var(--font-inter-tight);
   --font-body: var(--font-inter);
 
   --animate-marquee: marquee 32s linear infinite;
@@ -94,6 +98,34 @@ body {
 
 .font-display {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.035em;
+}
+
+.heading-xl {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+  font-size: clamp(3rem, 9vw, 9.5rem);
+}
+
+.heading-lg {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  font-size: clamp(2.5rem, 5.6vw, 5.5rem);
+}
+
+.bg-orange-card {
+  background: linear-gradient(165deg, var(--orange-bright) 0%, var(--orange) 45%, var(--orange-deep) 100%);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .text-gradient-lumi {

@@ -10,34 +10,33 @@ const STEPS = [
 
 export function Process() {
   return (
-    <section id="processo" className="relative scroll-mt-24 border-y border-line bg-ink-soft py-20 md:py-36">
-      <div className="container-lumi">
-        <Reveal className="max-w-2xl">
-          <Eyebrow>Processo</Eyebrow>
-          <h2 className="font-display mt-5 text-4xl font-medium leading-[1.05] text-paper md:text-5xl">
-            Boas produções não começam na câmera.
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-paper/60 md:text-lg">
-            Da imersão à entrega, cada etapa existe para eliminar
-            improviso. Esse encadeamento é o que transforma uma ideia em
-            produção pronta para publicar.
-          </p>
-        </Reveal>
+    <section id="processo" className="relative scroll-mt-20 bg-ink py-24 md:py-36">
+      <div className="container-lumi grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <div className="lg:sticky lg:top-32 lg:self-start">
+          <Reveal>
+            <Eyebrow>Processo</Eyebrow>
+            <h2 className="heading-lg mt-6 text-paper">
+              Boas produções não começam <span className="text-orange-bright">na câmera.</span>
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-paper/60 md:text-lg">
+              Da imersão à entrega, cada etapa existe para eliminar improviso.
+            </p>
+          </Reveal>
+        </div>
 
-        <ol className="mt-16 divide-y divide-line border-t border-line md:mt-20">
+        <ol className="flex flex-col gap-3 md:gap-4">
           {STEPS.map((step, i) => (
-            <Reveal key={step.n} delay={i * 0.06} y={18}>
-              <li className="flex flex-col gap-2 py-7 md:flex-row md:items-baseline md:gap-10 md:py-8">
-                <span className="font-display shrink-0 text-sm text-orange-bright/80 md:w-12">
-                  {step.n}
-                </span>
-                <span className="font-display shrink-0 text-2xl font-medium text-paper md:w-56 md:text-3xl">
-                  {step.title}
-                </span>
-                <span className="max-w-lg text-base text-paper/55 md:text-lg">
-                  {step.text}
-                </span>
-              </li>
+            <Reveal as="li" key={step.n} delay={i * 0.05}>
+              <div className="flex min-h-[180px] flex-col justify-between gap-8 rounded-3xl border border-line bg-ink-soft p-6 md:min-h-[220px] md:p-8">
+                <div className="flex items-center justify-between">
+                  <span className="font-display text-sm text-orange-bright">{step.n}</span>
+                  <span className="text-xs text-paper/40">Etapa {i + 1} de {STEPS.length}</span>
+                </div>
+                <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between md:gap-10">
+                  <h3 className="font-display text-4xl font-medium text-paper md:text-5xl">{step.title}</h3>
+                  <p className="max-w-xs text-sm leading-relaxed text-paper/60 md:text-base">{step.text}</p>
+                </div>
+              </div>
             </Reveal>
           ))}
         </ol>

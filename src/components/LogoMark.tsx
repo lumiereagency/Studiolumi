@@ -5,8 +5,6 @@ import { cn } from "@/lib/utils";
  * Interlocked-rings mark: two circles woven like linked rings (an "aliança"),
  * each cut away where the other ring crosses on top, alternating at the two
  * crossing points. Geometry matches the brand's reference mark exactly.
- * Reused as a flat currentColor icon here, and with gradient fills for the
- * chrome/gold reveal in InteractiveLogo.tsx.
  */
 export const LOGO_VIEWBOX = "4 -2 112 76";
 export const RING_LEFT = { cx: 39.5, cy: 36, r: 27 };
