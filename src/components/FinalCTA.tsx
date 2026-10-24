@@ -1,6 +1,7 @@
 import { Reveal } from "./Reveal";
 import { Eyebrow } from "./Eyebrow";
 import { ContactForm } from "./ContactForm";
+import { STUDIO } from "@/lib/seo";
 
 export function FinalCTA() {
   return (
@@ -21,8 +22,17 @@ export function FinalCTA() {
 
           <dl className="grid grid-cols-2 gap-6 border-t border-line pt-8 text-sm">
             <div>
-              <dt className="text-paper/45">Resposta</dt>
-              <dd className="mt-1 text-paper">Direto no WhatsApp</dd>
+              <dt className="text-paper/45">WhatsApp</dt>
+              <dd className="mt-1">
+                <a
+                  href={STUDIO.whatsapp}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-paper transition-colors hover:text-orange-bright"
+                >
+                  {STUDIO.phoneDisplay}
+                </a>
+              </dd>
             </div>
             <div>
               <dt className="text-paper/45">Instagram</dt>
@@ -36,6 +46,14 @@ export function FinalCTA() {
                   @studiolumi_co
                 </a>
               </dd>
+            </div>
+            <div>
+              <dt className="text-paper/45">Base</dt>
+              <dd className="mt-1 text-paper">Rio de Janeiro, RJ</dd>
+            </div>
+            <div>
+              <dt className="text-paper/45">Atendimento</dt>
+              <dd className="mt-1 text-paper">Todo o Brasil</dd>
             </div>
           </dl>
         </Reveal>

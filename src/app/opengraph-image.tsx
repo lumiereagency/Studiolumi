@@ -22,8 +22,8 @@ export default async function OpengraphImage() {
         }}
       >
         <svg width="90" height="61" viewBox="4 -2 112 76" fill="none">
-          <circle cx={RING_LEFT.cx} cy={RING_LEFT.cy} r={RING_LEFT.r} stroke="#f9f9f9" strokeWidth={10} />
-          <circle cx={RING_RIGHT.cx} cy={RING_RIGHT.cy} r={RING_RIGHT.r} stroke="#f9f9f9" strokeWidth={10} />
+          <circle cx={RING_LEFT.cx} cy={RING_LEFT.cy} r={RING_LEFT.r} stroke="#d9dbde" strokeWidth={10} />
+          <circle cx={RING_RIGHT.cx} cy={RING_RIGHT.cy} r={RING_RIGHT.r} stroke="#d9dbde" strokeWidth={10} />
         </svg>
         <div
           style={{
@@ -35,7 +35,7 @@ export default async function OpengraphImage() {
             lineHeight: 1.1,
           }}
         >
-          Produção audiovisual premium.
+          Produtora audiovisual no Rio de Janeiro.
         </div>
         <div
           style={{
@@ -44,7 +44,7 @@ export default async function OpengraphImage() {
             color: "rgba(249,249,249,0.6)",
           }}
         >
-          Direção, produção e pós-produção em uma única operação.
+          Vídeo institucional, eventos, redes sociais e tempo real. Atendemos todo o Brasil.
         </div>
       </div>
     ),

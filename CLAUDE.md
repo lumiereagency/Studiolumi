@@ -65,6 +65,15 @@ O site deve transmitir:
 - **Reduced motion is handled in two layers**: per-component `useReducedMotion()` checks, *and* a global CSS kill-switch in `globals.css` (`@media (prefers-reduced-motion: reduce)` zeroes every animation/transition duration site-wide). Any new looping or ambient animation must be tested with reduced-motion on — this exact gap already caused a real bug once (the cases carousel snapped instantly and the team deck froze) before it was fixed.
 - **Global `overflow-x` guards** on `html`/`body` in `globals.css` exist because of a real, previously-shipped horizontal-scroll bug. Any new absolutely-positioned decorative element (glows, background shapes) must be checked for horizontal overflow at 360px, 390px, and 1440px before it's considered done.
 
+## SEO / AEO / AIO
+
+- **Single source of truth is `src/lib/seo.ts`**: studio facts (`STUDIO`), services, prices, and the FAQ. It feeds the page metadata in `layout.tsx`, the JSON-LD `@graph` (Organization + ProfessionalService with offers/areaServed, WebSite, FAQPage), and the visible FAQ section (`Faq.tsx`). If a price, service or contact detail changes, change it there and in `public/llms.txt`, which is a hand-written plain-text summary for AI assistants; keep the two in sync.
+- Location: base in Rio de Janeiro, RJ, serving all of Brazil, **no public street address** (service-area business, confirmed by the client). Never add a street address to JSON-LD unless the client supplies one.
+- The FAQ answers must stay visible on the page: Google ignores FAQPage markup that doesn't match on-page content.
+- `robots.ts` explicitly allows search and AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.). Don't block them; being cited by AI assistants is a stated goal.
+- `VideoObject` entries in `Work.tsx` need an `uploadDate` for Google video rich results; use the date the clip was first added to the repo.
+- Favicon (`src/app/icon.svg`, `apple-icon.png`, `favicon.ico`) and `public/logo.png` are silver interlocked rings on ink: silver is the studio's brand color for the mark. Regenerate the PNG/ICO from `icon.svg` if it changes.
+
 ## Copy voice
 
 Portuguese (pt-BR). Premium, direct, editorial. **No em-dashes** in any user-visible copy — they read as AI-written. Avoid generic agency clichés ("contamos histórias", "sua marca merece", "cada detalhe importa"). Position StudioLumi around direção/estrutura/padrão/posicionamento, not just "vídeo". Never fabricate client names, numbers, results, or testimonials — placeholder content stays explicitly marked ("Em breve") until real content is supplied.

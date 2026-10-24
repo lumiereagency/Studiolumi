@@ -10,6 +10,7 @@ import { Process } from "@/components/Process";
 import { Partners } from "@/components/Partners";
 import { Packages } from "@/components/Packages";
 import { Manifesto } from "@/components/Manifesto";
+import { Faq } from "@/components/Faq";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 
@@ -29,6 +30,7 @@ export default function Home() {
         <Partners />
         <Packages />
         <Manifesto />
+        <Faq />
         <FinalCTA />
       </main>
       <Footer />
