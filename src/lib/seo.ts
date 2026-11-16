@@ -8,7 +8,7 @@ export const STUDIO = {
   url: siteUrl,
   email: "lumiereagencyoficial@gmail.com",
   phone: `+${WHATSAPP_NUMBER}`,
-  phoneDisplay: "+55 21 96645-4367",
+  phoneDisplay: "+1 (332) 231-6037",
   whatsapp: `https://wa.me/${WHATSAPP_NUMBER}`,
   instagram: "https://www.instagram.com/studiolumi.company/",
   instagramHandle: "@studiolumi.company",
@@ -74,7 +74,7 @@ export const FAQ = [
   },
   {
     q: "Como peço um orçamento?",
-    a: "Pelo formulário do site, que abre uma conversa direta com a equipe no WhatsApp, ou pelo número +55 21 96645-4367.",
+    a: `Pelo formulário do site, que abre uma conversa direta com a equipe no WhatsApp, ou pelo número ${STUDIO.phoneDisplay}.`,
   },
 ];
 
