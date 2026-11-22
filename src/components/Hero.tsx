@@ -13,8 +13,6 @@ const REEL = [
   { src: "/videos/case-joyce.mp4", poster: "/videos/case-joyce-poster.jpg", desktopOnly: true },
 ];
 
-const TEAM_FACES = ["gustavo-turques", "ingrid-cardoso", "mariene-beatriz"];
-
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export function Hero() {
@@ -87,25 +85,6 @@ export function Hero() {
               <p className="font-display text-lg font-medium leading-tight text-paper/55 md:text-2xl">
                 Da imagem ao resultado.
               </p>
-            </div>
-
-            <div className="hidden items-center gap-3 rounded-full border border-paper/15 bg-ink/35 py-1.5 pl-1.5 pr-4 backdrop-blur-xl sm:flex">
-              <div className="flex -space-x-2.5">
-                {TEAM_FACES.map((id) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={id}
-                    src={`/team/${id}.jpg`}
-                    alt=""
-                    className="h-8 w-8 rounded-full border-2 border-ink object-cover object-top"
-                  />
-                ))}
-              </div>
-              <span className="text-xs leading-tight text-paper/80">
-                Uma equipe,
-                <br />
-                do roteiro à entrega
-              </span>
             </div>
           </div>
         </motion.div>
