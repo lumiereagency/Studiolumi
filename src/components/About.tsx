@@ -11,12 +11,6 @@ const PRINCIPLES = [
   },
 ];
 
-const TEAM = [
-  { id: "gustavo-turques", name: "Gustavo Turques", role: "Fundador" },
-  { id: "ingrid-cardoso", name: "Ingrid Cardoso", role: "Cofundadora" },
-  { id: "mariene-beatriz", name: "Mariene Beatriz", role: "Social Media" },
-];
-
 export function About() {
   return (
     <section id="sobre" className="relative scroll-mt-20 bg-ink pb-24 md:pb-36">
@@ -83,38 +77,6 @@ export function About() {
                 </Reveal>
               </div>
             </div>
-          </div>
-
-          <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4 lg:mt-6 lg:gap-6">
-            {TEAM.map((m, i) => (
-              <Reveal key={m.id} delay={i * 0.06} className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/team/${m.id}.jpg`}
-                  alt={`${m.name}, ${m.role} no StudioLumi`}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover object-top grayscale brightness-110 contrast-110 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] group-hover:grayscale-0"
-                />
-                <div aria-hidden className="absolute inset-0 bg-orange-bright mix-blend-color opacity-90 transition-opacity duration-700 group-hover:opacity-0" />
-                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent" />
-                <div className="absolute inset-x-4 bottom-4">
-                  <p className="font-display text-base font-medium leading-tight text-paper md:text-xl">{m.name}</p>
-                  <p className="mt-0.5 text-xs text-paper/70">{m.role}</p>
-                </div>
-              </Reveal>
-            ))}
-
-            <Reveal delay={0.2} className="bg-orange-card relative flex aspect-[4/5] flex-col justify-between overflow-hidden rounded-3xl p-4 md:p-6">
-              <span className="font-display text-4xl font-medium leading-none text-paper md:text-6xl">+</span>
-              <div>
-                <p className="font-display text-base font-medium leading-tight text-paper md:text-xl">
-                  Entre outros colaboradores
-                </p>
-                <p className="mt-1.5 hidden text-sm leading-snug text-paper/90 md:block">
-                  Captação, edição, fotografia e motion, escalados conforme cada projeto.
-                </p>
-              </div>
-            </Reveal>
           </div>
         </div>
       </div>
